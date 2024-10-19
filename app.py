@@ -1,6 +1,7 @@
 # app.py
 
 from flask import Flask, render_template, request, redirect, Response
+from sqlalchemy.orm import declarative_base
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
@@ -18,8 +19,8 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 import pickle
 import numpy as np
-from keras.models import load_model
-model = load_model('model.h5')
+from tensorflow.keras.models import load_model
+model = load_model('model.h5', compile=False) 
 import json
 import random
 intents = json.loads(open('data.json').read())
@@ -32,10 +33,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.static_folder = 'static'
 
-
-
-# Read data from CSV file
-file_path = 'Ai&DS.csv'  # Replace with your actual file path
+file_path = 'Ai&DS.csv'  
 df = pd.read_csv(file_path)
 
 class TreeNode:
@@ -50,10 +48,8 @@ class TreeNode:
         prefix = "  " * level
         return f"{prefix}- {self.value}" + "\n".join(child.display_tree(level + 1) for child in self.children)
 
-# Map categorical features to numerical values
 difficulty_mapping = {'Beginner': 1, 'Intermediate': 2, 'Advanced': 3}
 
-# Function to run K-means clustering and display results
 def run_kmeans(subject, platform, difficulty, duration, rating):
     selected_subject_df = df[(df['Subject'] == subject) & (df['Platform'] == platform)]
 
@@ -102,7 +98,6 @@ def run_kmeans(subject, platform, difficulty, duration, rating):
     plt.ylabel('PCA2')
     plt.legend()
 
-    # Save the plot to a BytesIO object
     img_stream = BytesIO()
     plt.savefig(img_stream, format='png')
     img_stream.seek(0)
@@ -111,35 +106,28 @@ def run_kmeans(subject, platform, difficulty, duration, rating):
 
     return img_data, selected_subject_df[selected_subject_df['Cluster'] == user_cluster[0]]
 def clean_up_sentence(sentence):
-    # tokenize the pattern - split words into array
     sentence_words = nltk.word_tokenize(sentence)
-    # stem each word - create short form for word
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
     return sentence_words
 
-# return bag of words array: 0 or 1 for each word in the bag that exists in the sentence
 
 def bow(sentence, words, show_details=True):
     # tokenize the pattern
     sentence_words = clean_up_sentence(sentence)
-    # bag of words - matrix of N words, vocabulary matrix
     bag = [0]*len(words)  
     for s in sentence_words:
         for i,w in enumerate(words):
             if w == s: 
-                # assign 1 if current word is in the vocabulary position
                 bag[i] = 1
                 if show_details:
                     print ("found in bag: %s" % w)
     return(np.array(bag))
 
 def predict_class(sentence, model):
-    # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
     ERROR_THRESHOLD = 0.25
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
-    # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
     for r in results:
@@ -232,11 +220,9 @@ def index():
     return render_template('index.html', img_data=img_data, recommended_courses_df=recommended_courses_df)
 
 #news
-# Replace with your NewsAPI key
 newsapi_api_key = "263f24e3d72e4880ab9ce9559725bef3"
 
-#communtie
-# Feed Back
+# Community
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///chat.db'
 db = SQLAlchemy(app)
 
@@ -273,7 +259,6 @@ def login():
 
 @app.route('/open_website')
 def open_website():
-    # Replace 'https://college-nirf-rank-predictor.onrender.com/' with the desired URL
     return redirect('https://college-nirf-rank-predictor.onrender.com/')
 
 
@@ -283,10 +268,8 @@ def news():
 
 @app.route('/get_it_market_news')
 def get_it_market_news():
-    # Initialize NewsAPI client
     newsapi = NewsApiClient(api_key=newsapi_api_key)
 
-    # Fetch technology headlines (IT market news)
     try:
         it_market_news_data = newsapi.get_top_headlines(category='technology', language='en', country='us', page_size=50)
     except Exception as e:
