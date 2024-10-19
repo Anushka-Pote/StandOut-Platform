@@ -7,8 +7,8 @@
         },
         {
             "tag": "Name",
-            "patterns": ["ashish"],
-            "responses": ["Hi ashish, which subject are you interested in?"]
+            "patterns": ["user"],
+            "responses": ["Hi user, which subject are you interested in?"]
         },
         {
             "tag": "Interest",
