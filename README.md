@@ -104,7 +104,7 @@ For any questions or feedback, please reach out:
 **🚀 Live Demo:** [StandOut Platform Live Demo](https://standout.southindia.cloudapp.azure.com)
 - (not currently working due to lesser credits, but is deployed)
 
-**🎥 Demo Video:** [YouTube Video](https://youtu.be/r6Miayfoy2k)
+**🎥 Demo Video:** [YouTube Video](https://youtu.be/1NY3N_C25pA?si=k3j-cidiIlqPvJxe)
 
 Transform your learning experience with StandOut Platform! 🎉
 
