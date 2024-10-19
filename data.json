@@ -3,21 +3,21 @@
         {
             "tag": "Greet",
             "patterns": ["Hello", "Hi", "Hey"],
-            "responses": ["Hello, Welcome to our online course platform! \n Hi {name}, which subject are you interested in?"]
+            "responses": ["Hello, Welcome to our online course platform! \n Hi buddy, which subject are you interested in?"]
         },
         {
             "tag": "Name",
             "patterns": ["user"],
-            "responses": ["Hi user, which subject are you interested in?"]
+            "responses": ["Hi user, which subject are you interested in? "]
         },
         {
             "tag": "Interest",
-            "patterns": ["list", "available", "course details"],
+            "patterns": ["list", "available", "course details","options","course","study"],
             "responses": ["Choose a specific area:\n1. Computer Science (CS)\n2. Information Technology (IT)\n3. Artificial Intelligence & Data Science (AI&DS)"]
         },
         {
             "tag": "CS",
-            "patterns": ["CS", "I choose CS", "Computer Science"],
+            "patterns": ["CS", "I choose CS", "Computer Science","1","cs"],
             "responses": [
                 "Fantastic choice! Computer Science is a vast field with exciting opportunities.",
                 "CS is the backbone of modern technology. You'll delve into algorithms, programming, and much more."
@@ -25,7 +25,7 @@
         },
         {
             "tag": "IT",
-            "patterns": ["IT", "I choose IT", "Information Technology"],
+            "patterns": ["IT", "I choose IT", "Information Technology","it","2"],
             "responses": [
                 "Indeed! Information Technology is constantly evolving, and it's a dynamic field.",
                 "IT professionals play a crucial role in managing and optimizing technology for businesses."
@@ -33,7 +33,7 @@
         },
         {
             "tag": "AI&DS",
-            "patterns": ["AI&DS", "Artificial Intelligence and Data Science", "I choose AI&DS"],
+            "patterns": ["AI&DS", "Artificial Intelligence and Data Science", "I choose AI&DS","aids","AIDS","3"],
             "responses": [
                 "Excellent! Artificial Intelligence & Data Science is an upcoming and promising field.",
                 "AI&DS explores the world of machine learning, data analysis, and the future of intelligent systems."
