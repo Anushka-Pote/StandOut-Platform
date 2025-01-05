@@ -44,18 +44,12 @@ The StandOut Platform leverages advanced technologies such as Azure Machine Lear
    cd StandOut-Platform
    ```
 
-3. **Create and Activate a Virtual Environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-4. **Install Dependencies**
+3. **Install Dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-5. **Run the Application**
+4. **Run the Application**
    ```bash
    python app.py
    ```
