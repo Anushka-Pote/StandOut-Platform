@@ -44,18 +44,12 @@ The StandOut Platform leverages advanced technologies such as Azure Machine Lear
    cd StandOut-Platform
    ```
 
-3. **Create and Activate a Virtual Environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-4. **Install Dependencies**
+3. **Install Dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-5. **Run the Application**
+4. **Run the Application**
    ```bash
    python app.py
    ```
@@ -107,4 +101,22 @@ For any questions or feedback, please reach out:
 **🎥 Demo Video:** [YouTube Video](https://youtu.be/1NY3N_C25pA?si=k3j-cidiIlqPvJxe)
 
 Transform your learning experience with StandOut Platform! 🎉
+
+## 📊 Project Statistics
+
+| **Metric**             | **Count**                      |
+|------------------------|--------------------------------|
+| ⭐ **Stars**            | ![Stars](https://img.shields.io/github/stars/Anushka-Pote/StandOut-Platform?style=social) |
+| 🍴 **Forks**            | ![Forks](https://img.shields.io/github/forks/Anushka-Pote/StandOut-Platform?style=social) |
+| 🛠️ **Contributors**     | ![Contributors](https://img.shields.io/github/contributors/Anushka-Pote/StandOut-Platform) |
+| 📝 **Open Issues**      | ![Issues](https://img.shields.io/github/issues/Anushka-Pote/StandOut-Platform) |
+| ✅ **Closed Issues**    | ![Closed Issues](https://img.shields.io/github/issues-closed/Anushka-Pote/StandOut-Platform) |
+| 📌 **Pull Requests**    | ![Pull Requests](https://img.shields.io/github/issues-pr/Anushka-Pote/StandOut-Platform) |
+| ✅ **Merged Pull Requests** | ![Merged PRs](https://img.shields.io/github/issues-pr-closed/Anushka-Pote/StandOut-Platform) |
+
+---
+
+
+
+**⭐ Don’t forget to star this repository if you find it useful! 🚀**
 
