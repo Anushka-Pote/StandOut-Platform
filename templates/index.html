@@ -11,6 +11,22 @@
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
+
+        // Handle the navbar scroll effect
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');
+            } else {
+                $('nav').removeClass('black');
+            }
+        });
+
+        // Toggle the mobile menu
+        function toggleMenu() {
+            var nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('active');
+        }
+
         $(window).on('scroll', function () {
             if ($(window).scrollTop()) {
                 $('nav').addClass('black');
@@ -18,8 +34,8 @@
                 $('nav').removeClass('black');
             }
         })
-    </script>
 
+    </script>
 </head>
 
 <body>
@@ -78,6 +94,10 @@
                 overflow-x: hidden;
             }
 
+            .menu-toggle {
+                display: none;
+            }
+
             header {
                 background-image: url('{{ url_for("static", filename="back.jpg") }}');
                 background-color: #333;
@@ -117,9 +137,11 @@
                 display: flex;
                 width: 100%;
             }
-            #chatbotSidebar{
+
+            #chatbotSidebar {
                 padding: 0;
             }
+
             .left-column {
                 width: 50%;
                 padding: 20px;
@@ -601,7 +623,173 @@
                 }
             }
 
+
+            /* Responsive adjustments */
+            @media (max-width: 1024px) {
+                .footer-content {
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                }
+
+                .footer-section ul li {
+                    margin-bottom: 0.6rem;
+                }
+
+                .social-links a {
+                    font-size: 1.4rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .footer-content {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+
+                .footer-section {
+                    text-align: center;
+                }
+
+                .social-links {
+                    justify-content: center;
+                }
+
+                .contact-info li {
+                    justify-content: center;
+                }
+
+                .contact-info li span {
+                    margin-left: 0rem;
+                }
+
+                .footer-section h3 {
+                    font-size: 1.8rem;
+                }
+
+                .footer-section h4 {
+                    font-size: 1rem;
+                }
+            }
+
             @media (max-width: 480px) {
+                @media (max-width: 480px) {
+                body {
+                    width: 100%;
+                    height: 100%;
+
+                }
+
+                body>header {
+                    width: 100%;
+                    height: 100%;
+                    background-image: url('{{ url_for("static", filename="back.jpg") }}');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    margin: 0px;
+                    padding: 0px;
+                    font-family: Arial, sans-serif;
+                }
+
+                header {
+                    position: relative;
+                    width: 100%;
+                    background-color: #1414dd;
+                    padding: 0px;
+                }
+
+                header h1 {
+                    font-size: 30px;
+                }
+
+                .menu-toggle {
+                    background-color: #333;
+                    color: #fff;
+                    padding: 10px;
+                    cursor: pointer;
+                    border: none;
+                    font-size: 18px;
+                }
+
+                #mobile-nav {
+                    display: none;
+                    position: absolute;
+                    top: 60px;
+                    width: 100%;
+                    left: 0;
+                    background-color: #333;
+                    text-align: center;
+                    z-index: 10;
+                }
+
+                #mobile-nav.active {
+                    display: block;
+                }
+
+                #mobile-nav a {
+                    display: block;
+                    margin: 10px 0;
+                    padding: 12px;
+                }
+
+                nav {
+                    position: relative;
+                }
+
+                nav a {
+                    display: block;
+                    margin: 10px 0;
+                    padding: 12px 20px;
+                    text-align: center;
+                }
+
+                .rev-container {
+                    flex-direction: column;
+                    align-items: center;
+                    display: block;
+                }
+
+                .rev-card {
+                    display: block;
+                }
+
+                .review .rev-container .rev-card {
+                    width: 90%;
+                    height: 240px;
+                    margin-bottom: 40px;
+                    background: #fff;
+                    display: flex;
+                    padding: 10px;
+                    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+                }
+
+
+                header {
+                    position: relative;
+                    width: 100%;
+                    background-color: #1414dd;
+                    padding: 0px;
+                }
+
+                .rev-card {
+                    width: 480px;
+                    margin: 0 0 20px;
+                }
+
+                .search-bar select,
+                .search-bar button {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+
+                .menu-toggle {
+                    display: block;
+                }
+
+                #mobile-nav a {
+                    padding: 15px 20px;
+                }
+            }
+
                 .main-footer {
                     padding: 3rem 3%;
                 }
@@ -625,7 +813,104 @@
                 .footer-bottom {
                     font-size: 0.8rem;
                 }
+
+                .footer-content {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    /* Make all footer sections stack vertically */
+                    gap: 1rem;
+                }
+
+                .footer-section {
+                    text-align: center;
+                }
+
+                /* Centering the contact info list items */
+                .contact-info li {
+                    justify-content: center;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 1rem;
+                }
+
+                .contact-info li span {
+                    margin-left: 0rem;
+                }
+
+                /* Adjusting the toggle-login button */
+                .toggle-login {
+                    position: fixed;
+                    top: 10px;
+                    right: 10px;
+                    background-color: #091721;
+                    color: #fff;
+                    padding: 10px;
+                    border-radius: 5px;
+                }
+
+                /* Adjusting the form container */
+                .left-column {
+                    padding: 15px;
+                    border-radius: 10px;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    /* Slightly more visible background */
+                }
+
+                .right-column {
+                    padding: 15px;
+                    border-radius: 10px;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    /* Slightly more visible background */
+                }
+
+                .service-swipe .s-card img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                /* Adjust the title for mobile screens */
+                .service-swipe .diffSection p {
+                    font-size: 30px;
+                }
+
+                /* Marquee adjustment */
+                marquee {
+                    font-size: 16px;
+                    padding: 10px;
+                }
+
+                .chat-icon-container {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                }
+
+                .chat-icon {
+                    font-size: 30px;
+                    background-color: #091721;
+                    color: white;
+                    border-radius: 50%;
+                    padding: 15px;
+                    cursor: pointer;
+                }
+
+                .chat-icon-container button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .footer-section ul {
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .footer-bottom {
+                    padding-top: 20px;
+                    text-align: center;
+                }
             }
+
 
             .toggle-login {
                 position: fixed;
@@ -642,17 +927,18 @@
 
 
     <nav>
-        <a href="/">Recommendations</a>
-        <a href="/browse">Browse Topics</a>
-        <a href="/feedback">Feedback</a>
-        <a href="/community">Community</a>
-        <a href="/news">News</a>
-        <a href="{{ url_for('open_website') }}">Open Website</a></p>
-        <a href="/face">Face</a>
-        <a href="/quiz">Quiz</a>
-        <a href="/login" id="login-link" style="display:none;">Login</a>
-
-
+        <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+        <div id="mobile-nav">
+            <a href="/">Recommendations</a>
+            <a href="/browse">Browse Topics</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/community">Community</a>
+            <a href="/news">News</a>
+            <a href="/open_website">Open Website</a>
+            <a href="/face">Face</a>
+            <a href="/quiz">Quiz</a>
+            <a href="/login" id="login-link" style="display:none;">Login</a>
+        </div>
     </nav>
 
     <section>

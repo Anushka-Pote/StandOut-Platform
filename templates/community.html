@@ -1,194 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
-    <style>
-        body {
-            background-color: #001F3F;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
 
-        h1 {
-            color: #ffffff;
-            margin-bottom: 20px;
-            font-size: 36px;
-        }
+  <script>
 
-        div {
-            background-color: #003366;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-            max-width: 600px;
-            width: 100%;
-            overflow-x: auto;
-        }
-
-        p {
-            margin: 10px 0;
-        }
-
-        form {
-            margin-top: 20px;
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border: none;
-            border-radius: 5px;
-            background-color: #004080;
-            color: #ffffff;
-        }
-
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: #ffffff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-    <h1>Chat Room</h1>
-    <div>
-        {% for message in messages %}
-            <p><strong>{{ message['username'] }}:</strong> {{ message['message'] }}</p>
-        {% endfor %}
-    </div>
-    <form action="/chat" method="post">
-        <label for="username">Username:</label>
-        <input type="text" name="username" required>
-        <label for="message">Message:</label>
-        <input type="text" name="message" required>
-        <input type="submit" value="Send">
-    </form>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <style>
-      .circle {
-    height: 24px;
-    width: 24px;
-    border-radius: 24px;
-    background-color: black;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 99999999; /* so that it stays on top of all other elements */
-  }
-    </style>
-    <script>
-      const coords = { x: 0, y: 0 };
-  const circles = document.querySelectorAll(".circle");
-  
-  const colors = [
-    "#ffb56b",
-    "#fdaf69",
-    "#f89d63",
-    "#f59761",
-    "#ef865e",
-    "#ec805d",
-    "#e36e5c",
-    "#df685c",
-    "#d5585c",
-    "#d1525c",
-    "#c5415d",
-    "#c03b5d",
-    "#b22c5e",
-    "#ac265e",
-    "#9c155f",
-    "#950f5f",
-    "#830060",
-    "#7c0060",
-    "#680060",
-    "#60005f",
-    "#48005f",
-    "#3d005e"
-  ];
-  
-  circles.forEach(function (circle, index) {
-    circle.x = 0;
-    circle.y = 0;
-    circle.style.backgroundColor = colors[index % colors.length];
-  });
-  
-  window.addEventListener("mousemove", function(e){
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-    
-  });
-  
-  function animateCircles() {
-    
-    let x = coords.x;
-    let y = coords.y;
-    
-    circles.forEach(function (circle, index) {
-      circle.style.left = x - 12 + "px";
-      circle.style.top = y - 12 + "px";
-      
-      circle.style.scale = (circles.length - index) / circles.length;
-      
-      circle.x = x;
-      circle.y = y;
-  
-      const nextCircle = circles[index + 1] || circles[0];
-      x += (nextCircle.x - x) * 0.3;
-      y += (nextCircle.y - y) * 0.3;
+    // Handle the navbar scroll effect
+    $(window).on('scroll', function () {
+      if ($(window).scrollTop()) {
+        $('nav').addClass('black');
+      } else {
+        $('nav').removeClass('black');
+      }
     });
-   
-    requestAnimationFrame(animateCircles);
-  }
-  
-  animateCircles();
-  
-    </script>
+
+    // Toggle the mobile menu
+    function toggleMenu() {
+      var nav = document.getElementById('mobile-nav');
+      nav.classList.toggle('active');
+    }
+
+    $(window).on('scroll', function () {
+      if ($(window).scrollTop()) {
+        $('nav').addClass('black');
+      } else {
+        $('nav').removeClass('black');
+      }
+    })
+
+  </script>
+  <style>
+    body {
+      background-color: #001F3F;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+
+
+    h1 {
+      color: #ffffff;
+      margin-bottom: 20px;
+      font-size: 36px;
+    }
+
+    div {
+      background-color: #003366;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    form {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      color: #ffffff;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      border: none;
+      border-radius: 5px;
+      background-color: #004080;
+      color: #ffffff;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #ffffff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        width: 100%;
+        height: 100%;
+
+      }
+
+      body>header {
+        width: 100%;
+        height: 100%;
+        background-image: url('{{ url_for("static", filename="back.jpg") }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0px;
+        padding: 0px;
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        position: relative;
+        width: 100%;
+        background-color: #1414dd;
+        padding: 0px;
+      }
+
+      header h1 {
+        font-size: 30px;
+      }
+
+      .menu-toggle {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        cursor: pointer;
+        border: none;
+        font-size: 18px;
+      }
+
+      #mobile-nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        left: 0;
+        background-color: #333;
+        text-align: center;
+        z-index: 10;
+      }
+
+      #mobile-nav.active {
+        display: block;
+      }
+
+      #mobile-nav a {
+        display: block;
+        margin: 10px 0;
+        padding: 12px;
+      }
+
+      nav {
+        position: relative;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+        padding: 12px 20px;
+        text-align: center;
+      }
+
+      .rev-container {
+        flex-direction: column;
+        align-items: center;
+        display: block;
+      }
+
+      .rev-card {
+        display: block;
+      }
+
+      .review .rev-container .rev-card {
+        width: 90%;
+        height: 240px;
+        margin-bottom: 40px;
+        background: #fff;
+        display: flex;
+        padding: 10px;
+        box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+      }
+
+
+      header {
+        position: relative;
+        width: 100%;
+        background-color: #1414dd;
+        padding: 0px;
+      }
+
+      .rev-card {
+        width: 480px;
+        margin: 0 0 20px;
+      }
+
+      .search-bar select,
+      .search-bar button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      #mobile-nav a {
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <h1>Chat Room</h1>
+
+
+  <div>
+    {% for message in messages %}
+    <p><strong>{{ message['username'] }}:</strong> {{ message['message'] }}</p>
+    {% endfor %}
+  </div>
+  <form action="/chat" method="post">
+    <label for="username">Username:</label>
+    <input type="text" name="username" required>
+    <label for="message">Message:</label>
+    <input type="text" name="message" required>
+    <input type="submit" value="Send">
+  </form>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <style>
+    .circle {
+      height: 24px;
+      width: 24px;
+      border-radius: 24px;
+      background-color: black;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 99999999;
+      /* so that it stays on top of all other elements */
+    }
+  </style>
+  <script>
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+
+    const colors = [
+      "#ffb56b",
+      "#fdaf69",
+      "#f89d63",
+      "#f59761",
+      "#ef865e",
+      "#ec805d",
+      "#e36e5c",
+      "#df685c",
+      "#d5585c",
+      "#d1525c",
+      "#c5415d",
+      "#c03b5d",
+      "#b22c5e",
+      "#ac265e",
+      "#9c155f",
+      "#950f5f",
+      "#830060",
+      "#7c0060",
+      "#680060",
+      "#60005f",
+      "#48005f",
+      "#3d005e"
+    ];
+
+    circles.forEach(function (circle, index) {
+      circle.x = 0;
+      circle.y = 0;
+      circle.style.backgroundColor = colors[index % colors.length];
+    });
+
+    window.addEventListener("mousemove", function (e) {
+      coords.x = e.clientX;
+      coords.y = e.clientY;
+
+    });
+
+    function animateCircles() {
+
+      let x = coords.x;
+      let y = coords.y;
+
+      circles.forEach(function (circle, index) {
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+      });
+
+      requestAnimationFrame(animateCircles);
+    }
+
+    animateCircles();
+
+  </script>
 </body>
+
 </html>
