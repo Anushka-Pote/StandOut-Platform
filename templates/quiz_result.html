@@ -10,17 +10,16 @@
             background-color: #f4f4f4; /* Light gray background color */
             color: #333; /* Dark gray text color */
             margin: 0;
-            padding: 0;
+            padding: 50px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
+            align-items: stretch;
+            
         }
 
         h1 {
             margin-bottom: 20px;
+            text-align: center;
         }
 
         h2 {
@@ -28,6 +27,28 @@
             margin-bottom: 10px;
             color: #007bff; /* Blue question heading color */
         }
+
+        form {
+            background-color: #fff; /* White background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: left;
+            width: 70%;
+            margin: 20px auto;
+        }
+
+        header, footer {
+            width: 100%;
+            background-color: #007bff; /* Blue header/footer background color */
+            color: #fff; /* White header/footer text color */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        
+
 
         strong {
             font-weight: bold;
@@ -64,6 +85,7 @@
 <body>
     <h1>Quiz Results</h1>
 
+    <form>
     {% if scores %}
         {% for question_id, data in scores.items() %}
             <h2>Question {{ loop.index }}</h2>
@@ -83,104 +105,6 @@
     {% else %}
         <p class="no-quiz-data">No quiz data available.</p>
     {% endif %}
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <style>
-      .circle {
-    height: 24px;
-    width: 24px;
-    border-radius: 24px;
-    background-color: black;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 99999999; /* so that it stays on top of all other elements */
-  }
-    </style>
-    <script>
-      const coords = { x: 0, y: 0 };
-  const circles = document.querySelectorAll(".circle");
-  
-  const colors = [
-    "#ffb56b",
-    "#fdaf69",
-    "#f89d63",
-    "#f59761",
-    "#ef865e",
-    "#ec805d",
-    "#e36e5c",
-    "#df685c",
-    "#d5585c",
-    "#d1525c",
-    "#c5415d",
-    "#c03b5d",
-    "#b22c5e",
-    "#ac265e",
-    "#9c155f",
-    "#950f5f",
-    "#830060",
-    "#7c0060",
-    "#680060",
-    "#60005f",
-    "#48005f",
-    "#3d005e"
-  ];
-  
-  circles.forEach(function (circle, index) {
-    circle.x = 0;
-    circle.y = 0;
-    circle.style.backgroundColor = colors[index % colors.length];
-  });
-  
-  window.addEventListener("mousemove", function(e){
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-    
-  });
-  
-  function animateCircles() {
-    
-    let x = coords.x;
-    let y = coords.y;
-    
-    circles.forEach(function (circle, index) {
-      circle.style.left = x - 12 + "px";
-      circle.style.top = y - 12 + "px";
-      
-      circle.style.scale = (circles.length - index) / circles.length;
-      
-      circle.x = x;
-      circle.y = y;
-  
-      const nextCircle = circles[index + 1] || circles[0];
-      x += (nextCircle.x - x) * 0.3;
-      y += (nextCircle.y - y) * 0.3;
-    });
-   
-    requestAnimationFrame(animateCircles);
-  }
-  
-  animateCircles();
-  
-    </script>
+
 </body>
 </html>
