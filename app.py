@@ -198,6 +198,18 @@ questions = [
      10),
 ]
 
+
+correct_answers = {
+    1: 1,  # The correct answer for question 1 is the first option (index 1)
+    2: 2,  # The correct answer for question 2 is the second option (index 2)
+    3: 2,
+    4: 3,
+    5: 2,
+    6: 3,
+    7: 4,
+    8: 2,    
+}
+
 def ask_question(question_data):
     question, options, correct_option = question_data
     return question, options, correct_option
@@ -361,6 +373,36 @@ def quiz():
         return render_template('quiz.html', questions=questions, scores=scores)
 
     return render_template('quiz.html', questions=questions)
+
+
+
+
+@app.route('/submit_quiz', methods=['POST'])
+def submit_quiz():
+    # Process the form data here
+    # Example:
+    scores = {}
+    total_score = 0
+    total_questions = len(questions)
+
+    for idx, question_data in enumerate(questions, start=1):
+        question = question_data[0]
+        options = question_data[1]
+        user_answer = int(request.form.get(f'question_{idx}', 0))
+        correct_option = correct_answers.get(idx, 0)
+        is_correct = user_answer == correct_option
+
+        scores[f'question_{idx}'] = {
+            'question': question,
+            'options': options,
+            'user_answer': options[user_answer - 1] if user_answer else "No answer",
+            'is_correct': is_correct
+        }
+
+        if is_correct:
+            total_score += 1
+
+    return render_template('quiz_result.html', scores=scores, total_score=total_score, total_questions=total_questions)
 
 
 

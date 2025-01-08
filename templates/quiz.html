@@ -14,11 +14,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            
+        }
+
+        header, footer {
+            width: 100%;
+            background-color: #343a40; /* Dark gray background color */
+            color: #ffffff; /* White text color */
+            padding: 10px 0;
+            text-align: center;
         }
 
         h1 {
+            margin-top: 20px
             text-align: center;
         }
 
@@ -30,6 +38,7 @@
             margin-top: 20px;
             text-align: left;
             width: 70%;
+            margin: 20px auto;
         }
 
         fieldset {
@@ -78,11 +87,130 @@
         strong {
             font-weight: bold;
         }
+
+        @media (max-width: 480px) {
+                body {
+                    width: 100%;
+                    height: 100%;
+
+                }
+
+                body>header {
+                    width: 100%;
+                    height: 100%;
+                    background-image: url('{{ url_for("static", filename="back.jpg") }}');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    margin: 0px;
+                    padding: 0px;
+                    font-family: Arial, sans-serif;
+                }
+
+                header {
+                    position: relative;
+                    width: 100%;
+                    background-color: #1414dd;
+                    padding: 0px;
+                }
+
+                header h1 {
+                    font-size: 30px;
+                }
+
+                .menu-toggle {
+                    background-color: #333;
+                    color: #fff;
+                    padding: 10px;
+                    cursor: pointer;
+                    border: none;
+                    font-size: 18px;
+                }
+
+                #mobile-nav {
+                    display: none;
+                    position: absolute;
+                    top: 60px;
+                    width: 100%;
+                    left: 0;
+                    background-color: #333;
+                    text-align: center;
+                    z-index: 10;
+                }
+
+                #mobile-nav.active {
+                    display: block;
+                }
+
+                #mobile-nav a {
+                    display: block;
+                    margin: 10px 0;
+                    padding: 12px;
+                }
+
+                nav {
+                    position: relative;
+                }
+
+                nav a {
+                    display: block;
+                    margin: 10px 0;
+                    padding: 12px 20px;
+                    text-align: center;
+                }
+
+                .rev-container {
+                    flex-direction: column;
+                    align-items: center;
+                    display: block;
+                }
+
+                .rev-card {
+                    display: block;
+                }
+
+                .review .rev-container .rev-card {
+                    width: 90%;
+                    height: 240px;
+                    margin-bottom: 40px;
+                    background: #fff;
+                    display: flex;
+                    padding: 10px;
+                    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+                }
+
+
+                header {
+                    position: relative;
+                    width: 100%;
+                    background-color: #1414dd;
+                    padding: 0px;
+                }
+
+                .rev-card {
+                    width: 480px;
+                    margin: 0 0 20px;
+                }
+
+                .search-bar select,
+                .search-bar button {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+
+                .menu-toggle {
+                    display: block;
+                }
+
+                #mobile-nav a {
+                    padding: 15px 20px;
+                }
+            }
     </style>
 </head>
 <body>
     <h1>Welcome to the Programming Quiz</h1>
-    <form action="/" method="post">
+    <form action="/submit_quiz" method="post">
         {% for question_data in questions %}
             {% set idx = loop.index %}
             <fieldset>
@@ -113,5 +241,104 @@
             {% endfor %}
         </ul>
     {% endif %}
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <style>
+      .circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    background-color: black;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999; /* so that it stays on top of all other elements */
+  }
+    </style>
+    <script>
+      const coords = { x: 0, y: 0 };
+  const circles = document.querySelectorAll(".circle");
+  
+  const colors = [
+    "#ffb56b",
+    "#fdaf69",
+    "#f89d63",
+    "#f59761",
+    "#ef865e",
+    "#ec805d",
+    "#e36e5c",
+    "#df685c",
+    "#d5585c",
+    "#d1525c",
+    "#c5415d",
+    "#c03b5d",
+    "#b22c5e",
+    "#ac265e",
+    "#9c155f",
+    "#950f5f",
+    "#830060",
+    "#7c0060",
+    "#680060",
+    "#60005f",
+    "#48005f",
+    "#3d005e"
+  ];
+  
+  circles.forEach(function (circle, index) {
+    circle.x = 0;
+    circle.y = 0;
+    circle.style.backgroundColor = colors[index % colors.length];
+  });
+  
+  window.addEventListener("mousemove", function(e){
+    coords.x = e.clientX;
+    coords.y = e.clientY;
+    
+  });
+  
+  function animateCircles() {
+    
+    let x = coords.x;
+    let y = coords.y;
+    
+    circles.forEach(function (circle, index) {
+      circle.style.left = x - 12 + "px";
+      circle.style.top = y - 12 + "px";
+      
+      circle.style.scale = (circles.length - index) / circles.length;
+      
+      circle.x = x;
+      circle.y = y;
+  
+      const nextCircle = circles[index + 1] || circles[0];
+      x += (nextCircle.x - x) * 0.3;
+      y += (nextCircle.y - y) * 0.3;
+    });
+   
+    requestAnimationFrame(animateCircles);
+  }
+  
+  animateCircles();
+  
+    </script>
 </body>
 </html>
