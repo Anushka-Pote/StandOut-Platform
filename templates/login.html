@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<link rel="shortcut icon" type="png" href="image/menu.png">
 	<title>Login SignUp</title>
@@ -11,32 +12,31 @@
 			background-attachment: fixed;
 			display: flex;
 			justify-content: center;
+			align-items: center;
+			overflow: hidden;
 		}
 
-		.form-box
-		{
+		.form-box {
 			width: 380px;
-			height: 500px;
+			height: auto;
 			position: relative;
 			margin: 6% auto;
 			background: #fff8;
 			padding: 5px;
 			border-radius: 5px;
 			overflow: hidden;
-			box-shadow: 0px 0px 100px rgba(0,0,0,0.4);
+			box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.4);
 		}
 
-		.button-box
-		{
+		.button-box {
 			width: 220px;
 			margin: 35px auto;
 			position: relative;
-			box-shadow: 0 0 20px 9px rgba(0,0,0,.1);
+			box-shadow: 0 0 20px 9px rgba(0, 0, 0, .1);
 			border-radius: 30px;
 		}
 
-		.toggle-btn
-		{
+		.toggle-btn {
 			padding: 10px 30px;
 			cursor: pointer;
 			background: transparent;
@@ -45,8 +45,7 @@
 			outline: none;
 		}
 
-		#btn
-		{
+		#btn {
 			top: 0;
 			left: 0;
 			position: absolute;
@@ -56,20 +55,52 @@
 			border-radius: 30px;
 			transition: 0.5s;
 		}
-		.social-icons
-		{
+
+		.social-icons {
 			margin: 30px auto;
 			text-align: center;
 		}
-		.social-icons img
-		{
+
+		.social-icons img {
 			width: 40px;
 			margin: 0 7px;
 			opacity: 0.85;
 		}
 
-		.input-group
-		{
+		.input-group {
+			position: absolute;
+			width: 280px;
+			height: auto;
+			transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+			font-size: 13px;
+			color: #010101;
+			opacity: 0;
+			transform: translateX(100%);
+		}
+
+		.input-group.active {
+
+			opacity: 1;
+			transform: translateX(-240%);
+			z-index: 1;
+		}
+
+		#login {
+			transform: translateX(-100%);
+		}
+
+		.inp {
+			/* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
+			justify-content: center;
+		}
+
+		.inp img {
+			width: 20px;
+			padding-right: 10px;
+		}
+
+		.input-group {
+			margin-left: 280px;
 			top: 180px;
 			position: absolute;
 			width: 280px;
@@ -77,33 +108,24 @@
 			font-size: 13px;
 			color: #010101;
 		}
-		.inp {
-			border-bottom: 1px solid rgba(0,0,0,0.4);
-			justify-content: center;
-		}
-		.inp img{
-			width: 20px;
-			padding-right: 10px;
-		}
-		.input-field
-		{
-			width: 100%;
-			padding: 10px 0;
-			margin: 5px 0;
-			border-left: 0;
-			border-right: 0;
-			border-top: 0;
-			border-bottom: 1px solid rgba(0,0,0,0.4);
-			outline: none;
-			background: transparent;
-			color: rgba(0,0,0);
-		}
+		.input-field {
+				width: 100%;
+				padding: 10px 0;
+				margin: 5px 0;
+				border-left: 0;
+				border-right: 0;
+				border-top: 0;
+				/* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
+				outline: none;
+				background: transparent;
+				color: rgba(0, 0, 0);
+			}
 
 		#register .input-field {
-			color: rgba(0,0,0,0.8);
+			color: rgba(0, 0, 0, 0.8);
 		}
-		.submit-btn
-		{
+
+		.submit-btn {
 			width: 85%;
 			padding: 10px 30px;
 			cursor: pointer;
@@ -119,8 +141,8 @@
 		.reg-btn {
 			background: lightgray;
 		}
-		.check-box
-		{
+
+		.check-box {
 			cursor: pointer;
 			margin: 30px 10px 30px 0;
 		}
@@ -128,14 +150,16 @@
 		.instead {
 			margin-top: 10px;
 		}
+
 		.instead h3 {
 			overflow: hidden;
 			text-align: center;
-			color: rgba(0,0,0,0.6);
+			color: rgba(0, 0, 0, 0.6);
 		}
+
 		.instead h3:before,
 		.instead h3:after {
-			background-color: rgba(0,0,0,0.5);
+			background-color: rgba(0, 0, 0, 0.5);
 			content: "";
 			display: inline-block;
 			height: 1px;
@@ -143,33 +167,34 @@
 			vertical-align: middle;
 			width: 50%;
 		}
+
 		.instead h3:before {
 			right: 0.5em;
 			margin-left: -50%;
 		}
+
 		.instead h3:after {
 			left: 0.5em;
 			margin-right: -50%;
 		}
-		span
-		{
-			color: rgba(0,0,0,0.8);
+
+		span {
+			color: rgba(0, 0, 0, 0.8);
 			font-size: 12px;
 		}
 
-		#login
-		{
+		#login {
 			left: 50px;
 		}
-		#register
-		{
+
+		#register {
 			left: 450px;
 		}
 
 		.other {
 			display: grid;
 			justify-content: center;
-			margin-top: 250px;
+			margin-top: 320px;
 		}
 
 		.connect {
@@ -182,169 +207,422 @@
 			border: 1px solid lightgray;
 			cursor: pointer;
 			outline: none;
-			/*border-radius: 10px;*/
 			background: #fff3;
 		}
+
 		.connect:hover {
 			background: #fff8;
 		}
+
 		.connect img {
 			padding: 5px;
 			width: 25px;
 		}
+
 		.connect span {
 			padding: 10px;
 			font-size: 15px;
 		}
+
+		/* Mobile Responsiveness */
+		@media (max-width: 480px) {
+			body {
+				background-image: url('{{ url_for("static", filename="back.jpg") }}');
+				background-size: cover;
+				background-attachment: fixed;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				overflow: hidden;
+			}
+
+			.form-box {
+				width: 300px;
+				height: 100%;
+				position: absolute;
+				margin: 4% auto;
+				background: #fff8;
+				padding: 5px;
+				border-radius: 5px;
+				box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.4);
+			}
+
+			.button-box {
+				width: 220px;
+				margin: 35px auto;
+				position: relative;
+				box-shadow: 0 0 20px 9px rgba(0, 0, 0, .1);
+				border-radius: 30px;
+			}
+
+			.toggle-btn {
+				padding: 10px 30px;
+				cursor: pointer;
+				background: transparent;
+				position: relative;
+				border: 0;
+				outline: none;
+			}
+
+			#btn {
+				top: 0;
+				left: 0;
+				position: absolute;
+				width: 110px;
+				height: 100%;
+				background: linear-gradient(to right, #2e0581, #3105a2);
+				border-radius: 30px;
+				transition: 0.5s;
+			}
+
+			.social-icons {
+				margin: 30px auto;
+				text-align: center;
+			}
+
+			.social-icons img {
+				width: 40px;
+				margin: 0 7px;
+				opacity: 0.85;
+			}
+
+			.input-group {
+				top: 180px;
+				right: 20px;
+				position: absolute;
+				width: 280px;
+				transition: .5s;
+				font-size: 13px;
+				color: #010101;
+			}
+
+			.inp {
+				/* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
+				justify-content: center;
+			}
+
+			.inp img {
+				width: 20px;
+				padding-right: 10px;
+			}
+
+			.input-field {
+				width: 100%;
+				padding: 10px 0;
+				margin: 5px 0;
+				border-left: 0;
+				border-right: 0;
+				border-top: 0;
+				/* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
+				outline: none;
+				background: transparent;
+				color: rgba(0, 0, 0);
+			}
+
+			#register .input-field {
+				color: rgba(0, 0, 0, 0.8);
+			}
+
+			.submit-btn {
+				width: 200px;
+				padding: 10px 30px;
+				cursor: pointer;
+				display: block;
+				margin: auto;
+				background: linear-gradient(to right, #146dd1, #046697);
+				color: #fff;
+				border: 0;
+				outline: none;
+				border-radius: 30px;
+			}
+
+			.reg-btn {
+				background: lightgray;
+			}
+
+			.check-box {
+				cursor: pointer;
+				margin: 30px 10px 30px 0;
+			}
+
+			.instead {
+				margin-top: 10px;
+			}
+
+			.instead h3 {
+				overflow: hidden;
+				text-align: center;
+				color: rgba(0, 0, 0, 0.6);
+			}
+
+			.instead h3:before,
+			.instead h3:after {
+				background-color: rgba(0, 0, 0, 0.5);
+				content: "";
+				display: inline-block;
+				height: 1px;
+				position: relative;
+				vertical-align: middle;
+				width: 50%;
+			}
+
+			.instead h3:before {
+				right: 0.5em;
+				margin-left: -50%;
+			}
+
+			.instead h3:after {
+				left: 0.5em;
+				margin-right: -50%;
+			}
+
+			span {
+				color: rgba(0, 0, 0, 0.8);
+				font-size: 12px;
+			}
+
+			#login {
+				left: 50px;
+			}
+
+			#register {
+				left: 450px;
+			}
+
+			.other {
+				display: grid;
+				justify-content: center;
+				margin-top: 250px;
+			}
+
+			.connect {
+				display: flex;
+				margin: 10px;
+				padding: 0px 30px;
+				align-items: center;
+				text-align: center;
+				justify-content: center;
+				border: 1px solid lightgray;
+				cursor: pointer;
+				outline: none;
+				background: #fff3;
+			}
+
+			.connect:hover {
+				background: #fff8;
+			}
+
+			.connect img {
+				padding: 5px;
+				width: 25px;
+			}
+
+
+			.connect span {
+				padding: 10px;
+				font-size: 15px;
+			}
+		}
 	</style>
-
 </head>
+
 <body>
-		<div class="form-box">
-			<div class="button-box">
-				<div id="btn"></div>
-				<button type="button" class="toggle-btn" id="log" style="color: #fff;">Log In</button>
-				<button type="button" class="toggle-btn" id="reg" >Register</button>
-			</div>
-			
-			<div class="social-icons">
-				<img src="{{ url_for('static', filename='fb2.png') }}" alt="Facebook">
-				<img src="{{ url_for('static', filename='insta2.png') }}" alt="Instagram">
-				<img src="{{ url_for('static', filename='tt.jpg') }}" alt="Twitter">
-				<img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn">
-			
-			</div>
-			
-			<!-- Login Form -->
-			<form id="login" class="input-group" action="index.html">
-				<div class="inp">
-					<img src="{{ url_for('static', filename='user.png') }}" alt="User Image"><input type="text" id="email" class="input-field" placeholder="Username or Phone Number" style="width: 88%; border:none;" required="required">
-				</div>
-				<div class="inp">
-					<img src="{{ url_for('static', filename='password.png') }}" alt="Password Image"><input type="password" id="password" class="input-field" placeholder="Password" style="width: 88%; border: none;" required="required">
-				</div>
-				<input type="checkbox" class="check-box">Remember Password
-				<button type="submit" class="submit-btn">Log In</button>
-			</form>
-
-
-			<div class="other" id="other">
-				<div class="instead">
-					<h3>or</h3>
-				</div>
-				<button class="connect">
-					<img src="{{ url_for('static', filename='google.png') }}" alt="Google Image"><span>Sign in with Google</span>
-				</button>
-			</div>
-			
-			<!-- Registration Form -->
-			<form id="register" class="input-group">
-				<input type="text" class="input-field" placeholder="Full Name" required="required">
-				<input type="email" class="input-field" placeholder="Email Address" required="required">
-				<input type="password" class="input-field" placeholder="Create Password" name="psame" required="required">
-				<input type="password" class="input-field" placeholder="Confirm Password" name="psame" required="required">
-				<input type="checkbox" class="check-box" id="chkAgree" >I agree to the Terms & Conditions
-				<button type="submit" id="btnSubmit" class="submit-btn reg-btn">Register</button>
-			</form>
+	<div class="form-box">
+		<div class="button-box">
+			<div id="btn"></div>
+			<button type="button" class="toggle-btn" id="log" style="color: #fff;" onclick="showLogin()">Log In</button>
+			<button type="button" class="toggle-btn" id="reg" onclick="showRegister()">Register</button>
 		</div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<div class="circle"></div>
-		<style>
-		  .circle {
-		height: 24px;
-		width: 24px;
-		border-radius: 24px;
-		background-color: black;
-		position: fixed; 
-		top: 0;
-		left: 0;
-		pointer-events: none;
-		z-index: 99999999; /* so that it stays on top of all other elements */
-	  }
-		</style>
-		<script>
-		  const coords = { x: 0, y: 0 };
-	  const circles = document.querySelectorAll(".circle");
-	  
-	  const colors = [
-		"#ffb56b",
-		"#fdaf69",
-		"#f89d63",
-		"#f59761",
-		"#ef865e",
-		"#ec805d",
-		"#e36e5c",
-		"#df685c",
-		"#d5585c",
-		"#d1525c",
-		"#c5415d",
-		"#c03b5d",
-		"#b22c5e",
-		"#ac265e",
-		"#9c155f",
-		"#950f5f",
-		"#830060",
-		"#7c0060",
-		"#680060",
-		"#60005f",
-		"#48005f",
-		"#3d005e"
-	  ];
-	  
-	  circles.forEach(function (circle, index) {
-		circle.x = 0;
-		circle.y = 0;
-		circle.style.backgroundColor = colors[index % colors.length];
-	  });
-	  
-	  window.addEventListener("mousemove", function(e){
-		coords.x = e.clientX;
-		coords.y = e.clientY;
-		
-	  });
-	  
-	  function animateCircles() {
-		
-		let x = coords.x;
-		let y = coords.y;
-		
+
+		<div class="social-icons">
+			<img src="{{ url_for('static', filename='fb2.png') }}" alt="Facebook">
+			<img src="{{ url_for('static', filename='insta2.png') }}" alt="Instagram">
+			<img src="{{ url_for('static', filename='tt.jpg') }}" alt="Twitter">
+			<img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn">
+		</div>
+
+		<!-- Login Form -->
+		<form id="login" class="input-group active" onsubmit="return validateLoginForm(event)">
+			<div class="inp">
+				<img src="{{ url_for('static', filename='user.png') }}" alt="User Image">
+				<input type="text" id="loginEmail" class="input-field" placeholder="Username or Phone Number"
+					style="width: 88%; border:none;" required="required">
+			</div>
+			<div class="inp">
+				<img src="{{ url_for('static', filename='password.png') }}" alt="Password Image">
+				<input type="password" id="loginPassword" class="input-field" placeholder="Password"
+					style="width: 88%; border: none;" required="required">
+			</div>
+			<input type="checkbox" class="check-box">Remember Password
+			<button type="submit" class="submit-btn">Log In</button>
+		</form>
+
+
+		<!-- Registration Form -->
+		<form id="register" class="input-group" onsubmit="return validateRegistrationForm(event)">
+			<div class="inp">
+				<img src="{{ url_for('static', filename='user.png') }}" alt="User Image">
+				<input type="text" id="registerName" class="input-field" placeholder="Full Name" style="width: 88%;"
+					required>
+			</div>
+			<div class="inp">
+				<img src="{{ url_for('static', filename='email.png') }}" alt="Email Image">
+				<input type="email" id="registerEmail" class="input-field" placeholder="Email" style="width: 88%;"
+					required>
+			</div>
+			<div class="inp">
+				<img src="{{ url_for('static', filename='password.png') }}" alt="Password Image">
+				<input type="password" id="registerPassword" class="input-field" placeholder="Password"
+					style="width: 88%;" required>
+			</div>
+			<div class="inp">
+				<img src="{{ url_for('static', filename='password.png') }}" alt="Password Image">
+				<input type="password" id="confirmPassword" class="input-field" placeholder="Confirm Password"
+					style="width: 88%;" required>
+			</div>
+			<input type="checkbox" class="check-box" id="chkAgree">I agree to the Terms & Conditions
+			<button type="submit" id="btnSubmit" class="submit-btn">Register</button>
+		</form>
+		<div class="other" id="other">
+			<div class="instead">
+				<h3>or</h3>
+			</div>
+			<button class="connect">
+				<img src="{{ url_for('static', filename='google.png') }}" alt="Google Image">
+				<span>Sign in with Google</span>
+			</button>
+		</div>
+	</div>
+	<div class="circle"></div>
+	<!-- More Circles ... -->
+	<script>
+		function showLogin() {
+			document.getElementById("login").classList.add("active");
+			document.getElementById("register").classList.remove("active");
+			document.getElementById('btn').style.left = '0px';
+		}
+
+		function showRegister() {
+			document.getElementById("register").classList.add("active");
+			document.getElementById("login").classList.remove("active");
+			document.getElementById('btn').style.left = '110px';
+		}
+
+		// Validate Login Form
+		function validateLoginForm(event) {
+			event.preventDefault();
+
+			const email = document.getElementById("loginEmail").value.trim();
+			const password = document.getElementById("loginPassword").value;
+
+			// Validate Email/Username
+			if (email === "") {
+				alert("Please enter your username or phone number.");
+				return false;
+			}
+
+			// Validate Password
+			if (password === "") {
+				alert("Please enter your password.");
+				return false;
+			}
+
+			// Form is valid
+			alert("Login successful!");
+			return true;
+		}
+
+		// Validate Registration Form
+		function validateRegistrationForm(event) {
+			event.preventDefault();
+
+			const fullName = document.getElementById("fullName").value.trim();
+			const email = document.getElementById("registerEmail").value.trim();
+			const password = document.getElementById("registerPassword").value;
+			const confirmPassword = document.getElementById("confirmPassword").value;
+			const chkAgree = document.getElementById("chkAgree");
+
+			// Validate Full Name
+			if (!fullName || fullName.split(" ").length < 2) {
+				alert("Please enter your full name (at least two words).");
+				return false;
+			}
+
+			// Validate Email
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(email)) {
+				alert("Please enter a valid email address.");
+				return false;
+			}
+
+			// Validate Password
+			if (password.length < 8) {
+				alert("Password must be at least 8 characters long.");
+				return false;
+			}
+			const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+			if (!passwordRegex.test(password)) {
+				alert("Password must contain at least one letter and one number.");
+				return false;
+			}
+
+			// Validate Confirm Password
+			if (password !== confirmPassword) {
+				alert("Passwords do not match.");
+				return false;
+			}
+
+			// Validate Terms and Conditions
+			if (!chkAgree.checked) {
+				alert("You must agree to the Terms & Conditions.");
+				return false;
+			}
+
+			// Form is valid
+			alert("Registration successful!");
+			return true;
+		}
+		const coords = { x: 0, y: 0 };
+		const circles = document.querySelectorAll(".circle");
+
+		const colors = [
+			"#ffb56b", "#fdaf69", "#f89d63", "#f59761", "#ef865e", "#ec805d", "#e36e5c", "#df685c",
+			"#d5585c", "#d1525c", "#c5415d", "#c03b5d", "#b22c5e", "#ac265e", "#9c155f", "#950f5f",
+			"#830060", "#7c0060", "#680060", "#60005f", "#48005f", "#3d005e"
+		];
+
 		circles.forEach(function (circle, index) {
-		  circle.style.left = x - 12 + "px";
-		  circle.style.top = y - 12 + "px";
-		  
-		  circle.style.scale = (circles.length - index) / circles.length;
-		  
-		  circle.x = x;
-		  circle.y = y;
-	  
-		  const nextCircle = circles[index + 1] || circles[0];
-		  x += (nextCircle.x - x) * 0.3;
-		  y += (nextCircle.y - y) * 0.3;
+			circle.x = 0;
+			circle.y = 0;
+			circle.style.backgroundColor = colors[index % colors.length];
 		});
-	   
-		requestAnimationFrame(animateCircles);
-	  }
-	  
-	  animateCircles();
-	  
-		</script>
+
+		window.addEventListener("mousemove", function (e) {
+			coords.x = e.clientX;
+			coords.y = e.clientY;
+		});
+
+		function animateCircles() {
+			let x = coords.x;
+			let y = coords.y;
+
+			circles.forEach(function (circle, index) {
+				circle.style.left = x - 12 + "px";
+				circle.style.top = y - 12 + "px";
+				circle.style.scale = (circles.length - index) / circles.length;
+				circle.x = x;
+				circle.y = y;
+
+				const nextCircle = circles[index + 1] || circles[0];
+				x += (nextCircle.x - x) * 0.3;
+				y += (nextCircle.y - y) * 0.3;
+			});
+
+			requestAnimationFrame(animateCircles);
+		}
+
+		animateCircles();
+	</script>
 </body>
+
 </html>
