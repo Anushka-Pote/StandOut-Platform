@@ -10,6 +10,7 @@ body {
         margin: 0px;
         padding: 0px;
         font-family: Arial, sans-serif;
+		
 }
 
 header {
@@ -18,13 +19,12 @@ header {
     color: #20056e;
     text-align: center;
     padding: 0px;
+	
 }
 
-nav {
-    background-color: #333;
-    text-align: center;
-    padding: 10px 0;
-}
+* {
+	box-sizing: border-box;
+  }
 
 nav a {
     display: inline-block;
