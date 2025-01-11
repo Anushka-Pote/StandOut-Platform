@@ -990,20 +990,45 @@
         </div>
 
         <!--CLUSTERISATION TAGS-->
-        <div class="right-column" style="text-align: center; padding: 20px; border-radius: 10px; overflow: hidden; ">
-            <h2 style="font-size: 28px; color: #333;">Find Your Course Match</h2>
-
+        <div class="right-column" style="text-align: center; padding: 20px; border-radius: 10px; overflow: hidden;">
+            <h2 style="font-size: 28px; color: #004080; margin-bottom: 20px;">Find Your Course Match</h2>
+        
             {% if img_data %}
-            <h2 style="font-size: 32px; color: #333; margin-top: 30px;">Recommended Courses</h2>
-            <div style="max-width: 600px; margin: auto; overflow-x: auto;">
-                {{ recommended_courses_df.to_html()|safe }}
+            <h2 style="font-size: 24px; color: #004080; margin-bottom: 15px;">Recommended Courses</h2>
+            <div style="max-width: 90%; margin: auto; overflow-x: auto; border: 2px solid #ddd; border-radius: 10px; background-color: rgba(255, 255, 255, 0.9); padding: 15px;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 16px;">
+                    <thead>
+                        <tr style="background-color: #004080; color: white;">
+                            {% for column in recommended_courses_df.columns %}
+                            <th style="padding: 12px; border: 1px solid #ddd;">{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in recommended_courses_df.values %}
+                        <tr style="background-color: {% if loop.index0 % 2 == 0 %}#f9f9f9{% else %}#ffffff{% endif %};">
+                            {% for cell in row %}
+                            <td style="padding: 10px; border: 1px solid #ddd;">
+                                {% if cell is string and cell.startswith("http") %}
+                                <a href="{{ cell }}" target="_blank" style="color: #004080; text-decoration: none; font-weight: bold;">Visit Link</a>
+                                {% else %}
+                                {{ cell }}
+                                {% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
-
+        
             <!-- <h2 style="font-size: 24px; color: #333; margin-top: 20px;">Cluster Visualization</h2>
-                <img src="data:image/png;base64,{{ img_data }}" alt="Cluster Visualization" style="max-width: 100%; height: auto; margin-top: 10px;">
-            {% endif %}-->
+            <img src="data:image/png;base64,{{ img_data }}" alt="Cluster Visualization" style="max-width: 100%; height: auto; margin-top: 10px;">
+            {% endif %} -->
         </div>
+        
 
+        
     </section>
 
     <div class="toggle-login" onclick="redirectToLogin()">Login</div>
