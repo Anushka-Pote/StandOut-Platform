@@ -1,94 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming Quiz</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa; /* Light gray background color */
-            color: #343a40; /* Dark gray text color */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script>
+
+        // Handle the navbar scroll effect
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');
+            } else {
+                $('nav').removeClass('black');
+            }
+        });
+
+        // Toggle the mobile menu
+        function toggleMenu() {
+            var nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('active');
         }
 
-        header, footer {
-            width: 100%;
-            background-color: #343a40; /* Dark gray background color */
-            color: #ffffff; /* White text color */
-            padding: 10px 0;
-            text-align: center;
-        }
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');
+            } else {
+                $('nav').removeClass('black');
+            }
+        })
 
-        h1 {
-            margin-top: 20px
-            text-align: center;
-        }
+    </script>
+</head>
 
-        form {
-            background-color: #fff; /* White background color */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            text-align: left;
-            width: 70%;
-            margin: 20px auto;
-        }
+<body>
+    <header style="text-align: center; background-color: #004080; padding: 40px; color: white;">
+        <h1 style="font-size: 48px; margin: 0; font-family: 'Arial Black', sans-serif; letter-spacing: 2px;">Discover
+            Your Own Learning Path</h1>
+        <link rel="stylesheet" href="/static/style.css">
+        <style>
+            body {
+                background-image: url('{{ url_for("static", filename="back.jpg") }}');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                margin: 0px;
+                padding: 0px;
+                font-family: Arial, sans-serif;
+                overflow-x: hidden;
+            }
 
-        fieldset {
-            border: 1px solid #dee2e6; /* Light gray border color */
-            border-radius: 4px;
-            margin-bottom: 20px;
-            padding: 10px;
-        }
+            header {
+                background-image: url('{{ url_for("static", filename="back.jpg") }}');
+                background-color: #333;
+                color: #20056e;
+                text-align: center;
+                padding: 0px;
+            }
 
-        legend {
-            font-weight: bold;
-        }
+            nav {
+                display: flex;
+                flex-direction: row;
+                background-color: #333;
+                text-align: center;
+                padding: 10px 0;
+                height: 30px;
+                align-items: center;
+                justify-content: center;
+            }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
+            nav a {
+                display: inline-block;
+                margin: 0 10px;
+                padding: 5px 10px;
+                text-decoration: none;
+                color: #fff;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
 
-        button {
-            background-color: #007bff; /* Blue submit button */
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+            nav a:hover {
+                background-color: royalblue;
+            }
 
-        button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-        }
 
-        h2 {
-            text-align: center;
-            margin-top: 20px;
-        }
+            section {
+                display: flex;
+                width: 100%;
+                padding: 20px;
+            }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+            .left-column {
+                width: 50%;
+                padding: 20px;
+            }
 
-        li {
-            margin-bottom: 20px;
-        }
+            .right-column {
+                width: 50%;
+                padding: 20px;
+            }
 
-        strong {
-            font-weight: bold;
-        }
+            .toolbar-subheading {
+                text-align: center;
+                margin-top: 20px;
+            }
 
-        @media (max-width: 480px) {
+            .toolbar-options {
+                display: flex;
+                justify-content: space-around;
+                background-color: #ddd;
+                padding: 10px;
+            }
+
+            #about_section,
+            #services_section,
+            #contactus_section {
+                font-family: 'Open Sans', sans-serif;
+                color: #2E3D49;
+                position: relative;
+            }
+            .menu-toggle {
+                display: none;
+            }
+
+            .diffSection {
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .diffSection .content {
+                margin: 10px;
+                text-align: center;
+                padding: 10px 100px;
+                font-size: 1.1em;
+            }
+
+            .service-swipe {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url("image/back.jpg");
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
+            .service-swipe .s-card img {
+                width: 220px;
+            }
+
+            .service-swipe a {
+                padding: 0;
+                margin: 40px 10px;
+            }
+
+            .service-swipe .s-card {
+                display: flex;
+                justify-content: space-around;
+                padding: 10px;
+                align-items: center;
+                text-align: center;
+                width: 350px;
+                height: 200px;
+                box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05),
+                    0 0 50px rgba(187, 217, 231, 0.8);
+                border-radius: 5px;
+                cursor: pointer;
+                transition-duration: .5s;
+            }
+
+            .service-swipe .s-card p {
+                color: #f2f2f2;
+                font-size: 1.2em;
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            .service-swipe .s-card:hover {
+                box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+                transform: translateY(-10px);
+            }
+
+            #makeitfull {
+                display: flex;
+                justify-content: center;
+                transform: translateY(35px);
+            }
+
+            #makeitfull img {
+                width: 50px;
+            }
+
+            .review {
+                background: #F8F8F8;
+                width: 100%;
+            }
+
+            .rev-container {
+                padding: 10px 10%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            .rev-container .rev-card {
+
+                width: 550px;
+                height: 240px;
+                margin-bottom: 40px;
+                background: #fff;
+                display: flex;
+                padding: 10px;
+                box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .rev-card:hover {
+                box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .identity {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .identity img {
+                width: 120px;
+                height: 120px;
+                transition-duration: .8s;
+                border-radius: 50%;
+            }
+
+            .identity img:hover {
+                transform: scale(2.2);
+                border-radius: 0px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .identity p {
+                width: 150px;
+                font-weight: bold;
+                color: #2E3D49;
+                text-align: center;
+            }
+
+            .identity h6 {
+                width: 150px;
+                text-align: center;
+            }
+
+            .identity .rating img {
+                width: 12px;
+                height: 12px;
+                margin-right: 5px;
+            }
+
+            .rev-cont {
+                overflow: hidden;
+            }
+
+            .rev-cont #title {
+                padding: 10px;
+                color: #2E3D49;
+                font-weight: bold;
+            }
+
+            .rev-cont #content {
+                padding: 10px;
+                font-size: .9em;
+                color: #2E3D49;
+                line-height: 22px;
+                text-align: justify;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            .search-bar {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            select,
+            button {
+                padding: 10px;
+            }
+
+            #search-results {
+                margin-top: 20px;
+            }
+
+            .title2 {
+                position: relative;
+                margin-top: 50px;
+                margin-left: 100px;
+            }
+
+            .title2 span {
+                font-weight: 700;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 30px;
+                color: #2E3D49;
+            }
+
+            .title2 .shortdesc2 {
+                padding: 10px;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 15px;
+                color: #2E3D49;
+                margin-bottom: 10px;
+            }
+
+            .feedbox {
+                margin-top: 50px;
+                width: 100%;
+                display: flex;
+                background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+                background-size: cover;
+                padding: 50px 80px;
+                background-attachment: fixed;
+            }
+
+            .feed {
+                width: 800px;
+                height: 400px;
+                position: relative;
+                border-radius: 10px;
+                justify-content: center;
+                box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.6),
+                    0 0 80px rgba(0, 0, 0, 0.2);
+                background: rgba(0, 0, 0, 0.4);
+            }
+
+            .feed form {
+                width: 90%;
+                height: 100%;
+                padding: 20px;
+            }
+
+            .feed form label {
+                position: absolute;
+                color: #f2f2f2;
+                font-size: 10px;
+                font-weight: 800;
+            }
+
+            .feed form input,
+            .feed textarea {
+                padding: 15px;
+                border-radius: 5px;
+                box-shadow: inset 0 0 5px lightgray;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                outline: none;
+                color: #2E3D49;
+                background: #fff9;
+                font-weight: 600;
+            }
+
+            .feed form input {
+                margin-bottom: 15px;
+                width: 50%;
+            }
+
+            .feed form .fname {
+                width: 25%;
+            }
+
+            .feed form textarea {
+                width: 100%;
+                height: 100px;
+            }
+
+            .feed #csubmit {
+                margin-top: 25px;
+                background: linear-gradient(to right, #1c45da, #2813e7);
+                border-radius: 5px;
+                border-style: none;
+                outline: none;
+                width: 100%;
+                padding: 15px 25px;
+                color: #fff;
+                font-size: 12px;
+                cursor: pointer;
+            }
+
+            .marqu {
+                text-align: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 20px;
+                padding: 10px;
+            }
+
+            footer {
+                color: #E5E8EF;
+                background: rgba(2, 51, 74, 0.867);
+                padding: 50px 0;
+            }
+
+            footer .footer-container {
+                max-width: 1300px;
+                margin: auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap-reverse;
+            }
+
+            footer .social-media img {
+                width: 22px;
+            }
+
+            footer .logo {
+                width: 180px;
+                color: #fff;
+            }
+
+            footer .social-media a {
+                margin-right: 10px;
+                font-size: 22px;
+                text-decoration: none;
+            }
+
+            footer .right-col h1 {
+                font-size: 26px;
+            }
+
+            footer .border {
+                width: 100px;
+                height: 4px;
+                background: linear-gradient(to right, #1414dd, #2856ab);
+                margin: 2px;
+            }
+
+            footer .newsletter-form {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            footer input::placeholder {
+                color: white !important;
+            }
+
+            footer .txtb {
+                flex: 1;
+                padding: 18px 40px;
+                font-size: 16px;
+                background: #343A40;
+                border: none;
+                font-weight: 700;
+                outline: none;
+                border-radius: 5px;
+                min-width: 260px;
+                margin-top: 20px;
+                color: white;
+            }
+
+            footer .btn {
+                margin-top: 20px;
+                padding: 18px 40px;
+                font-size: 16px;
+                color: #f1f1f1;
+                background: linear-gradient(to right, #171adb, #450dc9);
+                border: none;
+                font-weight: 700;
+                outline: none;
+                border-radius: 5px;
+                margin-left: 20px;
+                cursor: pointer;
+                transition: opacity .3s linear;
+            }
+
+            footer .btn:hover {
+                opacity: .7;
+            }
+
+            @media (max-width: 480px) {
                 body {
                     width: 100%;
                     height: 100%;
@@ -206,9 +605,25 @@
                     padding: 15px 20px;
                 }
             }
-    </style>
-</head>
-<body>
+        </style>
+    </header>
+
+
+    <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+        <div id="mobile-nav">
+            <a href="/">Recommendations</a>
+            <a href="/browse">Browse Topics</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/community">Community</a>
+            <a href="/news">News</a>
+            <a href="/open_website">Open Website</a>
+            <a href="/face">Face</a>
+            <a href="/quiz">Quiz</a>
+            <a href="/login" id="login-link" style="display:none;">Login</a>
+        </div>
+    </nav>
+   
     <h1>Welcome to the Programming Quiz</h1>
     <form action="/submit_quiz" method="post">
         {% for question_data in questions %}
@@ -262,83 +677,86 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <style>
-      .circle {
-    height: 24px;
-    width: 24px;
-    border-radius: 24px;
-    background-color: black;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 99999999; /* so that it stays on top of all other elements */
-  }
+        .circle {
+            height: 24px;
+            width: 24px;
+            border-radius: 24px;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99999999;
+            /* so that it stays on top of all other elements */
+        }
     </style>
     <script>
-      const coords = { x: 0, y: 0 };
-  const circles = document.querySelectorAll(".circle");
-  
-  const colors = [
-    "#ffb56b",
-    "#fdaf69",
-    "#f89d63",
-    "#f59761",
-    "#ef865e",
-    "#ec805d",
-    "#e36e5c",
-    "#df685c",
-    "#d5585c",
-    "#d1525c",
-    "#c5415d",
-    "#c03b5d",
-    "#b22c5e",
-    "#ac265e",
-    "#9c155f",
-    "#950f5f",
-    "#830060",
-    "#7c0060",
-    "#680060",
-    "#60005f",
-    "#48005f",
-    "#3d005e"
-  ];
-  
-  circles.forEach(function (circle, index) {
-    circle.x = 0;
-    circle.y = 0;
-    circle.style.backgroundColor = colors[index % colors.length];
-  });
-  
-  window.addEventListener("mousemove", function(e){
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-    
-  });
-  
-  function animateCircles() {
-    
-    let x = coords.x;
-    let y = coords.y;
-    
-    circles.forEach(function (circle, index) {
-      circle.style.left = x - 12 + "px";
-      circle.style.top = y - 12 + "px";
-      
-      circle.style.scale = (circles.length - index) / circles.length;
-      
-      circle.x = x;
-      circle.y = y;
-  
-      const nextCircle = circles[index + 1] || circles[0];
-      x += (nextCircle.x - x) * 0.3;
-      y += (nextCircle.y - y) * 0.3;
-    });
-   
-    requestAnimationFrame(animateCircles);
-  }
-  
-  animateCircles();
-  
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        const colors = [
+            "#ffb56b",
+            "#fdaf69",
+            "#f89d63",
+            "#f59761",
+            "#ef865e",
+            "#ec805d",
+            "#e36e5c",
+            "#df685c",
+            "#d5585c",
+            "#d1525c",
+            "#c5415d",
+            "#c03b5d",
+            "#b22c5e",
+            "#ac265e",
+            "#9c155f",
+            "#950f5f",
+            "#830060",
+            "#7c0060",
+            "#680060",
+            "#60005f",
+            "#48005f",
+            "#3d005e"
+        ];
+
+        circles.forEach(function (circle, index) {
+            circle.x = 0;
+            circle.y = 0;
+            circle.style.backgroundColor = colors[index % colors.length];
+        });
+
+        window.addEventListener("mousemove", function (e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+
+        });
+
+        function animateCircles() {
+
+            let x = coords.x;
+            let y = coords.y;
+
+            circles.forEach(function (circle, index) {
+                circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
+
+                circle.style.scale = (circles.length - index) / circles.length;
+
+                circle.x = x;
+                circle.y = y;
+
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.3;
+                y += (nextCircle.y - y) * 0.3;
+            });
+
+            requestAnimationFrame(animateCircles);
+        }
+
+        animateCircles();
+
     </script>
+
 </body>
+
 </html>
