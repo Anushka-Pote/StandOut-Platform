@@ -1086,156 +1086,10 @@
         </div>
     </a>
 </div>
-
-<!-- Chatbot Icon and Functionality -->
-<div class="chat-icon-container">
-    <button class="chat-icon" onclick="toggleChatbot()">
-        <i class="fas fa-comment"></i>
-    </button>
-</div>
-
-<section class="msger" id="chatbotSidebar">
-    <div class="chat-icon-container">
-        <button class="chat-icon" onclick="redirectToChatbot()">
-            <i class="fas fa-comment"></i>
-        </button>
-    </div>
-</section>
-
-<script>
-    function redirectToChatbot() {
-        window.location.href = "/Chatbot";
-    }
-    function toggleChatbot() {
-        var chatbotSidebar = document.querySelector('.chatbot-sidebar');
-        chatbotSidebar.style.display = (chatbotSidebar.style.display === 'none' || chatbotSidebar.style.display === '') ? 'block' : 'none';
-    }
-</script>
-         
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 StandOutPlatform. Made with <span class="heart">❤️</span> by <a href="https://github.com/Anushka-Pote" target="_blank">@Anushka</a></p>
-            </div>
-        </footer>  
-        <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <style>
-    .circle {
-  height: 24px;
-  width: 24px;
-  border-radius: 24px;
-  background-color: black;
-  position: fixed; 
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 99999999; /* so that it stays on top of all other elements */
-}
-  </style>
-  <script>
-    const coords = { x: 0, y: 0 };
-const circles = document.querySelectorAll(".circle");
-
-const colors = [
-  "#ffb56b",
-  "#fdaf69",
-  "#f89d63",
-  "#f59761",
-  "#ef865e",
-  "#ec805d",
-  "#e36e5c",
-  "#df685c",
-  "#d5585c",
-  "#d1525c",
-  "#c5415d",
-  "#c03b5d",
-  "#b22c5e",
-  "#ac265e",
-  "#9c155f",
-  "#950f5f",
-  "#830060",
-  "#7c0060",
-  "#680060",
-  "#60005f",
-  "#48005f",
-  "#3d005e"
-];
-
-circles.forEach(function (circle, index) {
-  circle.x = 0;
-  circle.y = 0;
-  circle.style.backgroundColor = colors[index % colors.length];
-});
-
-window.addEventListener("mousemove", function(e){
-  coords.x = e.clientX;
-  coords.y = e.clientY;
-  
-});
-
-function animateCircles() {
-  
-  let x = coords.x;
-  let y = coords.y;
-  
-  circles.forEach(function (circle, index) {
-    circle.style.left = x - 12 + "px";
-    circle.style.top = y - 12 + "px";
-    
-    circle.style.scale = (circles.length - index) / circles.length;
-    
-    circle.x = x;
-    circle.y = y;
-
-    const nextCircle = circles[index + 1] || circles[0];
-    x += (nextCircle.x - x) * 0.3;
-    y += (nextCircle.y - y) * 0.3;
-  });
- 
-  requestAnimationFrame(animateCircles);
-}
-
-animateCircles();
-
-  </script>
+</div>        
   <!-- chatbot -->
   <script> window.chtlConfig = { chatbotId: "2614686441" } </script>
   <script async data-id="2614686441" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script> 
-=======
-            </a>
-
-            <a href="#">
-                <div class="s-card" background>
-                    <img src="{{ url_for('static', filename='nlp.jpeg') }}" alt="NLP">
-                    <p>Natural Language Processing for Beginners</p>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='eda.jpg') }}" alt="Data Analysis">
-                    <p>User Satisfaction using EDA</p>
-                </div>
-            </a>
-
             <marquee style="background: linear-gradient(to right, rgb(5, 51, 90), rgb(5, 51, 90)); margin-top: 50px;"
                 direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="18">
                 <div class="marqu">All of us do not have equal talent. But, all of us have an equal opportunity to
@@ -1396,7 +1250,31 @@ animateCircles();
                 animateCircles();
 
             </script>
+<!-- Chatbot Icon and Functionality -->
+<div class="chat-icon-container">
+    <button class="chat-icon" onclick="toggleChatbot()">
+        <i class="fas fa-comment"></i>
+    </button>
+</div>
 
+<section class="msger" id="chatbotSidebar">
+    <div class="chat-icon-container">
+        <button class="chat-icon" onclick="redirectToChatbot()">
+            <i class="fas fa-comment"></i>
+        </button>
+    </div>
+</section>
+
+<script>
+    function redirectToChatbot() {
+        window.location.href = "/Chatbot";
+    }
+    function toggleChatbot() {
+        var chatbotSidebar = document.querySelector('.chatbot-sidebar');
+        chatbotSidebar.style.display = (chatbotSidebar.style.display === 'none' || chatbotSidebar.style.display === '') ? 'block' : 'none';
+    }
+</script>
+         
 </body>
 
 </html>
