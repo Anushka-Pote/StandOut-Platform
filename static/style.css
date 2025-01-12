@@ -140,7 +140,7 @@ section {
     background: #F8F8F8;
     width: 100%;
     }
-.rev-container {
+/* .rev-container {
  	padding: 10px 10%;
     display: flex;
     flex-wrap: wrap;
@@ -207,28 +207,29 @@ section {
             color: #2E3D49;
             line-height: 22px;
             text-align: justify;
-        }
-        body {
-            font-family: Arial, sans-serif;
-          }
-          
-          h1 {
-            text-align: center;
-          }
-          
-          .search-bar {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-          }
-          
-          select, button {
-            padding: 10px;
-          }
-          
-          #search-results {
-            margin-top: 20px;
-          }
+        } */
+
+body {
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+.search-bar {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+select, button {
+	padding: 10px;
+}
+
+#search-results {
+	margin-top: 20px;
+}
           
 .title2 {
 	position: relative;
