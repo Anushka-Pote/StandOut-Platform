@@ -449,119 +449,218 @@
                 padding: 10px;
             }
 
+            /* Pratik Footer Code Ended */
+
+
             footer {
-                color: #ffffff;
-                background: rgb(136, 132, 132);
+                color: #E5E8EF;
+                background: rgba(2, 51, 74, 0.867);
                 padding: 50px 0;
-                width: 1550px;
             }
-
-
-            .footer-content {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 2rem;
-                margin-bottom: 2rem;
-
-            }
-
-            .footer-section h3 {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-                color: #fff;
-                margin-left: 35px;
-            }
-
-            .footer-section h4 {
-                font-size: 1.2rem;
-                margin-bottom: 1rem;
-                color: #fff;
-                margin-left: 35px;
-            }
-
-            .footer-section p {
-                line-height: 1.8;
-                margin-bottom: 1rem;
-                letter-spacing: 0.2px;
-                color: #fff;
-                margin-left: 35px;
-            }
-
-            .footer-section ul {
-                list-style: none;
-                padding: 0;
-
-            }
-
-            .footer-section ul li {
-                margin-bottom: 0.8rem;
-                margin-left: 35px;
-            }
-
-            .footer-section ul li a {
-                color: #fff;
-                text-decoration: none;
-                transition: color 0.3s ease;
-            }
-
-            .footer-section ul li a:hover {
-                color: #E5A186;
-            }
-
-            .social-links {
+            
+            footer .footer-content {
                 display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 20px;
-                margin-top: -20px;
-                gap: 15px;
-                margin-left: 30px;
-                margin-top: -40px;
+                justify-content: space-between;
+                align-items: flex-start;
+                max-width: 1300px;
+                margin: auto;
+                padding: 0 20px;
+                flex-wrap: wrap;
             }
-
-            .social-links a {
-                color: #fff;
-                font-size: 1.5rem;
-                text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                transition: all 0.3s ease;
+            
+            footer .top-left {
+                flex: 1;
+                margin-bottom: 20px;
             }
-
-            .social-links a:hover {
-                color: #E5A186;
-                text-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            
+            footer .footer-logo {
+                width: 200px;
+                margin-bottom: 20px;
             }
-
-            .contact-info li {
+            
+            footer .social-links {
                 display: flex;
-                align-items: center;
-                transition: all 0.3s ease;
-                gap: 0.6rem;
+                gap: 26px;
+                margin-bottom: 20px;
             }
-
-            .contact-info li span {
-                margin-left: 0.3rem;
-                transition: all 0.3s ease;
+            
+            footer .social-icon {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
             }
-
-            .contact-info li span:hover {
-                color: #E5A186;
-            }
-
-            .footer-bottom {
+            
+            footer .top-right {
+                flex: 1;
                 text-align: center;
-                padding-top: 2rem;
-                border-top: 1px solid #fff;
-                font-size: 0.9rem;
+                margin-bottom: 20px;
             }
-
-            .footer-bottom p {
+            
+            footer .top-right h4 {
+                margin-bottom: 10px;
+                font-size: 30px;
+            }
+            
+            footer .top-right h4 + h4 {
+                margin-top: 5px;
+                font-size: 16px;
+                color: #E5E8EF;
+                margin: 25px 0;
+                text-align: left;
+            }
+            
+            footer .subscribe-form {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            
+            footer .subscribe-input {
+                flex: 1;
+                padding: 12px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                background: #fff;
+                color: #343A40;
+                min-width: 250px;
+            }
+            
+            footer .subscribe-button {
+                padding: 12px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                background: linear-gradient(to right, #1414dd, #450dc9);
                 color: #fff;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            
+            footer .subscribe-button:hover {
+                background: linear-gradient(to right, #1d24e5, #5a1fd1);
+            }
+            
+            footer .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-top: 40px;
+                max-width: 1300px;
+                margin: auto;
+                padding: 0 20px;
+                flex-wrap: wrap;
+            }
+            
+            footer .bottom-left,
+            footer .bottom-right {
+                flex: 1;
+                margin-bottom: 20px;
+            }
+            
+            footer .address-section {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                flex-direction: column;
+                text-align: left;
+            }
+            
+            footer .address-icon {
+                width: 150px;
+                height: auto;
+                margin-bottom: 10px;
+            }
+            
+            footer .contact-section {
+                margin-top: 20px;
+            }
+            
+            footer .contact-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            
+            footer .contact-icon {
+                width: 25px;
+                margin-right: 10px;
+            }
+            
+            footer .footer-bottom-text {
+                text-align: center;
+                margin-top: 20px;
+                font-size: 14px;
+            }
+            
+            footer .footer-bottom-text a {
+                color: red; 
+                text-decoration: none; 
+            }
+            
+            footer .footer-bottom-text a:hover {
+                color: darkred; 
+            }
+            
+            footer .heart {
+                color: red;
+            }
+            
+            @media (max-width: 992px) {
+                footer .footer-content {
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+            
+                footer .top-left, 
+                footer .top-right {
+                    margin-bottom: 20px;
+                }
+            
+                footer .footer-bottom {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            
+                footer .bottom-left, 
+                footer .bottom-right {
+                    flex: 1;
+                    margin-bottom: 20px;
+                }
+            
+                footer .subscribe-input {
+                    width: 100%;
+                }
+            
+                footer .subscribe-button {
+                    width: 100%;
+                }
+            }
+            
+            @media (max-width: 576px) {
+                footer .subscribe-form {
+                    flex-direction: column;
+                }
+            
+                footer .subscribe-input,
+                footer .subscribe-button {
+                    width: 100%;
+                }
+            
+                footer .address-section {
+                    align-items: center;
+                }
+            
+                footer .address-icon {
+                    width: 100px;
+                }
             }
 
-            .heart {
-                display: inline-block;
-                animation: beat 1s ease infinite;
-            }
+            /* Pratik Footer Code Ended */
+            
 
             @keyframes beat {
 
@@ -1098,56 +1197,60 @@
 
             <footer>
                 <div class="footer-content">
-                    <div class="footer-section">
-                        <h3>Stand-Out-Platform</h3>
-                        <p>Educating children through India's timeless wisdom and cultural heritage.</p>
+                    <!-- Top Left: Logo with Social Links -->
+                    <div class="top-left">
+                        <img src="static/cse.jpg" alt="Logo" class="footer-logo">
                         <div class="social-links">
-                            <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Facebook"><i
-                                    class="fab fa-facebook"></i></a>
-                            <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Twitter"><i
-                                    class="fab fa-twitter"></i></a>
-                            <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Instagram"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="YouTube"><i
-                                    class="fab fa-youtube"></i></a>
-                            <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Linkedin"><i
-                                    class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                                <img src="static/fb2.png" alt="Facebook" class="social-icon">
+                            </a>
+                            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                                <img src="static/tt.jpg" alt="Twitter" class="social-icon">
+                            </a>
+                            <a href="https://youtube.com" target="_blank" aria-label="Youtube">
+                                <img src="static/utube.png" alt="Instagram" class="social-icon">
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                                <img src="static/linkedin.png" alt="LinkedIn" class="social-icon">
+                            </a>
                         </div>
                     </div>
-
-                    <div class="footer-section">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="#hero">Home</a></li>
-                            <li><a href="#wisdom">About Us</a></li>
-                            <li><a href="#content">Our Courses</a></li>
-                            <li><a href="#hero">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-section">
-                        <h4>Learning Paths</h4>
-                        <ul>
-                            <!-- need to add respective page link -->
-                            <li><a href="countingpage.html">Counting</a></li>
-                            <li><a href="#hero">Days</a></li>
-                            <li><a href="#hero">Activities</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-section">
-                        <h4 style="margin-bottom: -20px;">Contact Us</h4>
-                        <ul class="contact-info" style="margin-top: -20px;">
-                            <li><i class="fas fa-envelope"></i><a href="mailto:info@StandOutPlatform.edu"
-                                    style="margin-left: -5px;">info@StandOutPlatform.edu</a></li>
-                            <li><i class="fas fa-map-marker-alt"></i><span>India</span></li>
-                        </ul>
+            
+                    <!-- Top Right: Subscribe Section -->
+                    <div class="top-right">
+                        <h4>Subscribe for Updates</h4>
+                        <h4>Enter Your Email to get our News and Updates</h4>
+                        <form class="subscribe-form">
+                            <input type="email" placeholder="Enter your email" class="subscribe-input">
+                            <button type="submit" class="subscribe-button">Submit</button>
+                        </form>
                     </div>
                 </div>
-
+            
                 <div class="footer-bottom">
-                    <p>&copy; 2024 StandOutPlatform. Made with <span class="heart">❤️</span> by <a
-                            href="https://github.com/Anushka-Pote" target="_blank">@Anushka</a></p>
+                    <div class="bottom-left">
+                        <div class="address-section">
+                            <img src="static/location.jpg" alt="Location Icon" class="address-icon">
+                            <p>123 Street Name, City, Country</p>
+                        </div>
+                    </div>
+            
+                    <div class="bottom-right">
+                        <div class="contact-section">
+                            <div class="contact-item">
+                                <img src="static/phone.png" alt="Phone" class="contact-icon">
+                                <p>+123 456 7890</p>
+                            </div>
+                            <div class="contact-item">
+                                <img src="static/mail.png" alt="Mail" class="contact-icon">
+                                <p>info@example.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="footer-bottom-text">
+                    <p>© 2024 StandOutPlatform. Made with <span class="heart">❤️</span> by <a href="https://github.com/Anushka-Pote" target="_blank">@Anushka</a></p>
                 </div>
             </footer>
             <div class="circle"></div>
