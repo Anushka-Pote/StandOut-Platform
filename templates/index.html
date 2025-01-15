@@ -990,100 +990,106 @@
         </div>
 
         <!--CLUSTERISATION TAGS-->
-        <div class="right-column" style="text-align: center; padding: 20px; border-radius: 10px; overflow: hidden; ">
-            <h2 style="font-size: 28px; color: #333;">Find Your Course Match</h2>
-
+        <div class="right-column" style="text-align: center; padding: 20px; border-radius: 10px; overflow: hidden;">
+            <h2 style="font-size: 28px; color: #004080; margin-bottom: 20px;">Find Your Course Match</h2>
+        
             {% if img_data %}
-            <h2 style="font-size: 32px; color: #333; margin-top: 30px;">Recommended Courses</h2>
-            <div style="max-width: 600px; margin: auto; overflow-x: auto;">
-                {{ recommended_courses_df.to_html()|safe }}
+            <h2 style="font-size: 24px; color: #004080; margin-bottom: 15px;">Recommended Courses</h2>
+            <div style="max-width: 90%; margin: auto; overflow-x: auto; border: 2px solid #ddd; border-radius: 10px; background-color: rgba(255, 255, 255, 0.9); padding: 15px;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 16px;">
+                    <thead>
+                        <tr style="background-color: #004080; color: white;">
+                            {% for column in recommended_courses_df.columns %}
+                            <th style="padding: 12px; border: 1px solid #ddd;">{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in recommended_courses_df.values %}
+                        <tr style="background-color: {% if loop.index0 % 2 == 0 %}#f9f9f9{% else %}#ffffff{% endif %};">
+                            {% for cell in row %}
+                            <td style="padding: 10px; border: 1px solid #ddd;">
+                                {% if cell is string and cell.startswith("http") %}
+                                <a href="{{ cell }}" target="_blank" style="color: #004080; text-decoration: none; font-weight: bold;">Visit Link</a>
+                                {% else %}
+                                {{ cell }}
+                                {% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
-
+        
             <!-- <h2 style="font-size: 24px; color: #333; margin-top: 20px;">Cluster Visualization</h2>
-                <img src="data:image/png;base64,{{ img_data }}" alt="Cluster Visualization" style="max-width: 100%; height: auto; margin-top: 10px;">
-            {% endif %}-->
+            <img src="data:image/png;base64,{{ img_data }}" alt="Cluster Visualization" style="max-width: 100%; height: auto; margin-top: 10px;">
+            {% endif %} -->
         </div>
+        
 
+        
     </section>
 
     <div class="toggle-login" onclick="redirectToLogin()">Login</div>
 
-    <script>
-        function redirectToLogin() {
-            window.location.href = "/login";
-        }
-    </script>
+<script>
+    function redirectToLogin() {
+        window.location.href = "/login";
+    }
+</script>
 
-
-
-    <div class="chat-icon-container">
-        <button class="chat-icon" onclick="toggleChatbot()">
-            <i class="fas fa-comment"></i>
-        </button>
+<div class="service-swipe">
+    <div class="diffSection" id="services_section" style="text-align: center;">
+        <p style="font-size: 50px; padding: 100px; padding-bottom: 40px; color: #fff;">Trending Courses</p>
     </div>
-
-    <section class="msger" id="chatbotSidebar">
-        <div class="chat-icon-container">
-            <button class="chat-icon" onclick="redirectToChatbot()">
-                <i class="fas fa-comment"></i>
-            </button>
+    
+    <a href="#">
+        <div class="s-card">
+            <img src="{{ url_for('static', filename='cse.jpg') }}" alt="Computer Courses">
+            <p>Computer Science with Python Programming</p>
         </div>
-        <script>
-            function redirectToChatbot() {
-                window.location.href = "/Chatbot";
-            }
-            function toggleChatbot() {
-                var chatbotSidebar = document.querySelector('.chatbot-sidebar');
-                chatbotSidebar.style.display = (chatbotSidebar.style.display === 'none' || chatbotSidebar.style.display === '') ? 'block' : 'none';
-            }
-        </script>
-        <div class="service-swipe">
-            <div class="diffSection" id="services_section" style="text-align: center;">
-                <p style="font-size: 50px; padding: 100px; padding-bottom: 40px; color: #fff;">Trending Courses</p>
-            </div>
-
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='cse.jpg') }}" alt="Computer Courses">
-                    <p>Computer Science with Python Programming</p>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='ai.jpg') }}" alt="AI Courses">
-                    <p>Foundational AI Principles</p>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='ds.jpeg') }}" alt="Data Science">
-                    <p>Advanced Data Science Techniques</p>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='iot.webp') }}" alt="Computer Networks">
-                    <p> Software Connectivity using Computer Networks</p>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="s-card" background>
-                    <img src="{{ url_for('static', filename='nlp.jpeg') }}" alt="NLP">
-                    <p>Natural Language Processing for Beginners</p>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='eda.jpg') }}" alt="Data Analysis">
-                    <p>User Satisfaction using EDA</p>
-                </div>
-            </a>
-
+    </a>
+    
+    <a href="#">
+        <div class="s-card">
+            <img src="{{ url_for('static', filename='ai.jpg') }}" alt="AI Courses">
+            <p>Foundational AI Principles</p>
+        </div>
+    </a>
+    
+    <a href="#">
+        <div class="s-card">
+            <img src="{{ url_for('static', filename='ds.jpeg') }}" alt="Data Science">
+            <p>Advanced Data Science Techniques</p>
+        </div>
+    </a>
+    
+    <a href="#">
+        <div class="s-card">
+            <img src="{{ url_for('static', filename='iot.webp') }}" alt="Computer Networks">
+            <p>Software Connectivity using Computer Networks</p>
+        </div>
+    </a>
+    
+    <a href="#">
+        <div class="s-card">
+            <img src="{{ url_for('static', filename='nlp.jpeg') }}" alt="NLP">
+            <p>Natural Language Processing for Beginners</p>
+        </div>
+    </a>
+    
+    <a href="#">
+        <div class="s-card">
+            <img src="{{ url_for('static', filename='eda.jpg') }}" alt="Data Analysis">
+            <p>User Satisfaction using EDA</p>
+        </div>
+    </a>
+</div>
+</div>        
+  <!-- chatbot -->
+  <script> window.chtlConfig = { chatbotId: "2614686441" } </script>
+  <script async data-id="2614686441" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script> 
             <marquee style="background: linear-gradient(to right, rgb(5, 51, 90), rgb(5, 51, 90)); margin-top: 50px;"
                 direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="18">
                 <div class="marqu">All of us do not have equal talent. But, all of us have an equal opportunity to
@@ -1244,6 +1250,31 @@
                 animateCircles();
 
             </script>
+<!-- Chatbot Icon and Functionality -->
+<div class="chat-icon-container">
+    <button class="chat-icon" onclick="toggleChatbot()">
+        <i class="fas fa-comment"></i>
+    </button>
+</div>
+
+<section class="msger" id="chatbotSidebar">
+    <div class="chat-icon-container">
+        <button class="chat-icon" onclick="redirectToChatbot()">
+            <i class="fas fa-comment"></i>
+        </button>
+    </div>
+</section>
+
+<script>
+    function redirectToChatbot() {
+        window.location.href = "/Chatbot";
+    }
+    function toggleChatbot() {
+        var chatbotSidebar = document.querySelector('.chatbot-sidebar');
+        chatbotSidebar.style.display = (chatbotSidebar.style.display === 'none' || chatbotSidebar.style.display === '') ? 'block' : 'none';
+    }
+</script>
+         
 </body>
 
 </html>
