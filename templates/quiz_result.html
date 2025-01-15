@@ -53,7 +53,7 @@
             }
 
             header {
-                background-image: url('{{ url_for("static", filename="back.jpg") }}');
+                /* background-image: url('{{ url_for("static", filename="back.jpg") }}'); */
                 background-color: #333;
                 color: #20056e;
                 text-align: center;
@@ -133,6 +133,134 @@
         .no-quiz-data {
             color: #dc3545; /* Red no quiz data text color */
         }
+        .marqu {
+            text-align: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        footer {
+            background-color: rgba(2, 51, 74, 0.867);;
+            padding: 50px 0;
+            width: 1550px;
+            margin-top: -10px;
+        }
+
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+
+            }
+
+        .footer-section h3 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                color: #fff;
+                margin-left: 35px;
+        }
+
+        .footer-section h4 {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                color: #fff;
+                margin-left: 35px;
+        }
+
+        .footer-section p {
+                line-height: 1.8;
+                margin-bottom: 1rem;
+                letter-spacing: 0.2px;
+                color: #fff;
+                margin-left: 35px;
+        }
+
+        .footer-section ul {
+                list-style: none;
+                padding: 0;
+
+        }
+
+        .footer-section ul li {
+                margin-bottom: 0.8rem;
+                margin-left: 35px;
+        }
+
+        .footer-section ul li a {
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+                color: #E5A186;
+            
+        }
+
+        .social-links {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 20px;
+                margin-top: -20px;
+                gap: 15px;
+                margin-left: 30px;
+                margin-top: -40px;
+        }
+
+        .social-links a {
+                color: #fff;
+                font-size: 1.5rem;
+                text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .social-links a:hover {
+                color: #E5A186;
+                text-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            }
+            
+            .contact-info li {
+                display: flex;
+                align-items: center;
+                transition: all 0.3s ease;
+                gap: 0.6rem;
+            }
+
+            .contact-info li span {
+                margin-left: 0.3rem;
+                transition: all 0.3s ease;
+            }
+
+            .contact-info li span:hover {
+                color: #E5A186;
+            }
+            .footer-bottom {
+                text-align: center;
+                padding-top: 2rem;
+                border-top: 1px solid #fff;
+                font-size: 0.9rem;
+            }
+
+            .footer-bottom p {
+                color: #fff;
+            }
+
+      
+        strong {
+            font-weight: bold;
+        }
+        .heart {
+                display: inline-block;
+                animation: beat 1s ease infinite;
+            }
+
+       
+
         @media (max-width: 480px) {
                 body {
                     width: 100%;
@@ -213,7 +341,63 @@
                     padding: 0px;
                 }
 
+                .main-footer {
+                    padding: 3rem 3%;
+                }
 
+                .footer-section h3 {
+                    font-size: 1.6rem;
+                }
+
+                .footer-section h4 {
+                    font-size: 0.9rem;
+                }
+
+                .footer-section ul li a {
+                    font-size: 0.9rem;
+                }
+
+                .social-links a {
+                    font-size: 1.2rem;
+                }
+
+                .footer-bottom {
+                    font-size: 0.8rem;
+                }
+                .footer-content {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    /* Make all footer sections stack vertically */
+                    gap: 1rem;
+                }
+                .footer-section {
+                    text-align: center;
+                }
+
+                /* Centering the contact info list items */
+                .contact-info li {
+                    justify-content: center;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 1rem;
+                }
+
+                .contact-info li span {
+                    margin-left: 0rem;
+                }
+                marquee {
+                    font-size: 16px;
+                    padding: 10px;
+                }
+                .footer-section ul {
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .footer-bottom {
+                    padding-top: 20px;
+                    text-align: center;
+                }
 
                 .menu-toggle {
                     display: block;
@@ -222,6 +406,7 @@
                 #mobile-nav a {
                     padding: 15px 20px;
                 }
+                
             }
     
             .menu-toggle {
@@ -236,94 +421,51 @@
                 margin-top: 20px;
                 text-align: center;
             }
-           
-            @media (max-width: 480px) {
-                body {
-                    width: 100%;
-                    height: 100%;
-
+            @media (max-width: 1024px) {
+                .footer-content {
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                 }
 
-                body>header {
-                    width: 100%;
-                    height: 100%;
-                    background-image: url('{{ url_for("static", filename="back.jpg") }}');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    margin: 0px;
-                    padding: 0px;
-                    font-family: Arial, sans-serif;
+                .footer-section ul li {
+                    margin-bottom: 0.6rem;
                 }
 
-                header {
-                    position: relative;
-                    width: 100%;
-                    background-color: #1414dd;
-                    padding: 0px;
-                }
-
-                header h1 {
-                    font-size: 30px;
-                }
-
-                .menu-toggle {
-                    background-color: #333;
-                    color: #fff;
-                    padding: 10px;
-                    cursor: pointer;
-                    border: none;
-                    font-size: 18px;
-                }
-
-                #mobile-nav {
-                    display: none;
-                    position: absolute;
-                    top: 60px;
-                    width: 100%;
-                    left: 0;
-                    background-color: #333;
-                    text-align: center;
-                    z-index: 10;
-                }
-
-                #mobile-nav.active {
-                    display: block;
-                }
-
-                #mobile-nav a {
-                    display: block;
-                    margin: 10px 0;
-                    padding: 12px;
-                }
-
-                nav {
-                    position: relative;
-                }
-
-                nav a {
-                    display: block;
-                    margin: 10px 0;
-                    padding: 12px 20px;
-                    text-align: center;
-                }
-
-               
-                header {
-                    position: relative;
-                    width: 100%;
-                    background-color: #1414dd;
-                    padding: 0px;
-                }
-
-                .menu-toggle {
-                    display: block;
-                }
-
-                #mobile-nav a {
-                    padding: 15px 20px;
+                .social-links a {
+                    font-size: 1.4rem;
                 }
             }
+            @media (max-width: 768px) {
+                .footer-content {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+
+                .footer-section {
+                    text-align: center;
+                }
+
+                .social-links {
+                    justify-content: center;
+                }
+
+                .contact-info li {
+                    justify-content: center;
+                }
+
+                .contact-info li span {
+                    margin-left: 0rem;
+                }
+
+                .footer-section h3 {
+                    font-size: 1.8rem;
+                }
+
+                .footer-section h4 {
+                    font-size: 1rem;
+                }
+            }
+                   
+          
         </style>
     </header>
 
@@ -366,6 +508,68 @@
     {% else %}
         <p class="no-quiz-data">No quiz data available.</p>
     {% endif %}
+    </form>
+
+    <marquee style="background: linear-gradient(to right, rgb(5, 51, 90), rgb(5, 51, 90)); margin-top: 50px;"
+    direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="18">
+    <div class="marqu">All of us do not have equal talent. But, all of us have an equal opportunity to
+        develop our talents</div>
+  </marquee>
+  
+  <footer>
+      <div class="footer-content">
+          <div class="footer-section">
+              <h3>Stand-Out-Platform</h3>
+              <p>Educating children through India's timeless wisdom and cultural heritage.</p>
+              <div class="social-links">
+                  <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Facebook"><i
+                          class="fab fa-facebook"></i></a>
+                  <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Twitter"><i
+                          class="fab fa-twitter"></i></a>
+                  <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Instagram"><i
+                          class="fab fa-instagram"></i></a>
+                  <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="YouTube"><i
+                          class="fab fa-youtube"></i></a>
+                  <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Linkedin"><i
+                          class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+          </div>
+
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#wisdom">About Us</a></li>
+                <li><a href="#content">Our Courses</a></li>
+                <li><a href="#hero">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Learning Paths</h4>
+            <ul>
+                <!-- need to add respective page link -->
+                <li><a href="countingpage.html">Counting</a></li>
+                <li><a href="#hero">Days</a></li>
+                <li><a href="#hero">Activities</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4 style="margin-bottom: -20px;">Contact Us</h4>
+            <ul class="contact-info" style="margin-top: -20px;">
+                <li><i class="fas fa-envelope"></i><a href="mailto:info@StandOutPlatform.edu"
+                        style="margin-left: -5px;">info@StandOutPlatform.edu</a></li>
+                <li><i class="fas fa-map-marker-alt"></i><span>India</span></li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 StandOutPlatform. Made with <span class="heart">❤️</span> by <a
+                href="https://github.com/Anushka-Pote" target="_blank">@Anushka</a></p>
+    </div>
 
     <div class="circle"></div>
     <div class="circle"></div>
