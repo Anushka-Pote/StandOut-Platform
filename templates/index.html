@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <script>
 
         // Handle the navbar scroll effect
@@ -449,218 +450,6 @@
                 padding: 10px;
             }
 
-            /* Pratik Footer Code Ended */
-
-
-            footer {
-                color: #E5E8EF;
-                background: rgba(2, 51, 74, 0.867);
-                padding: 50px 0;
-            }
-            
-            footer .footer-content {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                max-width: 1300px;
-                margin: auto;
-                padding: 0 20px;
-                flex-wrap: wrap;
-            }
-            
-            footer .top-left {
-                flex: 1;
-                margin-bottom: 20px;
-            }
-            
-            footer .footer-logo {
-                width: 200px;
-                margin-bottom: 20px;
-            }
-            
-            footer .social-links {
-                display: flex;
-                gap: 26px;
-                margin-bottom: 20px;
-            }
-            
-            footer .social-icon {
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-            }
-            
-            footer .top-right {
-                flex: 1;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            
-            footer .top-right h4 {
-                margin-bottom: 10px;
-                font-size: 30px;
-            }
-            
-            footer .top-right h4 + h4 {
-                margin-top: 5px;
-                font-size: 16px;
-                color: #E5E8EF;
-                margin: 25px 0;
-                text-align: left;
-            }
-            
-            footer .subscribe-form {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 10px;
-                flex-wrap: wrap;
-            }
-            
-            footer .subscribe-input {
-                flex: 1;
-                padding: 12px;
-                font-size: 16px;
-                border: none;
-                border-radius: 5px;
-                background: #fff;
-                color: #343A40;
-                min-width: 250px;
-            }
-            
-            footer .subscribe-button {
-                padding: 12px 20px;
-                font-size: 16px;
-                border: none;
-                border-radius: 5px;
-                background: linear-gradient(to right, #1414dd, #450dc9);
-                color: #fff;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-            
-            footer .subscribe-button:hover {
-                background: linear-gradient(to right, #1d24e5, #5a1fd1);
-            }
-            
-            footer .footer-bottom {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin-top: 40px;
-                max-width: 1300px;
-                margin: auto;
-                padding: 0 20px;
-                flex-wrap: wrap;
-            }
-            
-            footer .bottom-left,
-            footer .bottom-right {
-                flex: 1;
-                margin-bottom: 20px;
-            }
-            
-            footer .address-section {
-                display: flex;
-                align-items: flex-start;
-                gap: 10px;
-                flex-direction: column;
-                text-align: left;
-            }
-            
-            footer .address-icon {
-                width: 150px;
-                height: auto;
-                margin-bottom: 10px;
-            }
-            
-            footer .contact-section {
-                margin-top: 20px;
-            }
-            
-            footer .contact-item {
-                display: flex;
-                align-items: center;
-                margin-bottom: 10px;
-            }
-            
-            footer .contact-icon {
-                width: 25px;
-                margin-right: 10px;
-            }
-            
-            footer .footer-bottom-text {
-                text-align: center;
-                margin-top: 20px;
-                font-size: 14px;
-            }
-            
-            footer .footer-bottom-text a {
-                color: red; 
-                text-decoration: none; 
-            }
-            
-            footer .footer-bottom-text a:hover {
-                color: darkred; 
-            }
-            
-            footer .heart {
-                color: red;
-            }
-            
-            @media (max-width: 992px) {
-                footer .footer-content {
-                    flex-direction: column;
-                    align-items: center;
-                    text-align: center;
-                }
-            
-                footer .top-left, 
-                footer .top-right {
-                    margin-bottom: 20px;
-                }
-            
-                footer .footer-bottom {
-                    flex-direction: column;
-                    text-align: center;
-                }
-            
-                footer .bottom-left, 
-                footer .bottom-right {
-                    flex: 1;
-                    margin-bottom: 20px;
-                }
-            
-                footer .subscribe-input {
-                    width: 100%;
-                }
-            
-                footer .subscribe-button {
-                    width: 100%;
-                }
-            }
-            
-            @media (max-width: 576px) {
-                footer .subscribe-form {
-                    flex-direction: column;
-                }
-            
-                footer .subscribe-input,
-                footer .subscribe-button {
-                    width: 100%;
-                }
-            
-                footer .address-section {
-                    align-items: center;
-                }
-            
-                footer .address-icon {
-                    width: 100px;
-                }
-            }
-
-            /* Pratik Footer Code Ended */
-            
 
             @keyframes beat {
 
@@ -1132,13 +921,8 @@
 
     <div class="toggle-login" onclick="redirectToLogin()">Login</div>
 
-<script>
-    function redirectToLogin() {
-        window.location.href = "/login";
-    }
-</script>
-
-<div class="service-swipe">
+    
+    <div class="service-swipe">
     <div class="diffSection" id="services_section" style="text-align: center;">
         <p style="font-size: 50px; padding: 100px; padding-bottom: 40px; color: #fff;">Trending Courses</p>
     </div>
@@ -1186,173 +970,54 @@
     </a>
 </div>
 </div>        
-  <!-- chatbot -->
-  <script> window.chtlConfig = { chatbotId: "2614686441" } </script>
-  <script async data-id="2614686441" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script> 
-            <marquee style="background: linear-gradient(to right, rgb(5, 51, 90), rgb(5, 51, 90)); margin-top: 50px;"
-                direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="18">
-                <div class="marqu">All of us do not have equal talent. But, all of us have an equal opportunity to
-                    develop our talents</div>
-            </marquee>
+<!-- chatbot -->
+<script> window.chtlConfig = { chatbotId: "2614686441" } </script>
+<script async data-id="2614686441" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script> 
+<marquee style="background: linear-gradient(to right, rgb(5, 51, 90), rgb(5, 51, 90)); margin-top: 50px;"
+direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="18">
+<div class="marqu">All of us do not have equal talent. But, all of us have an equal opportunity to
+    develop our talents</div>
+</marquee>
 
-            <footer>
-                <div class="footer-content">
-                    <!-- Top Left: Logo with Social Links -->
-                    <div class="top-left">
-                        <img src="static/cse.jpg" alt="Logo" class="footer-logo">
-                        <div class="social-links">
-                            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-                                <img src="static/fb2.png" alt="Facebook" class="social-icon">
-                            </a>
-                            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                                <img src="static/tt.jpg" alt="Twitter" class="social-icon">
-                            </a>
-                            <a href="https://youtube.com" target="_blank" aria-label="Youtube">
-                                <img src="static/utube.png" alt="Instagram" class="social-icon">
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-                                <img src="static/linkedin.png" alt="LinkedIn" class="social-icon">
-                            </a>
-                        </div>
-                    </div>
-            
-                    <!-- Top Right: Subscribe Section -->
-                    <div class="top-right">
-                        <h4>Subscribe for Updates</h4>
-                        <h4>Enter Your Email to get our News and Updates</h4>
-                        <form class="subscribe-form">
-                            <input type="email" placeholder="Enter your email" class="subscribe-input">
-                            <button type="submit" class="subscribe-button">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            
-                <div class="footer-bottom">
-                    <div class="bottom-left">
-                        <div class="address-section">
-                            <img src="static/location.jpg" alt="Location Icon" class="address-icon">
-                            <p>123 Street Name, City, Country</p>
-                        </div>
-                    </div>
-            
-                    <div class="bottom-right">
-                        <div class="contact-section">
-                            <div class="contact-item">
-                                <img src="static/phone.png" alt="Phone" class="contact-icon">
-                                <p>+123 456 7890</p>
-                            </div>
-                            <div class="contact-item">
-                                <img src="static/mail.png" alt="Mail" class="contact-icon">
-                                <p>info@example.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="footer-bottom-text">
-                    <p>© 2024 StandOutPlatform. Made with <span class="heart">❤️</span> by <a href="https://github.com/Anushka-Pote" target="_blank">@Anushka</a></p>
-                </div>
-            </footer>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <style>
-                .circle {
-                    height: 24px;
-                    width: 24px;
-                    border-radius: 24px;
-                    background-color: black;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    pointer-events: none;
-                    z-index: 99999999;
-                    /* so that it stays on top of all other elements */
-                }
-            </style>
-            <script>
-                const coords = { x: 0, y: 0 };
-                const circles = document.querySelectorAll(".circle");
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
 
-                const colors = [
-                    "#ffb56b",
-                    "#fdaf69",
-                    "#f89d63",
-                    "#f59761",
-                    "#ef865e",
-                    "#ec805d",
-                    "#e36e5c",
-                    "#df685c",
-                    "#d5585c",
-                    "#d1525c",
-                    "#c5415d",
-                    "#c03b5d",
-                    "#b22c5e",
-                    "#ac265e",
-                    "#9c155f",
-                    "#950f5f",
-                    "#830060",
-                    "#7c0060",
-                    "#680060",
-                    "#60005f",
-                    "#48005f",
-                    "#3d005e"
-                ];
+<style>
+    .circle {
+        height: 24px;
+        width: 24px;
+        border-radius: 24px;
+        background-color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 99999999;
+        /* so that it stays on top of all other elements */
+    }
+</style>
 
-                circles.forEach(function (circle, index) {
-                    circle.x = 0;
-                    circle.y = 0;
-                    circle.style.backgroundColor = colors[index % colors.length];
-                });
+<!-- Include Footer -->
+{% include "footer.html" %}   
 
-                window.addEventListener("mousemove", function (e) {
-                    coords.x = e.clientX;
-                    coords.y = e.clientY;
-
-                });
-
-                function animateCircles() {
-
-                    let x = coords.x;
-                    let y = coords.y;
-
-                    circles.forEach(function (circle, index) {
-                        circle.style.left = x - 12 + "px";
-                        circle.style.top = y - 12 + "px";
-
-                        circle.style.scale = (circles.length - index) / circles.length;
-
-                        circle.x = x;
-                        circle.y = y;
-
-                        const nextCircle = circles[index + 1] || circles[0];
-                        x += (nextCircle.x - x) * 0.3;
-                        y += (nextCircle.y - y) * 0.3;
-                    });
-
-                    requestAnimationFrame(animateCircles);
-                }
-
-                animateCircles();
-
-            </script>
 <!-- Chatbot Icon and Functionality -->
 <div class="chat-icon-container">
     <button class="chat-icon" onclick="toggleChatbot()">
@@ -1367,6 +1032,73 @@
         </button>
     </div>
 </section>
+        
+<script>
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+    
+    const colors = [
+        "#ffb56b",
+        "#fdaf69",
+        "#f89d63",
+        "#f59761",
+        "#ef865e",
+        "#ec805d",
+        "#e36e5c",
+        "#df685c",
+        "#d5585c",
+        "#d1525c",
+        "#c5415d",
+        "#c03b5d",
+        "#b22c5e",
+        "#ac265e",
+        "#9c155f",
+        "#950f5f",
+        "#830060",
+        "#7c0060",
+        "#680060",
+        "#60005f",
+        "#48005f",
+        "#3d005e"
+        ];
+        
+        circles.forEach(function (circle, index) {
+            circle.x = 0;
+            circle.y = 0;
+            circle.style.backgroundColor = colors[index % colors.length];
+        });
+        
+        window.addEventListener("mousemove", function (e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+            
+        });
+        
+        function animateCircles() {
+            
+            let x = coords.x;
+            let y = coords.y;
+            
+            circles.forEach(function (circle, index) {
+                circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
+
+                circle.style.scale = (circles.length - index) / circles.length;
+                
+                circle.x = x;
+                circle.y = y;
+                
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.3;
+                y += (nextCircle.y - y) * 0.3;
+            });
+            
+            requestAnimationFrame(animateCircles);
+        }
+        
+        animateCircles();
+        
+</script>
 
 <script>
     function redirectToChatbot() {
@@ -1377,7 +1109,7 @@
         chatbotSidebar.style.display = (chatbotSidebar.style.display === 'none' || chatbotSidebar.style.display === '') ? 'block' : 'none';
     }
 </script>
-         
+
 </body>
 
 </html>

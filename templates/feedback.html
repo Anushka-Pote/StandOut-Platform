@@ -401,91 +401,6 @@
                 padding: 10px;
             }
 
-            footer {
-                color: #E5E8EF;
-                background: rgba(2, 51, 74, 0.867);
-                padding: 50px 0;
-            }
-
-            footer .footer-container {
-                max-width: 1300px;
-                margin: auto;
-                padding: 0 20px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap-reverse;
-            }
-
-            footer .social-media img {
-                width: 22px;
-            }
-
-            footer .logo {
-                width: 180px;
-                color: #fff;
-            }
-
-            footer .social-media a {
-                margin-right: 10px;
-                font-size: 22px;
-                text-decoration: none;
-            }
-
-            footer .right-col h1 {
-                font-size: 26px;
-            }
-
-            footer .border {
-                width: 100px;
-                height: 4px;
-                background: linear-gradient(to right, #1414dd, #2856ab);
-                margin: 2px;
-            }
-
-            footer .newsletter-form {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-wrap: wrap;
-            }
-
-            footer input::placeholder {
-                color: white !important;
-            }
-
-            footer .txtb {
-                flex: 1;
-                padding: 18px 40px;
-                font-size: 16px;
-                background: #343A40;
-                border: none;
-                font-weight: 700;
-                outline: none;
-                border-radius: 5px;
-                min-width: 260px;
-                margin-top: 20px;
-                color: white;
-            }
-
-            footer .btn {
-                margin-top: 20px;
-                padding: 18px 40px;
-                font-size: 16px;
-                color: #f1f1f1;
-                background: linear-gradient(to right, #171adb, #450dc9);
-                border: none;
-                font-weight: 700;
-                outline: none;
-                border-radius: 5px;
-                margin-left: 20px;
-                cursor: pointer;
-                transition: opacity .3s linear;
-            }
-
-            footer .btn:hover {
-                opacity: .7;
-            }
 
             @media (max-width: 480px) {
                 body {
@@ -645,6 +560,10 @@
             </form>
         </div>
     </div>
+
+    <!-- Include Footer -->
+{% include "footer.html" %} 
+
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>

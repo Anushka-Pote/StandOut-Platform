@@ -86,7 +86,7 @@
                 background-color: royalblue;
             }
 
-            form {
+            .quiz-form {
             background-color: #cce8f6 ;/* White background color */
             padding: 20px;
             border-radius: 8px;
@@ -382,7 +382,7 @@
     </nav>
    
     <h1>Welcome to the Programming Quiz</h1>
-    <form action="/submit_quiz" method="post">
+    <form class="quiz-form" action="/submit_quiz" method="post">
         {% for question_data in questions %}
             {% set idx = loop.index %}
             <fieldset>
@@ -413,6 +413,10 @@
             {% endfor %}
         </ul>
     {% endif %}
+
+<!-- Include Footer -->
+{% include "footer.html" %} 
+
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
