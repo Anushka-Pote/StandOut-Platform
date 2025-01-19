@@ -1,0 +1,4 @@
+myenv/
+venv/
+app.log
+__pycache__/

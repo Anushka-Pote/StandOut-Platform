@@ -18,7 +18,7 @@
 
 		.form-box {
 			width: 380px;
-			height: 100%;
+			height: auto;
 			position: relative;
 			margin: 6% auto;
 			background: #fff8;
@@ -68,16 +68,29 @@
 		}
 
 		.input-group {
-			top: 180px;
 			position: absolute;
 			width: 280px;
-			transition: .5s;
+			height: auto;
+			transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 			font-size: 13px;
 			color: #010101;
+			opacity: 0;
+			transform: translateX(100%);
+		}
+
+		.input-group.active {
+
+			opacity: 1;
+			transform: translateX(-240%);
+			z-index: 1;
+		}
+
+		#login {
+			transform: translateX(-100%);
 		}
 
 		.inp {
-			border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+			/* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
 			justify-content: center;
 		}
 
@@ -86,18 +99,27 @@
 			padding-right: 10px;
 		}
 
-		.input-field {
-			width: 100%;
-			padding: 10px 0;
-			margin: 5px 0;
-			border-left: 0;
-			border-right: 0;
-			border-top: 0;
-			border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-			outline: none;
-			background: transparent;
-			color: rgba(0, 0, 0);
+		.input-group {
+			margin-left: 280px;
+			top: 180px;
+			position: absolute;
+			width: 280px;
+			transition: .5s;
+			font-size: 13px;
+			color: #010101;
 		}
+		.input-field {
+				width: 100%;
+				padding: 10px 0;
+				margin: 5px 0;
+				border-left: 0;
+				border-right: 0;
+				border-top: 0;
+				/* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
+				outline: none;
+				background: transparent;
+				color: rgba(0, 0, 0);
+			}
 
 		#register .input-field {
 			color: rgba(0, 0, 0, 0.8);
@@ -172,7 +194,7 @@
 		.other {
 			display: grid;
 			justify-content: center;
-			margin-top: 250px;
+			margin-top: 320px;
 		}
 
 		.connect {
@@ -217,12 +239,11 @@
 			.form-box {
 				width: 300px;
 				height: 100%;
-				position: relative;
+				position: absolute;
 				margin: 4% auto;
 				background: #fff8;
 				padding: 5px;
 				border-radius: 5px;
-				overflow: hidden;
 				box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.4);
 			}
 
@@ -276,7 +297,7 @@
 			}
 
 			.inp {
-				border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+				/* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
 				justify-content: center;
 			}
 
@@ -292,7 +313,7 @@
 				border-left: 0;
 				border-right: 0;
 				border-top: 0;
-				border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+				/* border-bottom: 1px solid rgba(0, 0, 0, 0.4); */
 				outline: none;
 				background: transparent;
 				color: rgba(0, 0, 0);
@@ -396,6 +417,7 @@
 				width: 25px;
 			}
 
+
 			.connect span {
 				padding: 10px;
 				font-size: 15px;
@@ -408,8 +430,8 @@
 	<div class="form-box">
 		<div class="button-box">
 			<div id="btn"></div>
-			<button type="button" class="toggle-btn" id="log" style="color: #fff;">Log In</button>
-			<button type="button" class="toggle-btn" id="reg">Register</button>
+			<button type="button" class="toggle-btn" id="log" style="color: #fff;" onclick="showLogin()">Log In</button>
+			<button type="button" class="toggle-btn" id="reg" onclick="showRegister()">Register</button>
 		</div>
 
 		<div class="social-icons">
@@ -420,44 +442,146 @@
 		</div>
 
 		<!-- Login Form -->
-		<form id="login" class="input-group" action="index.html">
+		<form id="login" class="input-group active" onsubmit="return validateLoginForm(event)">
 			<div class="inp">
-				<img src="{{ url_for('static', filename='user.png') }}" alt="User Image"><input type="text" id="email"
-					class="input-field" placeholder="Username or Phone Number" style="width: 88%; border:none;"
-					required="required">
+				<img src="{{ url_for('static', filename='user.png') }}" alt="User Image">
+				<input type="text" id="loginEmail" class="input-field" placeholder="Username or Phone Number"
+					style="width: 88%; border:none;" required="required">
 			</div>
 			<div class="inp">
-				<img src="{{ url_for('static', filename='password.png') }}" alt="Password Image"><input type="password"
-					id="password" class="input-field" placeholder="Password" style="width: 88%; border: none;"
-					required="required">
+				<img src="{{ url_for('static', filename='password.png') }}" alt="Password Image">
+				<input type="password" id="loginPassword" class="input-field" placeholder="Password"
+					style="width: 88%; border: none;" required="required">
 			</div>
 			<input type="checkbox" class="check-box">Remember Password
 			<button type="submit" class="submit-btn">Log In</button>
 		</form>
 
+
+		<!-- Registration Form -->
+		<form id="register" class="input-group" onsubmit="return validateRegistrationForm(event)">
+			<div class="inp">
+				<img src="{{ url_for('static', filename='user.png') }}" alt="User Image">
+				<input type="text" id="registerName" class="input-field" placeholder="Full Name" style="width: 88%;"
+					required>
+			</div>
+			<div class="inp">
+				<img src="{{ url_for('static', filename='email.png') }}" alt="Email Image">
+				<input type="email" id="registerEmail" class="input-field" placeholder="Email" style="width: 88%;"
+					required>
+			</div>
+			<div class="inp">
+				<img src="{{ url_for('static', filename='password.png') }}" alt="Password Image">
+				<input type="password" id="registerPassword" class="input-field" placeholder="Password"
+					style="width: 88%;" required>
+			</div>
+			<div class="inp">
+				<img src="{{ url_for('static', filename='password.png') }}" alt="Password Image">
+				<input type="password" id="confirmPassword" class="input-field" placeholder="Confirm Password"
+					style="width: 88%;" required>
+			</div>
+			<input type="checkbox" class="check-box" id="chkAgree">I agree to the Terms & Conditions
+			<button type="submit" id="btnSubmit" class="submit-btn">Register</button>
+		</form>
 		<div class="other" id="other">
 			<div class="instead">
 				<h3>or</h3>
 			</div>
 			<button class="connect">
-				<img src="{{ url_for('static', filename='google.png') }}" alt="Google Image"><span>Sign in with
-					Google</span>
+				<img src="{{ url_for('static', filename='google.png') }}" alt="Google Image">
+				<span>Sign in with Google</span>
 			</button>
 		</div>
-
-		<!-- Registration Form -->
-		<form id="register" class="input-group">
-			<input type="text" class="input-field" placeholder="Full Name" required="required">
-			<input type="email" class="input-field" placeholder="Email Address" required="required">
-			<input type="password" class="input-field" placeholder="Create Password" name="psame" required="required">
-			<input type="password" class="input-field" placeholder="Confirm Password" name="psame" required="required">
-			<input type="checkbox" class="check-box" id="chkAgree">I agree to the Terms & Conditions
-			<button type="submit" id="btnSubmit" class="submit-btn reg-btn">Register</button>
-		</form>
 	</div>
 	<div class="circle"></div>
 	<!-- More Circles ... -->
 	<script>
+		function showLogin() {
+			document.getElementById("login").classList.add("active");
+			document.getElementById("register").classList.remove("active");
+			document.getElementById('btn').style.left = '0px';
+		}
+
+		function showRegister() {
+			document.getElementById("register").classList.add("active");
+			document.getElementById("login").classList.remove("active");
+			document.getElementById('btn').style.left = '110px';
+		}
+
+		// Validate Login Form
+		function validateLoginForm(event) {
+			event.preventDefault();
+
+			const email = document.getElementById("loginEmail").value.trim();
+			const password = document.getElementById("loginPassword").value;
+
+			// Validate Email/Username
+			if (email === "") {
+				alert("Please enter your username or phone number.");
+				return false;
+			}
+
+			// Validate Password
+			if (password === "") {
+				alert("Please enter your password.");
+				return false;
+			}
+
+			// Form is valid
+			alert("Login successful!");
+			return true;
+		}
+
+		// Validate Registration Form
+		function validateRegistrationForm(event) {
+			event.preventDefault();
+
+			const fullName = document.getElementById("fullName").value.trim();
+			const email = document.getElementById("registerEmail").value.trim();
+			const password = document.getElementById("registerPassword").value;
+			const confirmPassword = document.getElementById("confirmPassword").value;
+			const chkAgree = document.getElementById("chkAgree");
+
+			// Validate Full Name
+			if (!fullName || fullName.split(" ").length < 2) {
+				alert("Please enter your full name (at least two words).");
+				return false;
+			}
+
+			// Validate Email
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(email)) {
+				alert("Please enter a valid email address.");
+				return false;
+			}
+
+			// Validate Password
+			if (password.length < 8) {
+				alert("Password must be at least 8 characters long.");
+				return false;
+			}
+			const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+			if (!passwordRegex.test(password)) {
+				alert("Password must contain at least one letter and one number.");
+				return false;
+			}
+
+			// Validate Confirm Password
+			if (password !== confirmPassword) {
+				alert("Passwords do not match.");
+				return false;
+			}
+
+			// Validate Terms and Conditions
+			if (!chkAgree.checked) {
+				alert("You must agree to the Terms & Conditions.");
+				return false;
+			}
+
+			// Form is valid
+			alert("Registration successful!");
+			return true;
+		}
 		const coords = { x: 0, y: 0 };
 		const circles = document.querySelectorAll(".circle");
 
