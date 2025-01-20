@@ -1,6 +1,6 @@
 # app.py
 
-from flask import Flask, render_template, request, redirect, Response
+from flask import Flask, render_template, request, redirect, Response, url_for
 from sqlalchemy.orm import declarative_base
 import pandas as pd
 from sklearn.cluster import KMeans
