@@ -1,0 +1,7 @@
+2025-01-19 23:22:48,955 - INFO - Response for [Reading CSV file] - Data loaded successfully from Ai&DS.csv
+2025-01-19 23:22:57,090 - INFO - Response for [Reading CSV file] - Data loaded successfully from Ai&DS.csv
+2025-01-19 23:23:03,825 - INFO - Request for [browse] - Request for browse page received.
+2025-01-19 23:23:20,316 - INFO - Request for [feedback] - Request for feedback page received.
+2025-01-19 23:23:28,400 - INFO - Request for [community] - Request for community page received.
+2025-01-19 23:23:33,073 - INFO - Request for [news] - Request for news page received.
+2025-01-19 23:23:37,747 - INFO - Request for [open_website] - Request to redirect to external website received.
