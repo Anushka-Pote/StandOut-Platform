@@ -207,8 +207,7 @@
             .main-rev-container {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-between;
-                gap: 20px; 
+                gap: 40px 20px; 
                 padding: 20px;
                 box-sizing: border-box;
             }
@@ -331,6 +330,19 @@
                 display: flex;
                 justify-content: center;
                 margin-top: 20px;
+            }
+
+            .search-container {
+                display: flex;
+                align-items: self-end;
+                gap: 10px;
+                justify-content:center
+            }
+
+            .search-bar {
+                display: flex;
+                align-items: center;
+                gap: 10px;
             }
 
             select,
@@ -573,6 +585,87 @@
                     padding: 15px 20px;
                 }
             }
+
+            .bookmark {
+                cursor: pointer;
+                font-size: 24px;
+                color: #ddd; /* Default color */
+                transition: color 0.3s, transform 0.3s;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .bookmark.saved {
+                color: gold; /* Color when saved */
+                transform: scale(1.2); /* Slightly enlarges when saved */
+            }
+            
+            #saved-courses-dropdown {
+                position: relative;
+                margin-left: 20px;
+            }
+            
+            #saved-courses-btn {
+                background-color: #2E3D49;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s;
+                border-radius: 5px;
+            }
+            
+            #saved-courses-btn:hover {
+                background-color: #1d2a33;
+            }
+            
+            #saved-courses-list {
+                display: none;
+                position: absolute;
+                background-color: white;
+                border: 1px solid #ddd;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                min-width: 200px;
+                border-radius: 5px;
+            }
+            
+            #saved-courses-list.active {
+                display: block;
+            }
+            
+            #saved-courses-list p {
+                padding: 10px;
+                margin: 0;
+                cursor: pointer;
+                border-bottom: 1px solid #ddd;
+                transition: background-color 0.3s;
+            }
+            
+            #saved-courses-list p:hover {
+                background-color: #f0f0f0;
+            }
+            
+            .notification {
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                background-color: #2E3D49;
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                opacity: 0;
+                animation: fadeInOut 2s forwards;
+            }
+            
+            @keyframes fadeInOut {
+                0% { opacity: 1; }
+                80% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+            
         </style>
     </header>
 
@@ -593,85 +686,120 @@
 
     <h1>Browse Topics</h1>
 
-    <div class="search-bar">
-        <select id="topic-selector">
-            <option value="CS">Computer Science</option>
-            <option value="AI">Artificial Intelligence</option>
-            <option value="IT">Information Technology</option>
-        </select>
-        <button onclick="searchCourses()">Search</button>
+    <div class="search-container">
+        <div class="search-bar">
+            <select id="topic-selector">
+                <option value="All">All</option>
+                <option value="CS">Computer Science</option>
+                <option value="AI">Artificial Intelligence</option>
+                <option value="IT">Information Technology</option>
+            </select>
+            <button onclick="searchCourses()">Search</button>
+        </div>
+    
+        <!-- Saved Courses Dropdown -->
+        <div id="saved-courses-dropdown" class="dropdown">
+            <button id="saved-courses-btn" onclick="toggleSavedCoursesDropdown()">Saved Courses</button>
+            <div id="saved-courses-list" class="dropdown-content"></div>
+        </div>
     </div>
-
+    
+    
     <div id="search-results">
         <!-- Search results will be displayed here -->
     </div>
-
+    
     <div class="review">
-
+    
         <div class="diffSection" id="review_section">
             <center>
-                <p style="font-size: 40px; padding: 100px; padding-bottom: 40px; color: #2E3D49;">Which courses are for
-                    you?</p>
+                <p style="font-size: 40px; padding: 100px; padding-bottom: 40px; color: #2E3D49;">Which courses are for you?</p>
             </center>
         </div>
-
+    
         <div class="main-rev-container">
             <div class="rev-container">
                 <div class="rev-card">
                     <div class="identity">
                         <img src="{{ url_for('static', filename='java.png') }}" alt="Java Image">
                         <p>Full Stack Web Design</p>
-                        <div class="rating"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"></div>
+                        <div class="rating">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                        </div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="Full Stack Web Design">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
                     </div>
                     <div class="rev-cont">
                         <p id="title">Description:</p>
                         <p id="content">
                             Full Stack Java developer - Java + JSP + Spring Restful + JS <br>
-                            Full Stack Java - Java, JSP Servlets JSTL, Hibernate, Spring, Java Web-service/RestFul API,
-                            Spring Boot, JavaScript
+                            Full Stack Java - Java, JSP Servlets JSTL, Hibernate, Spring, Java Web-service/RestFul API, Spring Boot, JavaScript
                         </p>
                     </div>
                 </div>
             </div>
-        
-            <div class="rev-container">
-                <div class="rev-card">
-                    <div class="identity">
-                        <img src="{{ url_for('static', filename='py2.jpg') }}" alt="Python Image">
-                        <p>Python Programming</p>
-                        <h6>Python</h6>
-                        <div class="rating"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"></div>
-                    </div>
-                    <div class="rev-cont">
-                        <p id="title">Description:</p>
-                        <p id="content">
-                            The Complete Python Bootcamp From Zero to Hero in Python <br>
-                            Learn Python like a Professional Start from the basics and go all the way to creating your
-                            own applications and games
-                        </p>
-                    </div>
-                </div>
-            </div>
-        
+    
             <div class="rev-container">
                 <div class="rev-card">
                     <div class="identity">
                         <img src="{{ url_for('static', filename='ds2.png') }}" alt="Data Science Image">
                         <p>Data Science</p>
                         <h6>Python</h6>
-                        <div class="rating"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"></div>
+                        <div class="rating">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                        </div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="Data Science">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
                     </div>
                     <div class="rev-cont">
                         <p id="title">Description:</p>
                         <p id="content">
                             The Data Science Course: Complete Data Science Bootcamp 2024 <br>
-                            Complete Data Science Training: Math, Statistics, Python, Advanced Statistics in Python,
-                            Machine and Deep Learning
+                            Complete Data Science Training: Math, Statistics, Python, Advanced Statistics in Python, Machine and Deep Learning
                         </p>
                     </div>
                 </div>
             </div>
-        
+    
+            <div class="rev-container">
+                <div class="rev-card">
+                    <div class="identity">
+                        <img src="{{ url_for('static', filename='py2.jpg') }}" alt="Python Image">
+                        <p>Python Programming</p>
+                        <h6>Python</h6>
+                        <div class="rating">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                        </div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="Python Programming">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="rev-cont">
+                        <p id="title">Description:</p>
+                        <p id="content">
+                            The Complete Python Bootcamp From Zero to Hero in Python <br>
+                            Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
             <div class="rev-container">
                 <div class="rev-card">
                     <div class="identity">
@@ -679,19 +807,22 @@
                         <p>NLP</p>
                         <h6>Python</h6>
                         <div class="rating"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"></div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="NLP">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
                     </div>
                     <div class="rev-cont">
                         <p id="title">Description:</p>
                         <p id="content">
                             Master NLP: From Zero to Hero - Chatbots, Transformers, GPT <br>
-                            Master NLP: Create Chatbots, RASA, ChatGPT, BERT, Transformers, ChatGPT 4, OpenAI
-                            GPT - Unlock the Power of Language Pro
+                            Master NLP: Create Chatbots, RASA, ChatGPT, BERT, Transformers, ChatGPT 4, OpenAI GPT - Unlock the Power of Language Pro
                         </p>
                     </div>
                 </div>
             </div>
-        
-            <!-- Additional Course 1 -->
+    
             <div class="rev-container">
                 <div class="rev-card">
                     <div class="identity">
@@ -699,6 +830,11 @@
                         <p>Machine Learning</p>
                         <h6>Python</h6>
                         <div class="rating"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"></div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="Machine Learning">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
                     </div>
                     <div class="rev-cont">
                         <p id="title">Description:</p>
@@ -709,8 +845,7 @@
                     </div>
                 </div>
             </div>
-        
-            <!-- Additional Course 2 -->
+    
             <div class="rev-container">
                 <div class="rev-card">
                     <div class="identity">
@@ -718,6 +853,11 @@
                         <p>UI/UX Design</p>
                         <h6>Design</h6>
                         <div class="rating"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"></div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="UI/UX Design">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
                     </div>
                     <div class="rev-cont">
                         <p id="title">Description:</p>
@@ -728,7 +868,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
+    </div> 
         
 
         
@@ -754,8 +895,8 @@
         <div class="circle"></div>
     </div>
     
-<!-- Include Footer -->
-{% include "footer.html" %} 
+    <!-- Include Footer -->
+    {% include "footer.html" %} 
     
 
     <style>
@@ -840,6 +981,62 @@
 
     </script>
 
+    <script>
+        // Toggle the bookmark (save/unsave course)
+        function toggleBookmark(element) {
+            const courseName = element.getAttribute('data-course');
+            let savedCourses = JSON.parse(localStorage.getItem('savedCourses')) || [];
+
+            if (savedCourses.includes(courseName)) {
+                // Remove from saved courses
+                savedCourses = savedCourses.filter(course => course !== courseName);
+                element.classList.remove('saved');
+                showNotification(`${courseName} unsaved`);
+            } else {
+                // Add to saved courses
+                savedCourses.push(courseName);
+                element.classList.add('saved');
+                showNotification(`${courseName} saved`);
+            }
+
+            // Update localStorage and the saved courses list
+            localStorage.setItem('savedCourses', JSON.stringify(savedCourses));
+            updateSavedCoursesList();
+        }
+
+        // Update the saved courses dropdown
+        function updateSavedCoursesList() {
+            const savedCourses = JSON.parse(localStorage.getItem('savedCourses')) || [];
+            const listContainer = document.getElementById('saved-courses-list');
+
+            if (savedCourses.length === 0) {
+                listContainer.innerHTML = "<p>No courses added yet</p>";
+            } else {
+                listContainer.innerHTML = savedCourses.map(course => `<p>${course}</p>`).join('');
+            }
+        }
+
+        // Show the notification after saving or unsaving
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerText = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 2000);
+        }
+
+        // Toggle the visibility of the saved courses dropdown
+        function toggleSavedCoursesDropdown() {
+            const list = document.getElementById('saved-courses-list');
+            list.classList.toggle('active');
+        }
+
+        // Initialize saved courses dropdown when the page loads
+        document.addEventListener("DOMContentLoaded", function () {
+            updateSavedCoursesList();
+        });
+
+    </script>
 </body>
 
 </html>
