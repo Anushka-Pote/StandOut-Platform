@@ -1205,6 +1205,24 @@ direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamoun
         var chatbotSidebar = document.querySelector('.chatbot-sidebar');
         chatbotSidebar.style.display = (chatbotSidebar.style.display === 'none' || chatbotSidebar.style.display === '') ? 'block' : 'none';
     }
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+const body = document.body;
+
+if (localStorage.getItem('dark-mode') === 'enabled') {
+    body.classList.add('dark-mode');
+    darkModeToggle.checked = true;
+}
+
+darkModeToggle.addEventListener('change', () => {
+    if (darkModeToggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('dark-mode', 'enabled');
+    } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('dark-mode', 'disabled');
+    }
+});
+
 </script>
 
 </body>
