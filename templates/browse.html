@@ -336,7 +336,7 @@
                 display: flex;
                 align-items: self-end;
                 gap: 10px;
-                justify-content:center
+                justify-content:center;
             }
 
             .search-bar {
@@ -687,6 +687,7 @@
     <h1>Browse Topics</h1>
 
     <div class="search-container">
+        <!-- Search Bar -->
         <div class="search-bar">
             <select id="topic-selector">
                 <option value="All">All</option>
@@ -718,7 +719,7 @@
         </div>
     
         <div class="main-rev-container">
-            <div class="rev-container">
+            <div class="rev-container" data-category="CS">
                 <div class="rev-card">
                     <div class="identity">
                         <img src="{{ url_for('static', filename='java.png') }}" alt="Java Image">
@@ -745,7 +746,7 @@
                 </div>
             </div>
     
-            <div class="rev-container">
+            <div class="rev-container" data-category="IT">
                 <div class="rev-card">
                     <div class="identity">
                         <img src="{{ url_for('static', filename='ds2.png') }}" alt="Data Science Image">
@@ -773,7 +774,7 @@
                 </div>
             </div>
     
-            <div class="rev-container">
+            <div class="rev-container" data-category="CS">
                 <div class="rev-card">
                     <div class="identity">
                         <img src="{{ url_for('static', filename='py2.jpg') }}" alt="Python Image">
@@ -800,7 +801,7 @@
                 </div>
             </div>
     
-            <div class="rev-container">
+            <div class="rev-container" data-category="AI">
                 <div class="rev-card">
                     <div class="identity">
                         <img src="{{ url_for('static', filename='nlp.jpg') }}" alt="NLP Image">
@@ -823,7 +824,7 @@
                 </div>
             </div>
     
-            <div class="rev-container">
+            <div class="rev-container" data-category="AI">
                 <div class="rev-card">
                     <div class="identity">
                         <img src="{{ url_for('static', filename='ml.png') }}" alt="Machine Learning Image">
@@ -846,7 +847,7 @@
                 </div>
             </div>
     
-            <div class="rev-container">
+            <div class="rev-container" data-category="IT">
                 <div class="rev-card">
                     <div class="identity">
                         <img src="{{ url_for('static', filename='uiux.png') }}" alt="UI/UX Image">
@@ -979,6 +980,26 @@
 
         animateCircles();
 
+    </script>
+
+    <script>
+        // Function to search courses based on selected topic
+        function searchCourses() {
+            const selectedTopic = document.getElementById("topic-selector").value;
+            const reviewContainers = document.querySelectorAll(".rev-container");
+    
+            reviewContainers.forEach(container => {
+                // Show or hide course based on category match
+                if (selectedTopic === "All" || container.getAttribute("data-category") === selectedTopic) {
+                    container.style.display = "block";
+                } else {
+                    container.style.display = "none";
+                }
+            });
+        }
+    
+        // Initialize by showing all courses on page load
+        window.onload = searchCourses;
     </script>
 
     <script>
