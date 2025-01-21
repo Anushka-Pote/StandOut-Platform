@@ -173,64 +173,123 @@
                 position: relative;
             }
 
-            .diffSection {
-                width: 100%;
-                justify-content: center;
-                align-items: center;
-            }
+            /* Pratik top courses css starts */
 
-            .diffSection .content {
-                margin: 10px;
-                text-align: center;
-                padding: 10px 100px;
-                font-size: 1.1em;
-            }
-
-            .service-swipe {
+            .main-container {
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-direction: column;
                 align-items: center;
-                background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url("image/back.jpg");
-                background-size: cover;
-                background-attachment: fixed;
-                width: 100%;
+                padding: 20px;
             }
-
-            .service-swipe .s-card img {
-                width: 220px;
-            }
-
-            .service-swipe a {
-                padding: 0;
-                margin: 40px 10px;
-            }
-
-            .service-swipe .s-card {
-                display: flex;
-                justify-content: space-around;
-                padding: 10px;
-                align-items: center;
+            
+            .heading-container {
                 text-align: center;
-                width: 350px;
-                height: 200px;
-                box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05),
-                    0 0 50px rgba(187, 217, 231, 0.8);
-                border-radius: 5px;
-                cursor: pointer;
-                transition-duration: .5s;
+                margin-bottom: 40px;
             }
-
-            .service-swipe .s-card p {
-                color: #f2f2f2;
-                font-size: 1.2em;
-                font-family: 'Open Sans', sans-serif;
+            
+            .heading-container p {
+                font-size: 50px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                background: linear-gradient(90deg, #000000, #434343);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
-
-            .service-swipe .s-card:hover {
-                box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+            
+            .cards-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+                width: 100%;
+                max-width: 1200px;
+            }
+            
+            .s-card {
+                display: inline-block;
+                background: #fff;
+                border-radius: 15px;
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                color: #000;
+                width:100%;
+            }
+            
+            .s-card:hover {
                 transform: translateY(-10px);
+                box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
             }
+            
+            .s-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+            
+            .s-card p {
+                margin: 0;
+                padding: 20px;
+                height: 30px;
+                font-size: 18px;
+                font-weight: 600;
+                text-align: center;
+                color: #333;
+                background: linear-gradient(90deg, #000000, #434343);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            
+            .s-card p:hover {
+                background: linear-gradient(90deg, #434343, #737373);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            
+            a {
+                text-decoration: none;
+            }
+            
+            @keyframes float {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-5px);
+                }
+            }
+            
+            .s-card:hover img {
+                animation: float 3s ease-in-out infinite;
+            }
+            
+            @media (max-width: 768px) {
+                .cards-container {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            
+                .heading-container p {
+                    font-size: 30px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .cards-container {
+                    grid-template-columns: 1fr;
+                }
+            
+                .heading-container p {
+                    font-size: 24px;
+                }
+            
+                .s-card p {
+                    font-size: 16px;
+                }
+            }
+            
+
+            /* Pratik top courses css starts */
+
 
             #makeitfull {
                 display: flex;
@@ -751,16 +810,6 @@
                     /* Slightly more visible background */
                 }
 
-                .service-swipe .s-card img {
-                    width: 100%;
-                    height: auto;
-                }
-
-                /* Adjust the title for mobile screens */
-                .service-swipe .diffSection p {
-                    font-size: 30px;
-                }
-
                 /* Marquee adjustment */
                 marquee {
                     font-size: 16px;
@@ -922,54 +971,59 @@
     <div class="toggle-login" onclick="redirectToLogin()">Login</div>
 
     
-    <div class="service-swipe">
-    <div class="diffSection" id="services_section" style="text-align: center;">
-        <p style="font-size: 50px; padding: 100px; padding-bottom: 40px; color: #fff;">Trending Courses</p>
+    <div class="main-container">
+        <!-- Heading Container -->
+        <div class="heading-container">
+            <p>Trending Courses</p> <!-- Centered Heading -->
+        </div>
+    
+        <!-- Cards Container -->
+        <div class="cards-container">
+            <a href="#">
+                <div class="s-card">
+                    <img src="{{ url_for('static', filename='cse.jpg') }}" alt="Computer Courses">
+                    <p>Computer Science with Python Programming</p>
+                </div>
+            </a>
+    
+            <a href="#">
+                <div class="s-card">
+                    <img src="{{ url_for('static', filename='ai.jpg') }}" alt="AI Courses">
+                    <p>Foundational AI Principles</p>
+                </div>
+            </a>
+    
+            <a href="#">
+                <div class="s-card">
+                    <img src="{{ url_for('static', filename='ds.jpeg') }}" alt="Data Science">
+                    <p>Advanced Data Science Techniques</p>
+                </div>
+            </a>
+    
+            <a href="#">
+                <div class="s-card">
+                    <img src="{{ url_for('static', filename='iot.webp') }}" alt="Computer Networks">
+                    <p>Software Connectivity using Computer Networks</p>
+                </div>
+            </a>
+    
+            <a href="#">
+                <div class="s-card">
+                    <img src="{{ url_for('static', filename='nlp.jpg') }}" alt="NLP">
+                    <p>Natural Language Processing for Beginners</p>
+                </div>
+            </a>
+    
+            <a href="#">
+                <div class="s-card">
+                    <img src="{{ url_for('static', filename='eda.jpg') }}" alt="Data Analysis">
+                    <p>User Satisfaction using EDA</p>
+                </div>
+            </a>
+        </div>
     </div>
     
-    <a href="#">
-        <div class="s-card">
-            <img src="{{ url_for('static', filename='cse.jpg') }}" alt="Computer Courses">
-            <p>Computer Science with Python Programming</p>
-        </div>
-    </a>
-    
-    <a href="#">
-        <div class="s-card">
-            <img src="{{ url_for('static', filename='ai.jpg') }}" alt="AI Courses">
-            <p>Foundational AI Principles</p>
-        </div>
-    </a>
-    
-    <a href="#">
-        <div class="s-card">
-            <img src="{{ url_for('static', filename='ds.jpeg') }}" alt="Data Science">
-            <p>Advanced Data Science Techniques</p>
-        </div>
-    </a>
-    
-    <a href="#">
-        <div class="s-card">
-            <img src="{{ url_for('static', filename='iot.webp') }}" alt="Computer Networks">
-            <p>Software Connectivity using Computer Networks</p>
-        </div>
-    </a>
-    
-    <a href="#">
-        <div class="s-card">
-            <img src="{{ url_for('static', filename='nlp.jpeg') }}" alt="NLP">
-            <p>Natural Language Processing for Beginners</p>
-        </div>
-    </a>
-    
-    <a href="#">
-        <div class="s-card">
-            <img src="{{ url_for('static', filename='eda.jpg') }}" alt="Data Analysis">
-            <p>User Satisfaction using EDA</p>
-        </div>
-    </a>
-</div>
-</div>        
+
 <!-- chatbot -->
 <script> window.chtlConfig = { chatbotId: "2614686441" } </script>
 <script async data-id="2614686441" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script> 
