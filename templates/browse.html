@@ -2,13 +2,14 @@
 <html>
 
 <head>
-    <link rel="shortcut icon" type="png" href="image/google.png">
+    <link rel="shortcut icon" type="png" href="static/google.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Comaptible" content="IE=edge">
     <title>Browse Courses</title>
     <meta name="desciption" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <script>
 
         // Handle the navbar scroll effect
@@ -201,83 +202,121 @@
                 width: 100%;
             }
 
-            .rev-container {
-                padding: 10px 10%;
+            /* Start of CSS changes for - browse topics section */
+
+            .main-rev-container {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-around;
+                gap: 40px 20px; 
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            
+            .rev-container {
+                flex: 0 0 calc(33.33% - 20px); 
+                box-sizing: border-box;
+                margin-bottom: 20px; 
+                display: flex;
+                flex-direction: column;
+                min-width: 300px; 
             }
 
-            .rev-container .rev-card {
-
-                width: 550px;
-                height: 240px;
-                margin-bottom: 40px;
-                background: #fff;
+            .rev-card {
+                background-color: #fff;
+                border-radius: 12px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                padding: 20px;
                 display: flex;
-                padding: 10px;
-                box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+                flex-direction: column;
+                height: 100%; 
             }
 
             .rev-card:hover {
-                box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+                transform: translateY(-10px); 
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); 
             }
 
             .identity {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                padding: 10px;
+                text-align: center;
+                position: relative;
             }
 
             .identity img {
-                width: 120px;
-                height: 120px;
-                transition-duration: .8s;
+                width: 80px;
+                height: 80px;
                 border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 15px;
+                transition: transform 0.3s ease; 
             }
 
             .identity img:hover {
-                transform: scale(2.2);
-                border-radius: 0px;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                transform: scale(1.1); 
             }
 
             .identity p {
-                width: 150px;
-                font-weight: bold;
-                color: #2E3D49;
-                text-align: center;
+                font-size: 20px;
+                font-weight: 600;
+                color: #333;
             }
 
             .identity h6 {
-                width: 150px;
-                text-align: center;
+                font-size: 14px;
+                color: #777;
+            }
+
+            .identity .rating {
+                margin-top: 10px;
             }
 
             .identity .rating img {
-                width: 12px;
-                height: 12px;
+                width: 24px;
+                height: 24px;
                 margin-right: 5px;
             }
 
             .rev-cont {
-                overflow: hidden;
+                background-color: #f9f9f9;
+                padding: 15px;
+                border-radius: 8px;
+                margin-top: 20px;
+                flex-grow: 1; 
             }
 
             .rev-cont #title {
-                padding: 10px;
-                color: #2E3D49;
+                font-size: 18px;
                 font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
             }
 
             .rev-cont #content {
-                padding: 10px;
-                font-size: .9em;
-                color: #2E3D49;
-                line-height: 22px;
-                text-align: justify;
+                font-size: 14px;
+                color: #555;
+                line-height: 1.6;
             }
+
+            @media (max-width: 1024px) {
+                .rev-container {
+                    flex: 1 1 calc(50% - 20px); 
+                }
+            }
+
+            @media (max-width: 768px) {
+                .rev-container {
+                    flex: 1 1 calc(50% - 20px); 
+                }
+            }
+
+            @media (max-width: 480px) {
+                .rev-container {
+                    flex: 1 1 100%; 
+                }
+            }
+
+            /* End of CSS changes for - browse topics section */
 
             body {
                 font-family: Arial, sans-serif;
@@ -291,6 +330,19 @@
                 display: flex;
                 justify-content: center;
                 margin-top: 20px;
+            }
+
+            .search-container {
+                display: flex;
+                align-items: self-end;
+                gap: 10px;
+                justify-content:center;
+            }
+
+            .search-bar {
+                display: flex;
+                align-items: center;
+                gap: 10px;
             }
 
             select,
@@ -404,92 +456,7 @@
                 padding: 10px;
             }
 
-            footer {
-                color: #E5E8EF;
-                background: rgba(2, 51, 74, 0.867);
-                padding: 50px 0;
-            }
-
-            footer .footer-container {
-                max-width: 1300px;
-                margin: auto;
-                padding: 0 20px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap-reverse;
-            }
-
-            footer .social-media img {
-                width: 22px;
-            }
-
-            footer .logo {
-                width: 180px;
-                color: #fff;
-            }
-
-            footer .social-media a {
-                margin-right: 10px;
-                font-size: 22px;
-                text-decoration: none;
-            }
-
-            footer .right-col h1 {
-                font-size: 26px;
-            }
-
-            footer .border {
-                width: 100px;
-                height: 4px;
-                background: linear-gradient(to right, #1414dd, #2856ab);
-                margin: 2px;
-            }
-
-            footer .newsletter-form {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-wrap: wrap;
-            }
-
-            footer input::placeholder {
-                color: white !important;
-            }
-
-            footer .txtb {
-                flex: 1;
-                padding: 18px 40px;
-                font-size: 16px;
-                background: #343A40;
-                border: none;
-                font-weight: 700;
-                outline: none;
-                border-radius: 5px;
-                min-width: 260px;
-                margin-top: 20px;
-                color: white;
-            }
-
-            footer .btn {
-                margin-top: 20px;
-                padding: 18px 40px;
-                font-size: 16px;
-                color: #f1f1f1;
-                background: linear-gradient(to right, #171adb, #450dc9);
-                border: none;
-                font-weight: 700;
-                outline: none;
-                border-radius: 5px;
-                margin-left: 20px;
-                cursor: pointer;
-                transition: opacity .3s linear;
-            }
-
-            footer .btn:hover {
-                opacity: .7;
-            }
-
+            
             /* Mobile responsive adjustments */
             @media (max-width: 768px) {
                 header {
@@ -518,21 +485,6 @@
 
                 body {}
 
-
-
-                .rev-card {
-                    width: 90%;
-                }
-
-                footer .footer-container {
-                    flex-direction: column;
-                    align-items: center;
-                }
-
-                footer .right-col {
-                    text-align: center;
-                    margin-top: 20px;
-                }
             }
 
             @media (max-width: 480px) {
@@ -606,26 +558,6 @@
                     text-align: center;
                 }
 
-                .rev-container {
-                    flex-direction: column;
-                    align-items: center;
-                    display: block;
-                }
-
-                .rev-card {
-                    display: block;
-                }
-
-                .review .rev-container .rev-card {
-                    width: 90%;
-                    height: 240px;
-                    margin-bottom: 40px;
-                    background: #fff;
-                    display: flex;
-                    padding: 10px;
-                    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
-                }
-
 
                 header {
                     position: relative;
@@ -653,6 +585,87 @@
                     padding: 15px 20px;
                 }
             }
+
+            .bookmark {
+                cursor: pointer;
+                font-size: 24px;
+                color: #ddd; /* Default color */
+                transition: color 0.3s, transform 0.3s;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .bookmark.saved {
+                color: gold; /* Color when saved */
+                transform: scale(1.2); /* Slightly enlarges when saved */
+            }
+            
+            #saved-courses-dropdown {
+                position: relative;
+                margin-left: 20px;
+            }
+            
+            #saved-courses-btn {
+                background-color: #2E3D49;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s;
+                border-radius: 5px;
+            }
+            
+            #saved-courses-btn:hover {
+                background-color: #1d2a33;
+            }
+            
+            #saved-courses-list {
+                display: none;
+                position: absolute;
+                background-color: white;
+                border: 1px solid #ddd;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                min-width: 200px;
+                border-radius: 5px;
+            }
+            
+            #saved-courses-list.active {
+                display: block;
+            }
+            
+            #saved-courses-list p {
+                padding: 10px;
+                margin: 0;
+                cursor: pointer;
+                border-bottom: 1px solid #ddd;
+                transition: background-color 0.3s;
+            }
+            
+            #saved-courses-list p:hover {
+                background-color: #f0f0f0;
+            }
+            
+            .notification {
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                background-color: #2E3D49;
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                opacity: 0;
+                animation: fadeInOut 2s forwards;
+            }
+            
+            @keyframes fadeInOut {
+                0% { opacity: 1; }
+                80% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+            
         </style>
     </header>
 
@@ -672,197 +685,379 @@
     </nav>
 
     <h1>Browse Topics</h1>
-    <div class="search-bar">
-        <select id="topic-selector">
-            <option value="CS">Computer Science</option>
-            <option value="AI">Artificial Intelligence</option>
-            <option value="IT">Information Technology</option>
-        </select>
-        <button onclick="searchCourses()">Search</button>
-    </div>
 
+    <div class="search-container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <select id="topic-selector">
+                <option value="All">All</option>
+                <option value="CS">Computer Science</option>
+                <option value="AI">Artificial Intelligence</option>
+                <option value="IT">Information Technology</option>
+            </select>
+            <button onclick="searchCourses()">Search</button>
+        </div>
+    
+        <!-- Saved Courses Dropdown -->
+        <div id="saved-courses-dropdown" class="dropdown">
+            <button id="saved-courses-btn" onclick="toggleSavedCoursesDropdown()">Saved Courses</button>
+            <div id="saved-courses-list" class="dropdown-content"></div>
+        </div>
+    </div>
+    
+    
     <div id="search-results">
         <!-- Search results will be displayed here -->
     </div>
+    
     <div class="review">
+    
         <div class="diffSection" id="review_section">
             <center>
-                <p style="font-size: 40px; padding: 100px; padding-bottom: 40px; color: #2E3D49;">Which courses are for
-                    you?</p>
+                <p style="font-size: 40px; padding: 100px; padding-bottom: 40px; color: #2E3D49;">Which courses are for you?</p>
             </center>
         </div>
-        <div class="rev-container">
-            <div class="rev-card">
-                <div class="identity">
-                    <img src="{{ url_for('static', filename='java.png') }}" alt="Java Image">
-                    <p>Full Stack Web Design</p>
-                    <div class="rating"><img src="image/star.png"><img src="image/star.png"><img
-                            src="image/star.png"><img src="image/star.png"></div>
-                </div>
-                <div class="rev-cont">
-                    <p id="title">Decsription:</p>
-                    <p id="content">
-                        Full Stack Java developer - Java + JSP + Spring Restful + JS <br>
-                        Full Stack Java - Java, JSP Servlets JSTL, Hibernate, Spring, Java Web-service/RestFul API,
-                        Spring boot, JavaScript
-                    </p>
+    
+        <div class="main-rev-container">
+            <div class="rev-container" data-category="CS">
+                <div class="rev-card">
+                    <div class="identity">
+                        <img src="{{ url_for('static', filename='java.png') }}" alt="Java Image">
+                        <p>Full Stack Web Design</p>
+                        <div class="rating">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                        </div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="Full Stack Web Design">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="rev-cont">
+                        <p id="title">Description:</p>
+                        <p id="content">
+                            Full Stack Java developer - Java + JSP + Spring Restful + JS <br>
+                            Full Stack Java - Java, JSP Servlets JSTL, Hibernate, Spring, Java Web-service/RestFul API, Spring Boot, JavaScript
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="rev-container">
+    
+            <div class="rev-container" data-category="IT">
+                <div class="rev-card">
+                    <div class="identity">
+                        <img src="{{ url_for('static', filename='ds2.png') }}" alt="Data Science Image">
+                        <p>Data Science</p>
+                        <h6>Python</h6>
+                        <div class="rating">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                        </div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="Data Science">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="rev-cont">
+                        <p id="title">Description:</p>
+                        <p id="content">
+                            The Data Science Course: Complete Data Science Bootcamp 2024 <br>
+                            Complete Data Science Training: Math, Statistics, Python, Advanced Statistics in Python, Machine and Deep Learning
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="rev-container" data-category="CS">
                 <div class="rev-card">
                     <div class="identity">
                         <img src="{{ url_for('static', filename='py2.jpg') }}" alt="Python Image">
                         <p>Python Programming</p>
                         <h6>Python</h6>
-                        <div class="rating"><img src="image/star.png"><img src="image/star.png"><img
-                                src="image/star.png"></div>
+                        <div class="rating">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                            <img src="static/star.png">
+                        </div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="Python Programming">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
                     </div>
                     <div class="rev-cont">
-                        <p id="title">Decsription:</p>
+                        <p id="title">Description:</p>
                         <p id="content">
                             The Complete Python Bootcamp From Zero to Hero in Python <br>
-                            Learn Python like a Professional Start from the basics and go all the way to creating your
-                            own applications and games
+                            Learn Python like a Professional Start from the basics and go all the way to creating your own applications and games.
                         </p>
                     </div>
                 </div>
-                <div class="rev-container">
-                    <div class="rev-card">
-                        <div class="identity">
-                            <img src="{{ url_for('static', filename='ds2.png') }}" alt="Data Science Image">
-                            <p>Data Science</p>
-                            <h6>Python</h6>
-                            <div class="rating"><img src="image/star.png"><img src="image/star.png"><img
-                                    src="image/star.png"><img src="image/star.png"></div>
-                        </div>
-                        <div class="rev-cont">
-                            <p id="title">Decsription:</p>
-                            <p id="content">
-                                The Data Science Course: Complete Data Science Bootcamp 2024 <br>
-                                Complete Data Science Training: Math, Statistics, Python, Advanced Statistics in Python,
-                                Machine and Deep Learning
-                            </p>
-                        </div>
+            </div>
+    
+            <div class="rev-container" data-category="AI">
+                <div class="rev-card">
+                    <div class="identity">
+                        <img src="{{ url_for('static', filename='nlp.jpg') }}" alt="NLP Image">
+                        <p>NLP</p>
+                        <h6>Python</h6>
+                        <div class="rating"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"></div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="NLP">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
                     </div>
+                    <div class="rev-cont">
+                        <p id="title">Description:</p>
+                        <p id="content">
+                            Master NLP: From Zero to Hero - Chatbots, Transformers, GPT <br>
+                            Master NLP: Create Chatbots, RASA, ChatGPT, BERT, Transformers, ChatGPT 4, OpenAI GPT - Unlock the Power of Language Pro
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="rev-container" data-category="AI">
+                <div class="rev-card">
+                    <div class="identity">
+                        <img src="{{ url_for('static', filename='ml.png') }}" alt="Machine Learning Image">
+                        <p>Machine Learning</p>
+                        <h6>Python</h6>
+                        <div class="rating"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"></div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="Machine Learning">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="rev-cont">
+                        <p id="title">Description:</p>
+                        <p id="content">
+                            Complete Machine Learning and AI Mastery <br>
+                            Dive into supervised, unsupervised, and reinforcement learning. Build projects using Python, TensorFlow, and Scikit-Learn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="rev-container" data-category="IT">
+                <div class="rev-card">
+                    <div class="identity">
+                        <img src="{{ url_for('static', filename='uiux.png') }}" alt="UI/UX Image">
+                        <p>UI/UX Design</p>
+                        <h6>Design</h6>
+                        <div class="rating"><img src="static/star.png"><img src="static/star.png"><img src="static/star.png"></div>
+                        <span class="bookmark" onclick="toggleBookmark(this)" data-course="UI/UX Design">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path class="star-icon" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="rev-cont">
+                        <p id="title">Description:</p>
+                        <p id="content">
+                            Master UI/UX Design: Complete Course with Figma and Adobe XD <br>
+                            Learn user-centered design, wireframing, prototyping, and creating stunning user interfaces for web and mobile apps.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div> 
+        
 
-                    <div class="rev-container">
-                        <div class="rev-card">
-                            <div class="identity">
-                                <img src="{{ url_for('static', filename='nlp.jfif') }}" alt="NLP Image">
-                                <p>NLP</p>
-                                <h6>Python</h6>
-                                <div class="rating"><img src="image/star.png"><img src="image/star.png"><img
-                                        src="image/star.png"><img src="image/star.png"></div>
-                            </div>
-                            <div class="rev-cont">
-                                <p id="title">Decsription:</p>
-                                <p id="content">
-                                    Master NLP: From Zero to Hero - Chatbots, Transformers, GPT <br>
-                                    Master NLP: Create Chatbots, RASA, ChatGPT, BERT, Transformers, ChatGPT 4, OpenAI
-                                    GPT - Unlock the Power of Language Pro
-                                </p>
-                            </div>
-                        </div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <style>
-                            .circle {
-                                height: 24px;
-                                width: 24px;
-                                border-radius: 24px;
-                                background-color: black;
-                                position: fixed;
-                                top: 0;
-                                left: 0;
-                                pointer-events: none;
-                                z-index: 99999999;
-                                /* so that it stays on top of all other elements */
-                            }
-                        </style>
-                        <script>
-                            const coords = { x: 0, y: 0 };
-                            const circles = document.querySelectorAll(".circle");
+        
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    
+    <!-- Include Footer -->
+    {% include "footer.html" %} 
+    
 
-                            const colors = [
-                                "#ffb56b",
-                                "#fdaf69",
-                                "#f89d63",
-                                "#f59761",
-                                "#ef865e",
-                                "#ec805d",
-                                "#e36e5c",
-                                "#df685c",
-                                "#d5585c",
-                                "#d1525c",
-                                "#c5415d",
-                                "#c03b5d",
-                                "#b22c5e",
-                                "#ac265e",
-                                "#9c155f",
-                                "#950f5f",
-                                "#830060",
-                                "#7c0060",
-                                "#680060",
-                                "#60005f",
-                                "#48005f",
-                                "#3d005e"
-                            ];
+    <style>
+        .circle {
+            height: 24px;
+            width: 24px;
+            border-radius: 24px;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99999999;
+            /* so that it stays on top of all other elements */
+        }
+    </style>
+    
+    <script>
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
 
-                            circles.forEach(function (circle, index) {
-                                circle.x = 0;
-                                circle.y = 0;
-                                circle.style.backgroundColor = colors[index % colors.length];
-                            });
+        const colors = [
+            "#ffb56b",
+            "#fdaf69",
+            "#f89d63",
+            "#f59761",
+            "#ef865e",
+            "#ec805d",
+            "#e36e5c",
+            "#df685c",
+            "#d5585c",
+            "#d1525c",
+            "#c5415d",
+            "#c03b5d",
+            "#b22c5e",
+            "#ac265e",
+            "#9c155f",
+            "#950f5f",
+            "#830060",
+            "#7c0060",
+            "#680060",
+            "#60005f",
+            "#48005f",
+            "#3d005e"
+        ];
 
-                            window.addEventListener("mousemove", function (e) {
-                                coords.x = e.clientX;
-                                coords.y = e.clientY;
+        circles.forEach(function (circle, index) {
+            circle.x = 0;
+            circle.y = 0;
+            circle.style.backgroundColor = colors[index % colors.length];
+        });
 
-                            });
+        window.addEventListener("mousemove", function (e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
 
-                            function animateCircles() {
+        });
 
-                                let x = coords.x;
-                                let y = coords.y;
+        function animateCircles() {
 
-                                circles.forEach(function (circle, index) {
-                                    circle.style.left = x - 12 + "px";
-                                    circle.style.top = y - 12 + "px";
+            let x = coords.x;
+            let y = coords.y;
 
-                                    circle.style.scale = (circles.length - index) / circles.length;
+            circles.forEach(function (circle, index) {
+                circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
 
-                                    circle.x = x;
-                                    circle.y = y;
+                circle.style.scale = (circles.length - index) / circles.length;
 
-                                    const nextCircle = circles[index + 1] || circles[0];
-                                    x += (nextCircle.x - x) * 0.3;
-                                    y += (nextCircle.y - y) * 0.3;
-                                });
+                circle.x = x;
+                circle.y = y;
 
-                                requestAnimationFrame(animateCircles);
-                            }
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.3;
+                y += (nextCircle.y - y) * 0.3;
+            });
 
-                            animateCircles();
+            requestAnimationFrame(animateCircles);
+        }
 
-                        </script>
+        animateCircles();
+
+    </script>
+
+    <script>
+        // Function to search courses based on selected topic
+        function searchCourses() {
+            const selectedTopic = document.getElementById("topic-selector").value;
+            const reviewContainers = document.querySelectorAll(".rev-container");
+    
+            reviewContainers.forEach(container => {
+                // Show or hide course based on category match
+                if (selectedTopic === "All" || container.getAttribute("data-category") === selectedTopic) {
+                    container.style.display = "block";
+                } else {
+                    container.style.display = "none";
+                }
+            });
+        }
+    
+        // Initialize by showing all courses on page load
+        window.onload = searchCourses;
+    </script>
+
+    <script>
+        // Toggle the bookmark (save/unsave course)
+        function toggleBookmark(element) {
+            const courseName = element.getAttribute('data-course');
+            let savedCourses = JSON.parse(localStorage.getItem('savedCourses')) || [];
+
+            if (savedCourses.includes(courseName)) {
+                // Remove from saved courses
+                savedCourses = savedCourses.filter(course => course !== courseName);
+                element.classList.remove('saved');
+                showNotification(`${courseName} unsaved`);
+            } else {
+                // Add to saved courses
+                savedCourses.push(courseName);
+                element.classList.add('saved');
+                showNotification(`${courseName} saved`);
+            }
+
+            // Update localStorage and the saved courses list
+            localStorage.setItem('savedCourses', JSON.stringify(savedCourses));
+            updateSavedCoursesList();
+        }
+
+        // Update the saved courses dropdown
+        function updateSavedCoursesList() {
+            const savedCourses = JSON.parse(localStorage.getItem('savedCourses')) || [];
+            const listContainer = document.getElementById('saved-courses-list');
+
+            if (savedCourses.length === 0) {
+                listContainer.innerHTML = "<p>No courses added yet</p>";
+            } else {
+                listContainer.innerHTML = savedCourses.map(course => `<p>${course}</p>`).join('');
+            }
+        }
+
+        // Show the notification after saving or unsaving
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerText = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 2000);
+        }
+
+        // Toggle the visibility of the saved courses dropdown
+        function toggleSavedCoursesDropdown() {
+            const list = document.getElementById('saved-courses-list');
+            list.classList.toggle('active');
+        }
+
+        // Initialize saved courses dropdown when the page loads
+        document.addEventListener("DOMContentLoaded", function () {
+            updateSavedCoursesList();
+        });
+
+    </script>
 </body>
 
 </html>

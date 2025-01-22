@@ -1,35 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming Quiz</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa; /* Light gray background color */
-            color: #343a40; /* Dark gray text color */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script>
+
+        // Handle the navbar scroll effect
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');
+            } else {
+                $('nav').removeClass('black');
+            }
+        });
+
+        // Toggle the mobile menu
+        function toggleMenu() {
+            var nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('active');
         }
 
-        h1 {
-            text-align: center;
-        }
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');
+            } else {
+                $('nav').removeClass('black');
+            }
+        })
 
-        form {
-            background-color: #fff; /* White background color */
+    </script>
+</head>
+
+<body>
+    <header style="text-align: center; background-color: #004080; padding: 40px; color: white;">
+        <h1 style="font-size: 48px; margin: 0; font-family: 'Arial Black', sans-serif; letter-spacing: 2px;">Discover
+            Your Own Learning Path</h1>
+        <link rel="stylesheet" href="/static/style.css">
+        <style>
+            body {
+                background-image: url('{{ url_for("static", filename="back.jpg") }}');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                margin: 0px;
+                padding: 0px;
+                font-family: Arial, sans-serif;
+                overflow-x: hidden;
+            }
+
+            header {
+                /* background-image: url('{{ url_for("static", filename="back.jpg") }}'); */
+                background-color: #333;
+                color: #20056e;
+                text-align: center;
+                padding: 0px;
+            }
+           
+
+            nav {
+                display: flex;
+                flex-direction: row;
+                background-color: #333;
+                text-align: center;
+                padding: 10px 0;
+                height: 30px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 0 10px;
+                padding: 5px 10px;
+                text-decoration: none;
+                color: #fff;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+            nav a:hover {
+                background-color: royalblue;
+            }
+
+            .quiz-form {
+            background-color: #cce8f6 ;/* White background color */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
             text-align: left;
             width: 70%;
+            margin: 20px auto;
         }
 
         fieldset {
@@ -38,7 +103,6 @@
             margin-bottom: 20px;
             padding: 10px;
         }
-
         legend {
             font-weight: bold;
         }
@@ -78,8 +142,128 @@
         strong {
             font-weight: bold;
         }
+        .marqu {
+            text-align: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px;
+        }
 
-        @media (max-width: 480px) {
+        footer {
+            background-color: rgba(2, 51, 74, 0.867);;
+            padding: 50px 0;
+            width: 1550px;
+            margin-top: -10px;
+        }
+
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+
+            }
+            .footer-section h3 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                color: #fff;
+                margin-left: 35px;
+        }
+
+        .footer-section h4 {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                color: #fff;
+                margin-left: 35px;
+        }
+
+        .footer-section p {
+                line-height: 1.8;
+                margin-bottom: 1rem;
+                letter-spacing: 0.2px;
+                color: #fff;
+                margin-left: 35px;
+        }
+
+        .footer-section ul {
+                list-style: none;
+                padding: 0;
+
+        }
+        .footer-section ul li {
+                margin-bottom: 0.8rem;
+                margin-left: 35px;
+        }
+
+        .footer-section ul li a {
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+                color: #E5A186;
+            
+        }
+
+        .social-links {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 20px;
+                margin-top: -20px;
+                gap: 15px;
+                margin-left: 30px;
+                margin-top: -40px;
+        }
+        .social-links a {
+                color: #fff;
+                font-size: 1.5rem;
+                text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+
+            .social-links a:hover {
+                color: #E5A186;
+                text-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            }
+            
+            .contact-info li {
+                display: flex;
+                align-items: center;
+                transition: all 0.3s ease;
+                gap: 0.6rem;
+            }
+
+            .contact-info li span {
+                margin-left: 0.3rem;
+                transition: all 0.3s ease;
+            }
+
+            .contact-info li span:hover {
+                color: #E5A186;
+            }
+            .footer-bottom {
+                text-align: center;
+                padding-top: 2rem;
+                border-top: 1px solid #fff;
+                font-size: 0.9rem;
+            }
+
+            .footer-bottom p {
+                color: #fff;
+            }
+            strong {
+            font-weight: bold;
+            }
+            .heart {
+                display: inline-block;
+                animation: beat 1s ease infinite;
+            }
+
+                @media (max-width: 480px) {
                 body {
                     width: 100%;
                     height: 100%;
@@ -170,7 +354,6 @@
                     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
                 }
 
-
                 header {
                     position: relative;
                     width: 100%;
@@ -196,12 +379,138 @@
                 #mobile-nav a {
                     padding: 15px 20px;
                 }
+                .main-footer {
+                    padding: 3rem 3%;
+                }
+                .footer-section h3 {
+                    font-size: 1.6rem;
+                }
+                .footer-section h4 {
+                    font-size: 0.9rem;
+                }
+                .footer-section ul li a {
+                    font-size: 0.9rem;
+                }
+
+                .social-links a {
+                    font-size: 1.2rem;
+                }
+
+                .footer-bottom {
+                    font-size: 0.8rem;
+                }
+                .footer-content {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    /* Make all footer sections stack vertically */
+                    gap: 1rem;
+                }
+                .footer-section {
+                    text-align: center;
+                }
+
+                /* Centering the contact info list items */
+                .contact-info li {
+                    justify-content: center;
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 1rem;
+                }
+
+                .contact-info li span {
+                    margin-left: 0rem;
+                }
+                marquee {
+                    font-size: 16px;
+                    padding: 10px;
+                }
+                .footer-section ul {
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .footer-bottom {
+                    padding-top: 20px;
+                    text-align: center;
+                }
             }
-    </style>
-</head>
-<body>
+    
+            .menu-toggle {
+                display: none;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            h1 {
+                margin-top: 20px;
+                text-align: center;
+            }
+            @media (max-width: 1024px) {
+                .footer-content {
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                }
+
+                .footer-section ul li {
+                    margin-bottom: 0.6rem;
+                }
+
+                .social-links a {
+                    font-size: 1.4rem;
+                }
+            }
+            @media (max-width: 768px) {
+                .footer-content {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+
+                .footer-section {
+                    text-align: center;
+                }
+
+                .social-links {
+                    justify-content: center;
+                }
+
+                .contact-info li {
+                    justify-content: center;
+                }
+
+                .contact-info li span {
+                    margin-left: 0rem;
+                }
+
+                .footer-section h3 {
+                    font-size: 1.8rem;
+                }
+
+                .footer-section h4 {
+                    font-size: 1rem;
+                }
+            }
+        </style>
+    </header>
+
+
+    <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+        <div id="mobile-nav">
+            <a href="/">Recommendations</a>
+            <a href="/browse">Browse Topics</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/community">Community</a>
+            <a href="/news">News</a>
+            <a href="/open_website">Open Website</a>
+            <a href="/face">Face</a>
+            <a href="/quiz">Quiz</a>
+            <a href="/login" id="login-link" style="display:none;">Login</a>
+        </div>
+    </nav>
+   
     <h1>Welcome to the Programming Quiz</h1>
-    <form action="/" method="post">
+    <form class="quiz-form" action="/submit_quiz" method="post">
         {% for question_data in questions %}
             {% set idx = loop.index %}
             <fieldset>
@@ -232,6 +541,66 @@
             {% endfor %}
         </ul>
     {% endif %}
+
+     <marquee style="background: linear-gradient(to right, rgb(5, 51, 90), rgb(5, 51, 90)); margin-top: 50px;"
+    direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="18">
+    <div class="marqu">All of us do not have equal talent. But, all of us have an equal opportunity to
+        develop our talents</div>
+  </marquee>
+  
+  <footer>
+      <div class="footer-content">
+          <div class="footer-section">
+              <h3>Stand-Out-Platform</h3>
+              <p>Educating children through India's timeless wisdom and cultural heritage.</p>
+              <div class="social-links">
+                  <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Facebook"><i
+                          class="fab fa-facebook"></i></a>
+                  <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Twitter"><i
+                          class="fab fa-twitter"></i></a>
+                  <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Instagram"><i
+                          class="fab fa-instagram"></i></a>
+                  <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="YouTube"><i
+                          class="fab fa-youtube"></i></a>
+                  <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="Linkedin"><i
+                          class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+          </div>
+   
+          <h4>Quick Links</h4>
+          <ul>
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#wisdom">About Us</a></li>
+              <li><a href="#content">Our Courses</a></li>
+              <li><a href="#hero">Contact</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-section">
+          <h4>Learning Paths</h4>
+          <ul>
+              <!-- need to add respective page link -->
+              <li><a href="countingpage.html">Counting</a></li>
+              <li><a href="#hero">Days</a></li>
+              <li><a href="#hero">Activities</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-section">
+          <h4 style="margin-bottom: -20px;">Contact Us</h4>
+          <ul class="contact-info" style="margin-top: -20px;">
+              <li><i class="fas fa-envelope"></i><a href="mailto:info@StandOutPlatform.edu"
+                      style="margin-left: -5px;">info@StandOutPlatform.edu</a></li>
+              <li><i class="fas fa-map-marker-alt"></i><span>India</span></li>
+          </ul>
+      </div>
+  </div>
+
+    
+  <div class="footer-bottom">
+    <p>&copy; 2024 StandOutPlatform. Made with <span class="heart">❤️</span> by <a
+            href="https://github.com/Anushka-Pote" target="_blank">@Anushka</a></p>
+</div> 
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -253,83 +622,87 @@
     <div class="circle"></div>
     <div class="circle"></div>
     <style>
-      .circle {
-    height: 24px;
-    width: 24px;
-    border-radius: 24px;
-    background-color: black;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 99999999; /* so that it stays on top of all other elements */
-  }
+        .circle {
+            height: 24px;
+            width: 24px;
+            border-radius: 24px;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99999999;
+            /* so that it stays on top of all other elements */
+        }
     </style>
     <script>
-      const coords = { x: 0, y: 0 };
-  const circles = document.querySelectorAll(".circle");
-  
-  const colors = [
-    "#ffb56b",
-    "#fdaf69",
-    "#f89d63",
-    "#f59761",
-    "#ef865e",
-    "#ec805d",
-    "#e36e5c",
-    "#df685c",
-    "#d5585c",
-    "#d1525c",
-    "#c5415d",
-    "#c03b5d",
-    "#b22c5e",
-    "#ac265e",
-    "#9c155f",
-    "#950f5f",
-    "#830060",
-    "#7c0060",
-    "#680060",
-    "#60005f",
-    "#48005f",
-    "#3d005e"
-  ];
-  
-  circles.forEach(function (circle, index) {
-    circle.x = 0;
-    circle.y = 0;
-    circle.style.backgroundColor = colors[index % colors.length];
-  });
-  
-  window.addEventListener("mousemove", function(e){
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-    
-  });
-  
-  function animateCircles() {
-    
-    let x = coords.x;
-    let y = coords.y;
-    
-    circles.forEach(function (circle, index) {
-      circle.style.left = x - 12 + "px";
-      circle.style.top = y - 12 + "px";
-      
-      circle.style.scale = (circles.length - index) / circles.length;
-      
-      circle.x = x;
-      circle.y = y;
-  
-      const nextCircle = circles[index + 1] || circles[0];
-      x += (nextCircle.x - x) * 0.3;
-      y += (nextCircle.y - y) * 0.3;
-    });
-   
-    requestAnimationFrame(animateCircles);
-  }
-  
-  animateCircles();
-  
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        const colors = [
+            "#ffb56b",
+            "#fdaf69",
+            "#f89d63",
+            "#f59761",
+            "#ef865e",
+            "#ec805d",
+            "#e36e5c",
+            "#df685c",
+            "#d5585c",
+            "#d1525c",
+            "#c5415d",
+            "#c03b5d",
+            "#b22c5e",
+            "#ac265e",
+            "#9c155f",
+            "#950f5f",
+            "#830060",
+            "#7c0060",
+            "#680060",
+            "#60005f",
+            "#48005f",
+            "#3d005e"
+            ];
+            
+            circles.forEach(function (circle, index) {
+                circle.x = 0;
+                circle.y = 0;
+                circle.style.backgroundColor = colors[index % colors.length];
+            });
+            
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+                coords.y = e.clientY;
+                
+            });
+            
+            function animateCircles() {
+                
+            let x = coords.x;
+            let y = coords.y;
+
+            circles.forEach(function (circle, index) {
+                circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
+                
+                circle.style.scale = (circles.length - index) / circles.length;
+                
+                circle.x = x;
+                circle.y = y;
+                
+                const nextCircle = circles[index + 1] || circles[0];
+                x += (nextCircle.x - x) * 0.3;
+                y += (nextCircle.y - y) * 0.3;
+            });
+            
+            requestAnimationFrame(animateCircles);
+        }
+        
+        animateCircles();
+        
     </script>
+    
+    
 </body>
+
 </html>
