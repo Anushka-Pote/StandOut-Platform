@@ -859,6 +859,93 @@
                 padding: 10px;
                 border-radius: 5px;
             }
+            #darkmode{
+    display: inline;
+}
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+/* Day/Night icons */
+.day-label, .night-label {
+    font-size: 24px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Slider switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+/* When the checkbox is checked (dark mode) */
+input:checked + .slider {
+    background-color: #4b8b3b;
+}
+
+input:checked + .slider:before {
+    transform: translateX(25px);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* Make sure the night icon fades in/out when toggling */
+body.dark-mode .night-label {
+    opacity: 1;
+}
+
+body:not(.dark-mode) .day-label {
+    opacity: 1;
+}
+
+body.dark-mode .day-label {
+    opacity: 0;
+}
+
+body:not(.dark-mode) .night-label {
+    opacity: 0;
+}
+
         </style>
     </header>
 
@@ -874,6 +961,16 @@
             <a href="/open_website">Open Website</a>
             <a href="/face">Face</a>
             <a href="/quiz">Quiz</a>
+            <a>
+                <div class="toggle-container" id="darkmode">
+                    <span class="day-label"></span>
+                    <label class="switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="night-label"></span>
+                </div>
+                </a>
             <a href="/login" id="login-link" style="display:none;">Login</a>
         </div>
     </nav>
@@ -1162,6 +1259,24 @@ direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamoun
         var chatbotSidebar = document.querySelector('.chatbot-sidebar');
         chatbotSidebar.style.display = (chatbotSidebar.style.display === 'none' || chatbotSidebar.style.display === '') ? 'block' : 'none';
     }
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+const body = document.body;
+
+if (localStorage.getItem('dark-mode') === 'enabled') {
+    body.classList.add('dark-mode');
+    darkModeToggle.checked = true;
+}
+
+darkModeToggle.addEventListener('change', () => {
+    if (darkModeToggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('dark-mode', 'enabled');
+    } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('dark-mode', 'disabled');
+    }
+});
+
 </script>
 
 </body>
