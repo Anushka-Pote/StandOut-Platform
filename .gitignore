@@ -1,0 +1,7 @@
+.vscode/
+venv/
+desktop.ini
+myenv/
+venv/
+app.log
+__pycache__/
