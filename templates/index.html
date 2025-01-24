@@ -40,8 +40,8 @@
 </head>
 
 <body>
-    <header style="text-align: center; background-color: #004080; padding: 40px; color: rgb(255, 255, 255);">
-        <h1 style="font-size: 48px; margin: 0; font-family: 'Arial Black', sans-serif; letter-spacing: 2px;">Discover
+    <header class="header">
+        <h1 class="header_h1">Discover
             Your Own Learning Path</h1>
         <style>
             .chat-icon-container {
@@ -49,6 +49,20 @@
                 bottom: 20px;
                 right: 20px;
                 z-index: 1000;
+            }
+
+            .header {
+                text-align: center;
+                background-color: #004080;
+                padding: 40px;
+                color: rgb(255, 255, 255);
+            }
+
+            .header_h1 {
+                font-size: 48px;
+                margin: 0;
+                font-family: 'Arial Black', sans-serif;
+                letter-spacing: 2px;
             }
 
             .chat-icon {
@@ -135,18 +149,15 @@
 
 
             section {
-                display: flex;
+                display: block;
                 width: 100%;
+                gap: 10px;
             }
 
             #chatbotSidebar {
                 padding: 0;
             }
 
-            .left-column {
-                width: 50%;
-                padding: 20px;
-            }
 
             .right-column {
                 width: 50%;
@@ -204,92 +215,41 @@
                 width: 100%;
                 max-width: 1200px;
             }
-            
-            .s-card {
-                display: inline-block;
-                background: #fff;
-                border-radius: 15px;
-                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-                overflow: hidden;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-                color: #000;
-                width:100%;
+
+            .service-swipe .s-card img {
+                width: 220px;
             }
-            
-            .s-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+
+            .service-swipe a {
+                padding: 0;
+                margin: 40px 10px;
             }
-            
-            .s-card img {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-            }
-            
-            .s-card p {
-                margin: 0;
-                padding: 20px;
-                height: 30px;
-                font-size: 18px;
-                font-weight: 600;
+
+            /* .service-swipe .s-card {
+                display: flex;
+                justify-content: space-around;
+                padding: 10px;
+                align-items: center;
                 text-align: center;
-                color: #333;
-                background: linear-gradient(90deg, #000000, #434343);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            
-            .s-card p:hover {
-                background: linear-gradient(90deg, #434343, #737373);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            
-            a {
-                text-decoration: none;
-            }
-            
-            @keyframes float {
-                0%, 100% {
-                    transform: translateY(0);
-                }
-                50% {
-                    transform: translateY(-5px);
-                }
-            }
-            
-            .s-card:hover img {
-                animation: float 3s ease-in-out infinite;
-            }
-            
-            @media (max-width: 768px) {
-                .cards-container {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            
-                .heading-container p {
-                    font-size: 30px;
-                }
-            }
-            
-            @media (max-width: 480px) {
-                .cards-container {
-                    grid-template-columns: 1fr;
-                }
-            
-                .heading-container p {
-                    font-size: 24px;
-                }
-            
-                .s-card p {
-                    font-size: 16px;
-                }
-            }
-            
+                width: 350px;
+                height: 200px;
+                box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05),
+                    0 0 50px rgba(187, 217, 231, 0.8);
+                border-radius: 5px;
+                cursor: pointer;
+                transition-duration: .5s;
+            } */
 
-            /* Pratik top courses css starts */
+            .service-swipe .s-card p {
+                color: #f2f2f2;
+                font-size: 1.2em;
+                font-family: 'Open Sans', sans-serif;
+            }
 
+            .service-swipe .s-card:hover {
+                box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+                transform: translateY(-10px);
+            }
 
             #makeitfull {
                 display: flex;
@@ -437,6 +397,7 @@
                 padding: 50px 80px;
                 background-attachment: fixed;
             }
+
 
             .feed {
                 width: 800px;
@@ -619,123 +580,130 @@
 
             @media (max-width: 480px) {
                 @media (max-width: 480px) {
-                body {
-                    width: 100%;
-                    height: 100%;
+                    body {
+                        width: 100%;
+                        height: 100%;
 
+                    }
+
+                    body>header {
+                        width: 100%;
+                        height: 100%;
+                        background-image: url('{{ url_for("static", filename="back.jpg") }}');
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        margin: 0px;
+                        padding: 0px;
+                        font-family: Arial, sans-serif;
+                    }
+
+                    header {
+                        position: relative;
+                        width: 100%;
+                        background-color: #1414dd;
+                        padding: 0px;
+                    }
+
+                    header h1 {
+                        font-size: 30px;
+                    }
+
+                    .menu-toggle {
+                        background-color: #333;
+                        color: #fff;
+                        padding: 10px;
+                        cursor: pointer;
+                        border: none;
+                        font-size: 18px;
+                    }
+
+                    #mobile-nav {
+                        display: none;
+                        position: absolute;
+                        top: 60px;
+                        width: 100%;
+                        left: 0;
+                        background-color: #333;
+                        text-align: center;
+                        z-index: 10;
+                    }
+
+                    .header {
+                        text-align: center;
+                        background-color: #004080;
+                        padding: 0px;
+                        color: rgb(255, 255, 255);
+                    }
+
+                    #mobile-nav.active {
+                        display: block;
+                    }
+
+                    #mobile-nav a {
+                        display: block;
+                        margin: 10px 0;
+                        padding: 12px;
+                    }
+
+                    nav {
+                        position: relative;
+                    }
+
+                    nav a {
+                        display: block;
+                        margin: 10px 0;
+                        padding: 12px 20px;
+                        text-align: center;
+                    }
+
+                    .rev-container {
+                        flex-direction: column;
+                        align-items: center;
+                        display: block;
+                    }
+
+                    .rev-card {
+                        display: block;
+                    }
+
+                    .review .rev-container .rev-card {
+                        width: 90%;
+                        height: 240px;
+                        margin-bottom: 40px;
+                        background: #fff;
+                        display: flex;
+                        padding: 10px;
+                        box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+                    }
+
+
+                    header {
+                        position: relative;
+                        width: 100%;
+                        background-color: #1414dd;
+                        padding: 0px;
+                    }
+
+                    .rev-card {
+                        width: 480px;
+                        margin: 0 0 20px;
+                    }
+
+                    .search-bar select,
+                    .search-bar button {
+                        width: 100%;
+                        margin-bottom: 10px;
+                    }
+
+                    .menu-toggle {
+                        display: block;
+                    }
+
+                    #mobile-nav a {
+                        padding: 15px 20px;
+                    }
                 }
-
-                body>header {
-                    width: 100%;
-                    height: 100%;
-                    background-image: url('{{ url_for("static", filename="back.jpg") }}');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    margin: 0px;
-                    padding: 0px;
-                    font-family: Arial, sans-serif;
-                }
-
-                header {
-                    position: relative;
-                    width: 100%;
-                    background-color: #1414dd;
-                    padding: 0px;
-                }
-
-                header h1 {
-                    font-size: 30px;
-                }
-
-                .menu-toggle {
-                    background-color: #333;
-                    color: #fff;
-                    padding: 10px;
-                    cursor: pointer;
-                    border: none;
-                    font-size: 18px;
-                }
-
-                #mobile-nav {
-                    display: none;
-                    position: absolute;
-                    top: 60px;
-                    width: 100%;
-                    left: 0;
-                    background-color: #333;
-                    text-align: center;
-                    z-index: 10;
-                }
-
-                #mobile-nav.active {
-                    display: block;
-                }
-
-                #mobile-nav a {
-                    display: block;
-                    margin: 10px 0;
-                    padding: 12px;
-                }
-
-                nav {
-                    position: relative;
-                }
-
-                nav a {
-                    display: block;
-                    margin: 10px 0;
-                    padding: 12px 20px;
-                    text-align: center;
-                }
-
-                .rev-container {
-                    flex-direction: column;
-                    align-items: center;
-                    display: block;
-                }
-
-                .rev-card {
-                    display: block;
-                }
-
-                .review .rev-container .rev-card {
-                    width: 90%;
-                    height: 240px;
-                    margin-bottom: 40px;
-                    background: #fff;
-                    display: flex;
-                    padding: 10px;
-                    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
-                }
-
-
-                header {
-                    position: relative;
-                    width: 100%;
-                    background-color: #1414dd;
-                    padding: 0px;
-                }
-
-                .rev-card {
-                    width: 480px;
-                    margin: 0 0 20px;
-                }
-
-                .search-bar select,
-                .search-bar button {
-                    width: 100%;
-                    margin-bottom: 10px;
-                }
-
-                .menu-toggle {
-                    display: block;
-                }
-
-                #mobile-nav a {
-                    padding: 15px 20px;
-                }
-            }
 
                 .main-footer {
                     padding: 3rem 3%;
@@ -800,6 +768,7 @@
                     padding: 15px;
                     border-radius: 10px;
                     background-color: rgba(255, 255, 255, 0.9);
+                    width: 80%;
                     /* Slightly more visible background */
                 }
 
@@ -845,6 +814,10 @@
                 .footer-bottom {
                     padding-top: 20px;
                     text-align: center;
+                }
+
+                .tranding_cours {
+                    padding: 20px;
                 }
             }
 
@@ -976,7 +949,6 @@ body:not(.dark-mode) .night-label {
     </nav>
 
     <section>
-
         <div class="left-column"
             style="position: relative; text-align: center; padding: 20px; border-radius: 10px; overflow: hidden;">
             <form method="post"
@@ -1026,10 +998,11 @@ body:not(.dark-mode) .night-label {
         <!--CLUSTERISATION TAGS-->
         <div class="right-column" style="text-align: center; padding: 20px; border-radius: 10px; overflow: hidden;">
             <h2 style="font-size: 28px; color: #004080; margin-bottom: 20px;">Find Your Course Match</h2>
-        
+
             {% if img_data %}
             <h2 style="font-size: 24px; color: #004080; margin-bottom: 15px;">Recommended Courses</h2>
-            <div style="max-width: 90%; margin: auto; overflow-x: auto; border: 2px solid #ddd; border-radius: 10px; background-color: rgba(255, 255, 255, 0.9); padding: 15px;">
+            <div
+                style="max-width: 90%; margin: auto; overflow-x: auto; border: 2px solid #ddd; border-radius: 10px; background-color: rgba(255, 255, 255, 0.9); padding: 15px;">
                 <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 16px;">
                     <thead>
                         <tr style="background-color: #004080; color: white;">
@@ -1044,7 +1017,8 @@ body:not(.dark-mode) .night-label {
                             {% for cell in row %}
                             <td style="padding: 10px; border: 1px solid #ddd;">
                                 {% if cell is string and cell.startswith("http") %}
-                                <a href="{{ cell }}" target="_blank" style="color: #004080; text-decoration: none; font-weight: bold;">Visit Link</a>
+                                <a href="{{ cell }}" target="_blank"
+                                    style="color: #004080; text-decoration: none; font-weight: bold;">Visit Link</a>
                                 {% else %}
                                 {{ cell }}
                                 {% endif %}
@@ -1055,229 +1029,208 @@ body:not(.dark-mode) .night-label {
                     </tbody>
                 </table>
             </div>
-        
+
             <!-- <h2 style="font-size: 24px; color: #333; margin-top: 20px;">Cluster Visualization</h2>
             <img src="data:image/png;base64,{{ img_data }}" alt="Cluster Visualization" style="max-width: 100%; height: auto; margin-top: 10px;">
             {% endif %} -->
         </div>
-        
 
-        
+
+
     </section>
 
     <div class="toggle-login" onclick="redirectToLogin()">Login</div>
 
-    
-    <div class="main-container">
-        <!-- Heading Container -->
-        <div class="heading-container">
-            <p>Trending Courses</p> <!-- Centered Heading -->
+
+    <div class="service-swipe">
+        <div class="diffSection" id="services_section" style="text-align: center;">
+            <p class="tranding_cours" style="font-size: 50px; padding: 100px; padding-bottom: 40px; color: #fff;">
+                Trending Courses</p>
         </div>
-    
-        <!-- Cards Container -->
-        <div class="cards-container">
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='cse.jpg') }}" alt="Computer Courses">
-                    <p>Computer Science with Python Programming</p>
-                </div>
-            </a>
-    
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='ai.jpg') }}" alt="AI Courses">
-                    <p>Foundational AI Principles</p>
-                </div>
-            </a>
-    
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='ds.jpeg') }}" alt="Data Science">
-                    <p>Advanced Data Science Techniques</p>
-                </div>
-            </a>
-    
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='iot.webp') }}" alt="Computer Networks">
-                    <p>Software Connectivity using Computer Networks</p>
-                </div>
-            </a>
-    
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='nlp.jpg') }}" alt="NLP">
-                    <p>Natural Language Processing for Beginners</p>
-                </div>
-            </a>
-    
-            <a href="#">
-                <div class="s-card">
-                    <img src="{{ url_for('static', filename='eda.jpg') }}" alt="Data Analysis">
-                    <p>User Satisfaction using EDA</p>
-                </div>
-            </a>
-        </div>
+
+        <a href="#">
+            <div class="s-card">
+                <img src="{{ url_for('static', filename='cse.jpg') }}" alt="Computer Courses">
+                <p>Computer Science with Python Programming</p>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="s-card">
+                <img src="{{ url_for('static', filename='ai.jpg') }}" alt="AI Courses">
+                <p>Foundational AI Principles</p>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="s-card">
+                <img src="{{ url_for('static', filename='ds.jpeg') }}" alt="Data Science">
+                <p>Advanced Data Science Techniques</p>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="s-card">
+                <img src="{{ url_for('static', filename='iot.webp') }}" alt="Computer Networks">
+                <p>Software Connectivity using Computer Networks</p>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="s-card">
+                <img src="{{ url_for('static', filename='nlp.jpeg') }}" alt="NLP">
+                <p>Natural Language Processing for Beginners</p>
+            </div>
+        </a>
+
+        <a href="#">
+            <div class="s-card">
+                <img src="{{ url_for('static', filename='eda.jpg') }}" alt="Data Analysis">
+                <p>User Satisfaction using EDA</p>
+            </div>
+        </a>
     </div>
-    
+    </div>
+    <!-- chatbot -->
+    <script> window.chtlConfig = { chatbotId: "2614686441" } </script>
+    <script async data-id="2614686441" id="chatling-embed-script" type="text/javascript"
+        src="https://chatling.ai/js/embed.js"></script>
+    <marquee style="background: linear-gradient(to right, rgb(5, 51, 90), rgb(5, 51, 90)); margin-top: 50px;"
+        direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="18">
+        <div class="marqu">All of us do not have equal talent. But, all of us have an equal opportunity to
+            develop our talents</div>
+    </marquee>
 
-<!-- chatbot -->
-<script> window.chtlConfig = { chatbotId: "2614686441" } </script>
-<script async data-id="2614686441" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script> 
-<marquee style="background: linear-gradient(to right, rgb(5, 51, 90), rgb(5, 51, 90)); margin-top: 50px;"
-direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="18">
-<div class="marqu">All of us do not have equal talent. But, all of us have an equal opportunity to
-    develop our talents</div>
-</marquee>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
 
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
+    <style>
+        .circle {
+            height: 24px;
+            width: 24px;
+            border-radius: 24px;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99999999;
+            /* so that it stays on top of all other elements */
+        }
+    </style>
 
-<style>
-    .circle {
-        height: 24px;
-        width: 24px;
-        border-radius: 24px;
-        background-color: black;
-        position: fixed;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 99999999;
-        /* so that it stays on top of all other elements */
-    }
-</style>
+    <!-- Include Footer -->
+    {% include "footer.html" %}
 
-<!-- Include Footer -->
-{% include "footer.html" %}   
-
-<!-- Chatbot Icon and Functionality -->
-<div class="chat-icon-container">
-    <button class="chat-icon" onclick="toggleChatbot()">
-        <i class="fas fa-comment"></i>
-    </button>
-</div>
-
-<section class="msger" id="chatbotSidebar">
+    <!-- Chatbot Icon and Functionality -->
     <div class="chat-icon-container">
-        <button class="chat-icon" onclick="redirectToChatbot()">
+        <button class="chat-icon" onclick="toggleChatbot()">
             <i class="fas fa-comment"></i>
         </button>
     </div>
-</section>
-        
-<script>
-    const coords = { x: 0, y: 0 };
-    const circles = document.querySelectorAll(".circle");
-    
-    const colors = [
-        "#ffb56b",
-        "#fdaf69",
-        "#f89d63",
-        "#f59761",
-        "#ef865e",
-        "#ec805d",
-        "#e36e5c",
-        "#df685c",
-        "#d5585c",
-        "#d1525c",
-        "#c5415d",
-        "#c03b5d",
-        "#b22c5e",
-        "#ac265e",
-        "#9c155f",
-        "#950f5f",
-        "#830060",
-        "#7c0060",
-        "#680060",
-        "#60005f",
-        "#48005f",
-        "#3d005e"
+
+    <section class="msger" id="chatbotSidebar">
+        <div class="chat-icon-container">
+            <button class="chat-icon" onclick="redirectToChatbot()">
+                <i class="fas fa-comment"></i>
+            </button>
+        </div>
+    </section>
+
+    <script>
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        const colors = [
+            "#ffb56b",
+            "#fdaf69",
+            "#f89d63",
+            "#f59761",
+            "#ef865e",
+            "#ec805d",
+            "#e36e5c",
+            "#df685c",
+            "#d5585c",
+            "#d1525c",
+            "#c5415d",
+            "#c03b5d",
+            "#b22c5e",
+            "#ac265e",
+            "#9c155f",
+            "#950f5f",
+            "#830060",
+            "#7c0060",
+            "#680060",
+            "#60005f",
+            "#48005f",
+            "#3d005e"
         ];
-        
+
         circles.forEach(function (circle, index) {
             circle.x = 0;
             circle.y = 0;
             circle.style.backgroundColor = colors[index % colors.length];
         });
-        
+
         window.addEventListener("mousemove", function (e) {
             coords.x = e.clientX;
             coords.y = e.clientY;
-            
+
         });
-        
+
         function animateCircles() {
-            
+
             let x = coords.x;
             let y = coords.y;
-            
+
             circles.forEach(function (circle, index) {
                 circle.style.left = x - 12 + "px";
                 circle.style.top = y - 12 + "px";
 
                 circle.style.scale = (circles.length - index) / circles.length;
-                
+
                 circle.x = x;
                 circle.y = y;
-                
+
                 const nextCircle = circles[index + 1] || circles[0];
                 x += (nextCircle.x - x) * 0.3;
                 y += (nextCircle.y - y) * 0.3;
             });
-            
+
             requestAnimationFrame(animateCircles);
         }
-        
+
         animateCircles();
-        
-</script>
 
-<script>
-    function redirectToChatbot() {
-        window.location.href = "/Chatbot";
-    }
-    function toggleChatbot() {
-        var chatbotSidebar = document.querySelector('.chatbot-sidebar');
-        chatbotSidebar.style.display = (chatbotSidebar.style.display === 'none' || chatbotSidebar.style.display === '') ? 'block' : 'none';
-    }
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-const body = document.body;
+    </script>
 
-if (localStorage.getItem('dark-mode') === 'enabled') {
-    body.classList.add('dark-mode');
-    darkModeToggle.checked = true;
-}
-
-darkModeToggle.addEventListener('change', () => {
-    if (darkModeToggle.checked) {
-        body.classList.add('dark-mode');
-        localStorage.setItem('dark-mode', 'enabled');
-    } else {
-        body.classList.remove('dark-mode');
-        localStorage.setItem('dark-mode', 'disabled');
-    }
-});
-
-</script>
+    <script>
+        function redirectToChatbot() {
+            window.location.href = "/Chatbot";
+        }
+        function toggleChatbot() {
+            var chatbotSidebar = document.querySelector('.chatbot-sidebar');
+            chatbotSidebar.style.display = (chatbotSidebar.style.display === 'none' || chatbotSidebar.style.display === '') ? 'block' : 'none';
+        }
+    </script>
 
 </body>
 
