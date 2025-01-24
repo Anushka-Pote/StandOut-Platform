@@ -36,8 +36,8 @@
 </head>
 
 <body>
-    <header>
-        <h1 >Discover
+    <header style="text-align: center; background-color: #004080; padding: 40px; color: rgb(5, 51, 90);">
+        <h1 style="font-size: 48px; margin: 0; font-family: 'Arial Black', sans-serif; letter-spacing: 2px;">Discover
             Your Own Learning Path</h1>
         <link rel="stylesheet" href="/static/style.css">
         <style>
@@ -299,7 +299,28 @@
                 margin-top: 20px;
             }
 
-            /* .feedbox {
+            .title2 {
+                position: relative;
+                margin-top: 50px;
+                margin-left: 100px;
+            }
+
+            .title2 span {
+                font-weight: 700;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 30px;
+                color: #2E3D49;
+            }
+
+            .title2 .shortdesc2 {
+                padding: 10px;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 15px;
+                color: #2E3D49;
+                margin-bottom: 10px;
+            }
+
+            .feedbox {
                 margin-top: 50px;
                 width: 100%;
                 display: flex;
@@ -307,9 +328,9 @@
                 background-size: cover;
                 padding: 50px 80px;
                 background-attachment: fixed;
-            } */
+            }
 
-            /* .feed {
+            .feed {
                 width: 800px;
                 height: 400px;
                 position: relative;
@@ -318,9 +339,59 @@
                 box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.6),
                     0 0 80px rgba(0, 0, 0, 0.2);
                 background: rgba(0, 0, 0, 0.4);
-            } */
+            }
 
-      
+            .feed form {
+                width: 90%;
+                height: 100%;
+                padding: 20px;
+            }
+
+            .feed form label {
+                position: absolute;
+                color: #f2f2f2;
+                font-size: 10px;
+                font-weight: 800;
+            }
+
+            .feed form input,
+            .feed textarea {
+                padding: 15px;
+                border-radius: 5px;
+                box-shadow: inset 0 0 5px lightgray;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                outline: none;
+                color: #2E3D49;
+                background: #fff9;
+                font-weight: 600;
+            }
+
+            .feed form input {
+                margin-bottom: 15px;
+                width: 50%;
+            }
+
+            .feed form .fname {
+                width: 25%;
+            }
+
+            .feed form textarea {
+                width: 100%;
+                height: 100px;
+            }
+
+            .feed #csubmit {
+                margin-top: 25px;
+                background: linear-gradient(to right, #1c45da, #2813e7);
+                border-radius: 5px;
+                border-style: none;
+                outline: none;
+                width: 100%;
+                padding: 15px 25px;
+                color: #fff;
+                font-size: 12px;
+                cursor: pointer;
+            }
 
             .marqu {
                 text-align: center;
@@ -467,7 +538,7 @@
             <a href="/login" id="login-link" style="display:none;">Login</a>
         </div>
     </nav>
-    <div class="title2">
+    <div class="title2" id="feedBACK">
         <span>Feedback Form</span>
         <div class="shortdesc2">
             <p>Please share your valuable feedback to us</p>
