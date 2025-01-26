@@ -13,6 +13,28 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <script>
 
+        // Handle the navbar scroll effect
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');
+            } else {
+                $('nav').removeClass('black');
+            }
+        });
+
+        // Toggle the mobile menu
+        function toggleMenu() {
+            var nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('active');
+        }
+
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');
+            } else {
+                $('nav').removeClass('black');
+            }
+        })
 
     </script>
 </head>
@@ -170,7 +192,7 @@
                 font-weight: 700;
                 text-transform: uppercase;
                 letter-spacing: 2px;
-                background: linear-gradient(90deg, #000000, #434343);
+                background: linear-gradient(90deg, #ff0000, #230202);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
@@ -837,29 +859,37 @@
                 padding: 10px;
                 border-radius: 5px;
             }
-            #darkmode{
-    display: inline;
+            /* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+    transition: background 0.3s ease, color 0.3s ease;
 }
+
+body.dark-mode {
+    background-image: url('black.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+/* Toggle Container */
 .toggle-container {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 20px;
+    align-items: center;
+    height: 40px;
 }
 
-/* Day/Night icons */
-.day-label, .night-label {
-    font-size: 24px;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Slider switch */
+/* Slider Switch */
 .switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 25px;
+    width: 60px;
+    height: 30px;
 }
 
 .switch input {
@@ -883,47 +913,24 @@
 .slider:before {
     position: absolute;
     content: "";
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    left: 4px;
-    bottom: 4px;
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
     background-color: white;
     transition: 0.4s;
+    border-radius: 50%;
 }
 
-/* When the checkbox is checked (dark mode) */
 input:checked + .slider {
     background-color: #4b8b3b;
 }
 
 input:checked + .slider:before {
-    transform: translateX(25px);
+    transform: translateX(30px);
 }
 
-/* Dark mode styles */
-body.dark-mode {
-    background-color: #121212;
-    color: white;
-}
-
-/* Make sure the night icon fades in/out when toggling */
-body.dark-mode .night-label {
-    opacity: 1;
-}
-
-body:not(.dark-mode) .day-label {
-    opacity: 1;
-}
-
-body.dark-mode .day-label {
-    opacity: 0;
-}
-
-body:not(.dark-mode) .night-label {
-    opacity: 0;
-}
-
+    
         </style>
     </header>
 
@@ -940,15 +947,13 @@ body:not(.dark-mode) .night-label {
             <a href="/face">Face</a>
             <a href="/quiz">Quiz</a>
             <a>
-                <div class="toggle-container" id="darkmode">
-                    <span class="day-label"></span>
+                <div class="toggle-container">
                     <label class="switch">
                         <input type="checkbox" id="dark-mode-toggle">
                         <span class="slider"></span>
                     </label>
-                    <span class="night-label"></span>
                 </div>
-                </a>
+            </a>
             <a href="/login" id="login-link" style="display:none;">Login</a>
         </div>
     </nav>
@@ -1048,7 +1053,7 @@ body:not(.dark-mode) .night-label {
     
     <div class="main-container">
         <!-- Heading Container -->
-        <div class="heading-container">
+        <div class="heading-container" >
             <p>Trending Courses</p> <!-- Centered Heading -->
         </div>
     
@@ -1237,21 +1242,15 @@ direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamoun
         var chatbotSidebar = document.querySelector('.chatbot-sidebar');
         chatbotSidebar.style.display = (chatbotSidebar.style.display === 'none' || chatbotSidebar.style.display === '') ? 'block' : 'none';
     }
+    //Hirdesh Toggle Button
     const darkModeToggle = document.getElementById('dark-mode-toggle');
 const body = document.body;
-
-if (localStorage.getItem('dark-mode') === 'enabled') {
-    body.classList.add('dark-mode');
-    darkModeToggle.checked = true;
-}
 
 darkModeToggle.addEventListener('change', () => {
     if (darkModeToggle.checked) {
         body.classList.add('dark-mode');
-        localStorage.setItem('dark-mode', 'enabled');
     } else {
         body.classList.remove('dark-mode');
-        localStorage.setItem('dark-mode', 'disabled');
     }
 });
 
