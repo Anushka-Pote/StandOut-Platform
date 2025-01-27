@@ -23,6 +23,11 @@ from tensorflow.keras.models import load_model
 model = load_model('model.h5', compile=False) 
 import json
 import random
+import cv2
+from flask import Flask, render_template, request, redirect, url_for, session
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+import requests
 intents = json.loads(open('data.json').read())
 words = pickle.load(open('texts.pkl','rb'))
 classes = pickle.load(open('labels.pkl','rb'))
@@ -565,4 +570,54 @@ def submit_quiz():
 if __name__ == '__main__':
     app.run(debug=True)
 
-#######################################################################################################################
+####################################################################################################
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///quiz.db'  # SQLite database for storing quiz results
+app.secret_key = 'your_secret_key'  # Secret key for session management
+db = SQLAlchemy(app)
+
+# Define the QuizResult model
+class QuizResult(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), nullable=False)
+    score = db.Column(db.Integer, nullable=False)
+    emotional_score = db.Column(db.Float, nullable=False)  # Store the sentiment score
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+# Create the database if it doesn't exist yet
+with app.app_context():
+    db.create_all()
+
+@app.route('/')
+def index():
+    # Load quiz questions
+    questions = [
+        {"text": "What is 2 + 2?", "options": ["3", "4", "5", "6"]},
+        {"text": "What is the capital of France?", "options": ["Paris", "London", "Rome", "Berlin"]},
+        # More questions can be added here
+    ]
+    return render_template('quiz_page.html', questions=questions)
+
+@app.route('/submit_quiz', methods=['POST'])
+def submit_quiz():
+    username = session.get('username', 'Anonymous')  # Get the username from the session (or 'Anonymous')
+    score = 0  # Calculate the quiz score based on user responses
+    # Here, you'd check the answers and calculate the score
+    emotional_score = get_emotional_score()  # Placeholder for facial sentiment analysis
+    
+    # Save the result to the database
+    result = QuizResult(username=username, score=score, emotional_score=emotional_score)
+    db.session.add(result)
+    db.session.commit()
+
+    return redirect(url_for('index'))
+
+def get_emotional_score():
+    # Placeholder function to simulate facial sentiment analysis (usually you'd integrate with OpenCV or an API)
+    # Here, we're assuming a score based on facial expressions
+    return 0.75  # Example: 75% positive emotional score (adjust based on real analysis)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
