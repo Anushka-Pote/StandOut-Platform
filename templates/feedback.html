@@ -41,7 +41,7 @@
             Your Own Learning Path</h1>
         <link rel="stylesheet" href="/static/style.css">
         <style>
-            body {
+                body {
                 background-image: url('{{ url_for("static", filename="back.jpg") }}');
                 background-size: cover;
                 background-position: center;
@@ -308,8 +308,9 @@
             .title2 span {
                 font-weight: 700;
                 font-family: 'Open Sans', sans-serif;
-                font-size: 30px;
+                font-size: 60px;
                 color: #2E3D49;
+                margin-left: 450px;
             }
 
             .title2 .shortdesc2 {
@@ -318,208 +319,116 @@
                 font-size: 15px;
                 color: #2E3D49;
                 margin-bottom: 10px;
+                margin-left: 500px;
             }
 
-            .feedbox {
-                margin-top: 50px;
-                width: 100%;
-                display: flex;
-                background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-                background-size: cover;
-                padding: 50px 80px;
-                background-attachment: fixed;
-            }
+            /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-            .feed {
-                width: 800px;
-                height: 400px;
-                position: relative;
-                border-radius: 10px;
-                justify-content: center;
-                box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.6),
-                    0 0 80px rgba(0, 0, 0, 0.2);
-                background: rgba(0, 0, 0, 0.4);
-            }
+/* Feedback Form Container */
+.feedbox {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    padding: 50px 20px;
+    background-attachment: fixed;
+}
 
-            .feed form {
-                width: 90%;
-                height: 100%;
-                padding: 20px;
-            }
+/* Feedback Form */
+.feed {
+    width: 100%;
+    max-width: 660px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
 
-            .feed form label {
-                position: absolute;
-                color: #f2f2f2;
-                font-size: 10px;
-                font-weight: 800;
-            }
+/* Form Styling */
+.feed form {
+    width: 100%;
+}
 
-            .feed form input,
-            .feed textarea {
-                padding: 15px;
-                border-radius: 5px;
-                box-shadow: inset 0 0 5px lightgray;
-                border: 1px solid rgba(0, 0, 0, 0.2);
-                outline: none;
-                color: #2E3D49;
-                background: #fff9;
-                font-weight: 600;
-            }
+.feed form label {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-top: 10px;
 
-            .feed form input {
-                margin-bottom: 15px;
-                width: 50%;
-            }
+}
 
-            .feed form .fname {
-                width: 25%;
-            }
+/* Form Inputs */
+.feed form input,
+.feed form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 15px;
+    width: 632px;
+}
 
-            .feed form textarea {
-                width: 100%;
-                height: 100px;
-            }
+.feed form input::placeholder,
+.feed form textarea::placeholder {
+    color: #cccccc;
+}
 
-            .feed #csubmit {
-                margin-top: 25px;
-                background: linear-gradient(to right, #1c45da, #2813e7);
-                border-radius: 5px;
-                border-style: none;
-                outline: none;
-                width: 100%;
-                padding: 15px 25px;
-                color: #fff;
-                font-size: 12px;
-                cursor: pointer;
-            }
+/* Button */
+.feed #csubmit {
+    background: linear-gradient(to right, #1c45da, #2813e7);
+    border-radius: 5px;
+    border: none;
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    transition: background 0.3s, transform 0.2s;
+}
 
-            .marqu {
-                text-align: center;
-                justify-content: center;
-                color: #fff;
-                font-size: 20px;
-                padding: 10px;
-            }
+.feed #csubmit:hover {
+    background: linear-gradient(to right, #0f35c5, #1a0fda);
+    transform: scale(1.05);
+}
 
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .feedbox {
+        padding: 30px 10px;
+    }
 
-            @media (max-width: 480px) {
-                body {
-                    width: 100%;
-                    height: 100%;
+    .feed {
+        width: 90%;
+        padding: 20px;
+    }
 
-                }
+    .feed form input,
+    .feed form textarea {
+        font-size: 12px;
+        padding: 10px;
+    }
 
-                body>header {
-                    width: 100%;
-                    height: 100%;
-                    background-image: url('{{ url_for("static", filename="back.jpg") }}');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    margin: 0px;
-                    padding: 0px;
-                    font-family: Arial, sans-serif;
-                }
+    .feed #csubmit {
+        font-size: 12px;
+        padding: 12px;
+    }
+}
 
-                header {
-                    position: relative;
-                    width: 100%;
-                    background-color: #1414dd;
-                    padding: 0px;
-                }
-
-                header h1 {
-                    font-size: 30px;
-                }
-
-                .menu-toggle {
-                    background-color: #333;
-                    color: #fff;
-                    padding: 10px;
-                    cursor: pointer;
-                    border: none;
-                    font-size: 18px;
-                }
-
-                #mobile-nav {
-                    display: none;
-                    position: absolute;
-                    top: 60px;
-                    width: 100%;
-                    left: 0;
-                    background-color: #333;
-                    text-align: center;
-                    z-index: 10;
-                }
-
-                #mobile-nav.active {
-                    display: block;
-                }
-
-                #mobile-nav a {
-                    display: block;
-                    margin: 10px 0;
-                    padding: 12px;
-                }
-
-                nav {
-                    position: relative;
-                }
-
-                nav a {
-                    display: block;
-                    margin: 10px 0;
-                    padding: 12px 20px;
-                    text-align: center;
-                }
-
-                .rev-container {
-                    flex-direction: column;
-                    align-items: center;
-                    display: block;
-                }
-
-                .rev-card {
-                    display: block;
-                }
-
-                .review .rev-container .rev-card {
-                    width: 90%;
-                    height: 240px;
-                    margin-bottom: 40px;
-                    background: #fff;
-                    display: flex;
-                    padding: 10px;
-                    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
-                }
-
-
-                header {
-                    position: relative;
-                    width: 100%;
-                    background-color: #1414dd;
-                    padding: 0px;
-                }
-
-                .rev-card {
-                    width: 480px;
-                    margin: 0 0 20px;
-                }
-
-                .search-bar select,
-                .search-bar button {
-                    width: 100%;
-                    margin-bottom: 10px;
-                }
-
-                .menu-toggle {
-                    display: block;
-                }
-
-                #mobile-nav a {
-                    padding: 15px 20px;
-                }
-            }
         </style>
     </header>
 
@@ -550,19 +459,19 @@
             <form
                 action="https://script.google.com/macros/s/AKfycbxQX3FKfpmHH04lBR3rCIaOOi5BHOG1fpiDaeAwj6SAD1bu7I8v1ADiG4SqayhWlzPy/exec"
                 method="post" enctype="text/plain">
-                <label>Your Name</label><br>
+                <label>Name</label><br>
                 <input type="text" name="name" placeholder="name" class="fname" id="Name" required="required"><br>
                 <label>Email</label><br>
                 <input type="email" name="mail" placeholder="mail" id="email" required="required"><br>
                 <label>Additional Details</label><br>
-                <textarea name="addtional" placeholder="addtional" id="information"></textarea><br>
+                <textarea name="addtional" placeholder="(if any)" id="information"></textarea><br>
                 <button type="submit" id="csubmit">Send Message</button>
             </form>
         </div>
     </div>
 
     <!-- Include Footer -->
-{% include "footer.html" %} 
+
 
     <div class="circle"></div>
     <div class="circle"></div>
