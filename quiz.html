@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <style>
+        body {
+            background-image: url('{{ url_for("static", filename="back.jpg") }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            background-color: #004080;
+            padding: 40px;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+            height: 30px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: royalblue;
+        }
+
+        .menu-toggle {
+            display: none;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 18px;
+        }
+
+        #mobile-nav {
+            display: none;
+            position: absolute;
+            top: 60px;
+            width: 100%;
+            left: 0;
+            background-color: #333;
+            text-align: center;
+            z-index: 10;
+        }
+
+        #mobile-nav.active {
+            display: block;
+        }
+
+        #mobile-nav a {
+            display: block;
+            margin: 10px 0;
+            padding: 12px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 0;
+            font-family: 'Arial Black', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .quiz-form {
+            background-color: #cce8f6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: left;
+            width: 70%;
+            margin: 20px auto;
+        }
+
+        fieldset {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: rgba(2, 51, 74, 0.867);
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            color: #fff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #E5A186;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #E5A186;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #fff;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('black', window.scrollY > 0);
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('mobile-nav').classList.toggle('active');
+        }
+
+        // Animated cursor
+        const coords = { x: 0, y: 0 };
+        const circles = document.querySelectorAll(".circle");
+
+        window.addEventListener("mousemove", function (e) {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+        });
+
+        function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
+
+            circles.forEach(function (circle, index) {
+                circle.style.left = x - 12 + "px";
+                circle.style.top = y - 12 + "px";
+            });
+            requestAnimationFrame(animateCircles);
+        }
+        animateCircles();
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Discover Your Own Learning Path</h1>
+    </header>
+
+    <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+        <div id="mobile-nav">
+            <a href="/">Recommendations</a>
+            <a href="/browse">Browse Topics</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/community">Community</a>
+            <a href="/news">News</a>
+            <a href="/open_website">Open Website</a>
+            <a href="/quiz">Quiz</a>
+            <a href="/login" id="login-link" style="display:none;">Login</a>
+        </div>
+    </nav>
+
+    <h1>Welcome to the Programming Quiz</h1>
+    <form class="quiz-form" action="/submit_quiz" method="post">
+        {% for question_data in questions %}
+        <fieldset>
+            <legend>{{ question_data[0] }}</legend>
+            {% for option in question_data[1] %}
+            <label>
+                <input type="radio" name="question_{{ loop.index }}" value="{{ loop.index }}">
+                {{ option }}
+            </label><br>
+            {% endfor %}
+        </fieldset>
+        {% endfor %}
+        <button type="submit">Submit Answers</button>
+        <h2>Find Your Course Match</h2>
+
+{% if img_data %}
+    <h3>Recommended Courses</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                {% for column in recommended_courses_df.columns %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in recommended_courses_df.values %}
+                <tr>
+                    {% for cell in row %}
+                        <td>
+                            {% if cell is string and cell.startswith("http") %}
+                                <a href="{{ cell }}" target="_blank">Visit Link</a>
+                            {% else %}
+                                {{ cell }}
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No recommended courses available.</p>
+{% endif %}
+    </form>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We are dedicated to providing quality educational content and tools to enhance your learning experience.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com" target="_blank">Facebook</a>
+                    <a href="https://www.twitter.com" target="_blank">Twitter</a>
+                    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Your Website. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Additional scripts (if needed) can go here
+    </script>
+</body>
+
+</html>
