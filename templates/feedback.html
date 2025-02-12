@@ -471,8 +471,271 @@ body {
     </div>
 
     <!-- Include Footer -->
+    <footer>
+        <div class="footer-content">
+            <!-- Company Overview and Social Links -->
+            <div class="footer-section company-info">
+                <img src="static/cse.jpg" alt="Logo" class="footer-logo">
+                <p>Educating children through India's timeless wisdom and cultural heritage.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://github.com/Anushka-Pote" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com" target="_blank" aria-label="X">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links Section -->
+            <div class="footer-section quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index">Home</a></li>
+                            <li><a href="#hero">About Us</a></li>
+                            <li><a href="#hero">Our Courses</a></li>
+                            <li><a href="#hero">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Learning Paths Section -->
+                    <div class="footer-section learning-paths">
+                        <h4>Learning Paths</h4>
+                        <ul>
+                            <li><a href="#hero">Counting</a></li>
+                            <li><a href="#hero">Days</a></li>
+                            <li><a href="#hero">Activities</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Subscribe Section -->
+                    <div class="footer-section subscribe">
+                        <h4>Subscribe for Updates</h4>
+                        <p>Enter your email to get our news and updates.</p>
+                        <form class="subscribe-form">
+                            <input type="email" placeholder="Enter your email" class="subscribe-input">
+                            <button type="submit" class="subscribe-button">Submit</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Us Section -->
+                    <div class="footer-section contact-info">
+                        <h4>Contact Us</h4>
+                        <ul>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:info@StandOutPlatform.edu">info@StandOutPlatform.edu</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+123 456 7890</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Street Name, City, Country</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                    <p>&copy; 2024 StandOutPlatform. Made with <span class="heart">❤️</span> by <a href="https://github.com/Anushka-Pote" target="_blank">@Anushka</a></p>
+                </div>
+    </footer> 
+    <style>
+        footer {
+	background: rgba(2, 51, 74, 0.867);
+	color: #fff;
+	font-family: Arial, sans-serif;
+	padding: 40px 20px;
+}
 
+.footer-content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 20px;
+}
 
+.footer-section {
+	flex: 1;
+	min-width: 200px;
+}
+
+.footer-logo {
+	max-width: 150px;
+	margin-bottom: 15px;
+}
+
+.footer-section h4 {
+	font-size: 18px;
+	margin-bottom: 15px;
+	border-bottom: 2px solid #fff;
+	padding-bottom: 5px;
+}
+
+.footer-section p {
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.footer-section ul {
+	list-style: none;
+	padding: 0;
+}
+
+.footer-section ul li {
+	margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 14px;
+	transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+	color: #f39c12;
+}
+
+/* Social Links Styling */
+.social-links {
+	display: flex;
+	gap: 15px;
+	justify-content: flex-start;
+}
+
+.social-links a {
+	font-size: 24px;
+	color: #fff;
+	text-decoration: none;
+	transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+	color: #f39c12;
+	transform: scale(1.1);
+}
+
+.subscribe-form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.subscribe-input {
+	padding: 10px;
+	font-size: 14px;
+	border: none;
+	border-radius: 5px;
+	width: 90%;
+}
+
+.subscribe-button {
+	padding: 10px;
+	font-size: 14px;
+	color: #fff;
+	background: linear-gradient(to right, #1414dd, #450dc9);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.subscribe-button:hover {
+	background-color: #d35400;
+}
+
+.contact-info ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.contact-info ul li {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+
+.contact-info ul li i {
+	color: #ffffff;
+}
+
+.contact-info ul li a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 14px;
+	transition: color 0.3s;
+}
+
+.contact-info ul li a:hover {
+	color: #f39c12;
+}
+
+.footer-bottom {
+	text-align: center;
+	margin-top: 40px;
+	font-size: 14px;
+	border-top: 1px solid #555;
+	padding-top: 20px;
+}
+
+.footer-bottom a {
+	color: #f39c12;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+	color: #d35400;
+}
+
+.heart {
+	color: #e74c3c;
+	font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.footer-content {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.footer-section {
+		text-align: center;
+	}
+
+	.social-links {
+		justify-content: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.subscribe-input {
+		width: 100%;
+	}
+
+	.footer-bottom {
+		font-size: 12px;
+	}
+}
+    </style>
+
+<!-- cursor effect here -->
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
