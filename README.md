@@ -10,6 +10,7 @@ StandOut Platform is an AI-powered personalized learning application designed to
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+- [Contributors](#contributors)
 - [Contact](#contact)
 
 ## 🚀 Introduction
@@ -85,6 +86,14 @@ We welcome contributions to improve the StandOut Platform. To contribute, follow
 
 ## 📝 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+## 🤝 Contributors
+A huge shoutout to our incredible contributors! Your dedication, hard work, and commitment have been instrumental in driving this project forward.Your passion and efforts do not go unnoticed, and we truly appreciate the time and energy you invest. Thank you for being a part of this journey—we couldn’t have done it without you! 
+
+<a href="https://github.com/Anushka-Pote/StandOut-Platform/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Anushka-Pote/StandOut-Platform" />
+</a>
 
 ## 📬 Contact
 For any questions or feedback, please reach out:
