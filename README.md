@@ -13,6 +13,7 @@ StandOut Platform is an AI-powered personalized learning application designed to
 - [Contributors](#contributors)
 - [Contact](#contact)
 
+
 ## 🚀 Introduction
 The StandOut Platform leverages advanced technologies such as Azure Machine Learning, Cognitive Services, and Bot Service to create a personalized and interactive learning environment. Our goal is to enhance student engagement, motivation, and academic achievement.
 
@@ -59,13 +60,6 @@ The StandOut Platform leverages advanced technologies such as Azure Machine Lear
 ### 🔑 Accessing the Application
 - Once the application is running, open your web browser and navigate to `http://127.0.0.1:5000`.
 
-### 🌟 Features
-- **Personalized Learning Paths:** Explore tailored courses and materials.
-- **Interactive Quizzes:** Participate in AI-generated quizzes.
-- **Real-Time News:** Stay updated with the latest educational news.
-- **Course Recommendations:** Receive personalized course suggestions.
-- **Chatbot:** Interact with the AI chatbot for help and queries.
-- **Community Chat Room:** Engage with peers and collaborate on learning topics.
 
 ## 🤝 Contributing
 We welcome contributions to improve the StandOut Platform. To contribute, follow these steps:
