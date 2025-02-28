@@ -64,6 +64,7 @@ The StandOut Platform leverages advanced technologies such as Azure Machine Lear
 ### 🔑 Accessing the Application
 - Once the application is running, open your web browser and navigate to `http://127.0.0.1:5000`.
 
+
 ## 🤝 Contributing
 We welcome contributions to improve the StandOut Platform. To contribute, follow these steps:
 1. Fork the repository.
