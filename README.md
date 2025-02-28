@@ -3,15 +3,20 @@
 StandOut Platform is an AI-powered personalized learning application designed to tailor learning experiences to each student's unique needs, promoting self-paced learning, engagement, and academic success.
 
 ## 📚 Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Setup](#setup)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contributors](#contributors)
-- [Contact](#contact)
+- [🌟 StandOut Platform](#-standout-platform)
+  - [📚 Table of Contents](#-table-of-contents)
+  - [🚀 Introduction](#-introduction)
+  - [🌈 Features](#-features)
+  - [🛠️ Tech Stack](#️-tech-stack)
+  - [⚙️ Setup](#️-setup)
+    - [🔧 Installation](#-installation)
+  - [🖥️ Usage](#️-usage)
+    - [🔑 Accessing the Application](#-accessing-the-application)
+  - [🤝 Contributing](#-contributing)
+  - [📝 License](#-license)
+  - [🤝 Contributors](#-contributors)
+  - [📬 Contact](#-contact)
+  - [📊 Project Statistics](#-project-statistics)
 
 ## 🚀 Introduction
 The StandOut Platform leverages advanced technologies such as Azure Machine Learning, Cognitive Services, and Bot Service to create a personalized and interactive learning environment. Our goal is to enhance student engagement, motivation, and academic achievement.
@@ -58,14 +63,6 @@ The StandOut Platform leverages advanced technologies such as Azure Machine Lear
 ## 🖥️ Usage
 ### 🔑 Accessing the Application
 - Once the application is running, open your web browser and navigate to `http://127.0.0.1:5000`.
-
-### 🌟 Features
-- **Personalized Learning Paths:** Explore tailored courses and materials.
-- **Interactive Quizzes:** Participate in AI-generated quizzes.
-- **Real-Time News:** Stay updated with the latest educational news.
-- **Course Recommendations:** Receive personalized course suggestions.
-- **Chatbot:** Interact with the AI chatbot for help and queries.
-- **Community Chat Room:** Engage with peers and collaborate on learning topics.
 
 ## 🤝 Contributing
 We welcome contributions to improve the StandOut Platform. To contribute, follow these steps:
